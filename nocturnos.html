@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Comunidad de Nocturnos | El Peregrino de la Medianoche</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #030508;
+            --panel-bg: rgba(8, 14, 24, 0.75);
+            --border-color: rgba(0, 243, 255, 0.18);
+            --border-hover: rgba(0, 243, 255, 0.45);
+            --text-main: #e2e8f0;
+            --text-muted: #94a3b8;
+            --accent-cyan: #00f3ff;
+            --accent-glow: rgba(0, 243, 255, 0.25);
+            --font-title: 'Cinzel', serif;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Plus Jakarta Sans', sans-serif;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            overflow-x: hidden;
+            position: relative;
+            min-height: 100vh;
+        }
+
+        /* Fondo de estrellas sutiles */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(white 1px, transparent 0);
+            background-size: 50px 50px;
+            opacity: 0.03;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Navegación */
+        header {
+            position: fixed;
+            top: 0; left: 0; width: 100%;
+            background: rgba(3, 5, 8, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+        }
+
+        .logo-nav {
+            font-family: var(--font-title);
+            font-size: 1.1rem;
+            color: var(--accent-cyan);
+            text-decoration: none;
+            letter-spacing: 2px;
+            text-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 2rem;
+            align-items: center;
+        }
+
+        nav a {
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease, text-shadow 0.3s ease;
+        }
+
+        nav a:hover, nav a.active {
+            color: var(--accent-cyan);
+            text-shadow: 0 0 8px var(--accent-glow);
+        }
+
+        /* Botón de Audio Ambiental */
+        .audio-btn {
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 0.4rem 0.9rem;
+            font-family: var(--font-title);
+            font-size: 0.75rem;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px rgba(0, 243, 255, 0.1);
+        }
+
+        .audio-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-color);
+            box-shadow: 0 0 15px var(--accent-glow);
+        }
+
+        /* Contenido Principal */
+        main {
+            position: relative;
+            z-index: 1;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 10rem 2rem 5rem 2rem;
+        }
+
+        .section-title {
+            font-family: var(--font-title);
+            font-size: 2.2rem;
+            text-align: center;
+            color: #fff;
+            margin-bottom: 1rem;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-subtitle {
+            font-family: var(--font-serif);
+            font-style: italic;
+            text-align: center;
+            color: var(--text-muted);
+            font-size: 1.2rem;
+            margin-bottom: 3rem;
+        }
+
+        /* Manifiesto Card */
+        .manifesto-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 2.5rem;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+            position: relative;
+        }
+
+        .manifesto-card::before {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; width: 4px; height: 100%;
+            background: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-cyan);
+        }
+
+        .manifesto-card p {
+            font-family: var(--font-serif);
+            font-size: 1.15rem;
+            line-height: 1.8;
+            color: #cbd5e1;
+            margin-bottom: 1.5rem;
+            text-align: justify;
+        }
+
+        .manifesto-card p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Formulario / Buzón de Nocturnos */
+        .listener-box {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 3rem;
+            margin-bottom: 4rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .listener-box h3 {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            color: var(--accent-cyan);
+            margin-bottom: 1rem;
+            letter-spacing: 2px;
+        }
+
+        .listener-box p {
+            color: var(--text-muted);
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+        }
+
+        label {
+            display: block;
+            font-family: var(--font-title);
+            font-size: 0.8rem;
+            letter-spacing: 1px;
+            color: var(--text-main);
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        input, textarea, select {
+            width: 100%;
+            background: rgba(3, 5, 8, 0.6);
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 0.9rem 1rem;
+            color: var(--text-main);
+            font-family: var(--font-sans);
+            font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: var(--accent-cyan);
+            box-shadow: 0 0 10px var(--accent-glow);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 140px;
+        }
+
+        .submit-btn {
+            background: transparent;
+            border: 1px solid var(--accent-cyan);
+            color: var(--accent-cyan);
+            padding: 1rem 2rem;
+            font-family: var(--font-title);
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+            width: 100%;
+            box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
+        }
+
+        .submit-btn:hover {
+            background: var(--accent-cyan);
+            color: var(--bg-color);
+            box-shadow: 0 0 20px var(--accent-glow);
+        }
+
+        /* Testimonios / Muro de Nocturnos */
+        .wall-title {
+            font-family: var(--font-title);
+            font-size: 1.5rem;
+            color: #fff;
+            margin-bottom: 2rem;
+            letter-spacing: 2px;
+            text-align: center;
+            text-transform: uppercase;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .testimonial-card {
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 1.8rem;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease;
+        }
+
+        .testimonial-card:hover {
+            border-color: var(--border-hover);
+        }
+
+        .testimonial-card .author {
+            font-family: var(--font-title);
+            font-size: 0.85rem;
+            color: var(--accent-cyan);
+            margin-bottom: 0.8rem;
+            letter-spacing: 1px;
+        }
+
+        .testimonial-card p {
+            font-family: var(--font-serif);
+            font-style: italic;
+            color: var(--text-muted);
+            font-size: 0.95rem;
+            line-height: 1.6;
+        }
+
+        /* Footer */
+        footer {
+            text-align: center;
+            padding: 3rem 2rem;
+            border-top: 1px solid var(--border-color);
+            color: var(--text-muted);
+            font-size: 0.85rem;
+            letter-spacing: 1px;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin-bottom: 0.5rem;
+        }
+
+        @media (max-width: 768px) {
+            nav ul { display: none; }
+            .form-row { grid-template-columns: 1fr; }
+            main { padding: 8rem 1rem 3rem 1rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Navegación -->
+    <header>
+        <a href="index.html" class="logo-nav">EL PEREGRINO DE LA MEDIANOCHE</a>
+        <nav>
+            <ul>
+                <li><a href="index.html">Portada</a></li>
+                <li><a href="episodios.html">Episodios</a></li>
+                <li><a href="expedientes.html">Expedientes</a></li>
+                <li><a href="voces.html">Voces</a></li>
+                <li><a href="nocturnos.html" class="active">Nocturnos</a></li>
+            </ul>
+        </nav>
+        <button id="ambientToggle" class="audio-btn" onclick="toggleAmbientSound()">🎵 Atmósfera: OFF</button>
+    </header>
+
+    <!-- Contenido Principal -->
+    <main>
+        <h1 class="section-title">El Rincón de los Nocturnos</h1>
+        <p class="section-subtitle">"Somos los nocturnos quienes caminamos de la mano con lo inexplicable."</p>
+
+        <!-- Manifiesto -->
+        <div class="manifesto-card">
+            <p>Cuando la ciudad apaga sus luces y el bullicio diurno se desvanece en un susurro, se abre un umbral silencioso que pocos se atreven a cruzar. No es solo la ausencia de sol; es el momento en que la mente abandona sus defensas lógicas y permite que los miedos más profundos, los enigmas sin resolver y las sombras del subconsciente reclamen su espacio.</p>
+            <p>Esta comunidad pertenece a quienes encuentran refugio en la penumbra. Aquí no hay juicios ni incredulidad ante lo anómalo; solo el deseo compartido de mirar al otro lado del espejo y escuchar aquello que el ruido del mundo intenta silenciar. Bienvenid@ a tu refugio, nocturno.</p>
+        </div>
+
+        <!-- Buzón Interactivo -->
+        <div class="listener-box">
+            <h3>Buzón de Mensajes y Casos</h3>
+            <p>¿Has experimentado algo que desafía la razón? ¿Conoces un caso real olvidado en los archivos de la historia que merezca ser desclasificado? Envía tu testimonio o propuesta para que sea analizado en los expedientes del programa.</p>
+            
+            <form onsubmit="handleFormSubmit(event)">
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="name">Tu Nombre o Alias (Nocturno)</label>
+                        <input type="text" id="name" required placeholder="Ej. El Vigilante / Ana M.">
+                    </div>
+                    <div class="form-group">
+                        <label for="category">Naturaleza del Envío</label>
+                        <select id="category" required>
+                            <option value="testimonio">Testimonio Personal / Experiencia Anómala</option>
+                            <option value="caso">Propuesta de Caso Real / Crónica Negra</option>
+                            <option value="saludo">Mensaje para el Podcast</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="message">Tu Historia o Propuesta</label>
+                    <textarea id="message" required placeholder="Escribe con detalle lo que deseas compartir..."></textarea>
+                </div>
+                <button type="submit" class="submit-btn">Enviar al Otro Lado</button>
+            </form>
+        </div>
+
+        <!-- Muro de Mensajes de Oyentes -->
+        <h2 class="wall-title">Ecos en la Penumbra</h2>
+        <div class="testimonials-grid">
+            <div class="testimonial-card">
+                <div class="author">Nocturno #412 — Valencia</div>
+                <p>"Escuchar el episodio sobre la privación de sueño a las tres de la mañana mientras llovía en la calle fue una experiencia hipnótica. Gracias por rescatar este nivel de narrativa."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="author">Nocturno #89 — Madrid</div>
+                <p>"El rigor con el que tratáis los casos reales impresiona tanto como la ficción. El expediente de Octavia Smith Hatcher me dejó sin dormir varios días."</p>
+            </div>
+            <div class="testimonial-card">
+                <div class="author">Nocturno #105 — Alicante</div>
+                <p>"La atmósfera sonora y la voz te atrapan desde el primer segundo. Es increíble encontrar un espacio que respete tanto el misterio clásico y el horror psicológico."</p>
+            </div>
+        </div>
+
+    </main>
+
+    <!-- Pie de página -->
+    <footer>
+        <p>EL PEREGRINO DE LA MEDIANOCHE</p>
+        <p>Buenas noches, nocturnos... y que tengáis dulces sueños si os atrevéis a cerrar los ojos.</p>
+    </footer>
+
+    <!-- Script de Sonido Ambiental (Web Audio API) -->
+    <script>
+        let audioCtx = null;
+        let isPlaying = false;
+        let oscillator = null;
+        let gainNode = null;
+
+        function toggleAmbientSound() {
+            const btn = document.getElementById('ambientToggle');
+            if (!isPlaying) {
+                try {
+                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+                    oscillator = audioCtx.createOscillator();
+                    gainNode = audioCtx.createGain();
+
+                    // Frecuencia baja para crear un zumbido ambiental oscuro y misterioso (dron)
+                    oscillator.type = 'sine';
+                    oscillator.frequency.setValueAtTime(55, audioCtx.currentTime); // Nota La1 baja
+
+                    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+
+                    oscillator.connect(gainNode);
+                    gainNode.connect(audioCtx.destination);
+                    oscillator.start();
+
+                    isPlaying = true;
+                    btn.textContent = "🎵 Atmósfera: ON";
+                    btn.style.background = "var(--accent-cyan)";
+                    btn.style.color = "var(--bg-color)";
+                } catch (e) {
+                    console.error("Error al iniciar audio:", e);
+                }
+            } else {
+                if (oscillator) {
+                    oscillator.stop();
+                    oscillator.disconnect();
+                }
+                if (audioCtx) {
+                    audioCtx.close();
+                }
+                isPlaying = false;
+                btn.textContent = "🎵 Atmósfera: OFF";
+                btn.style.background = "transparent";
+                btn.style.color = "var(--accent-cyan)";
+            }
+        }
+
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert("Mensaje enviado correctamente a la penumbra. Gracias, nocturno.");
+            event.target.reset();
+        }
+    </script>
+</body>
+</html>
