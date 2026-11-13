@@ -1,554 +1,747 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Comunidad de Nocturnos | El Peregrino de la Medianoche</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;700;900&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <title>Temporada 1 · Episodios | El Peregrino de la Medianoche</title>
+    <meta name="description" content="Calendario oficial de emisión y capítulos de la Temporada 1 de El Peregrino de la Medianoche. Cada miércoles a medianoche en iVoox y Spotify.">
+    
+    <!-- Google Fonts: Cinzel, Playfair Display e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abyss: '#030508',
+                        midnight: '#091320',
+                        slateCard: '#0e1929',
+                        spectral: '#38bdf8',
+                        electric: '#67e8f9',
+                        bone: '#e2e8f0',
+                        silverMuted: '#94a3b8'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'spectral': '0 0 28px -6px rgba(56, 189, 248, 0.28)',
+                        'spectral-strong': '0 0 38px rgba(103, 232, 249, 0.38)',
+                        'card-dark': '0 22px 45px -15px rgba(0, 0, 0, 0.92)'
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
-        :root {
-            --bg-color: #030508;
-            --panel-bg: rgba(8, 14, 24, 0.75);
-            --border-color: rgba(0, 243, 255, 0.18);
-            --border-hover: rgba(0, 243, 255, 0.45);
-            --text-main: #e2e8f0;
-            --text-muted: #94a3b8;
-            --accent-cyan: #00f3ff;
-            --accent-glow: rgba(0, 243, 255, 0.25);
-            --font-title: 'Cinzel', serif;
-            --font-serif: 'Playfair Display', serif;
-            --font-sans: 'Plus Jakarta Sans', sans-serif;
-        }
-
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            background-color: var(--bg-color);
-            color: var(--text-main);
-            font-family: var(--font-sans);
+            background-color: #030508;
+            color: #e2e8f0;
             overflow-x: hidden;
-            position: relative;
-            min-height: 100vh;
         }
 
-        /* Fondo de estrellas sutiles */
-        body::before {
-            content: '';
-            position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-image: radial-gradient(white 1px, transparent 0);
-            background-size: 50px 50px;
-            opacity: 0.03;
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030508;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #16253b;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
+        .silver-metallic {
+            background: linear-gradient(180deg, #ffffff 0%, #dbeafe 48%, #7dd3fc 82%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
+        }
+
+        @keyframes fogDrift {
+            0% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+            50% { transform: translate3d(4%, -2%, 0) scale(1.06); opacity: 0.38; }
+            100% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+        }
+        .fog-layer {
+            animation: fogDrift 24s ease-in-out infinite;
+            background: radial-gradient(ellipse at 50% 25%, rgba(56, 189, 248, 0.11) 0%, rgba(9, 19, 32, 0) 70%);
+        }
+
+        @keyframes pulseBar {
+            0%, 100% { transform: scaleY(0.28); }
+            50% { transform: scaleY(1); }
+        }
+        .eq-bar {
+            transform-origin: center;
+            animation: pulseBar 1.45s ease-in-out infinite;
+        }
+
+        .noir-card-published {
+            background: linear-gradient(155deg, rgba(14, 25, 41, 0.94) 0%, rgba(9, 19, 32, 0.98) 100%);
+            border: 1px solid rgba(103, 232, 249, 0.45);
+            box-shadow: 0 18px 38px -12px rgba(0, 0, 0, 0.92), 0 0 32px -8px rgba(56, 189, 248, 0.28);
+            transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+        }
+        .noir-card-published:hover {
+            border-color: rgba(103, 232, 249, 0.85);
+            box-shadow: 0 22px 45px -12px rgba(0, 0, 0, 0.95), 0 0 38px -6px rgba(103, 232, 249, 0.38);
+            transform: translateY(-3px);
+        }
+
+        .noir-card-locked {
+            background: linear-gradient(155deg, rgba(8, 14, 24, 0.78) 0%, rgba(4, 7, 11, 0.94) 100%);
+            border: 1px solid rgba(56, 189, 248, 0.11);
+            cursor: not-allowed;
+            user-select: none;
+        }
+
+        .classified-blur-layer {
+            filter: blur(7px) brightness(0.45) contrast(1.1);
+            opacity: 0.42;
             pointer-events: none;
-            z-index: 0;
+            user-select: none;
         }
 
-        /* Navegación idéntica a tu diseño */
-        header {
-            position: fixed;
-            top: 0; left: 0; width: 100%;
-            background: rgba(3, 5, 8, 0.9);
-            backdrop-filter: blur(12px);
-            border-bottom: 1px solid var(--border-color);
-            z-index: 1000;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0.8rem 4%;
+        .forensic-stamp {
+            border: 1px solid rgba(56, 189, 248, 0.32);
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(56, 189, 248, 0.05),
+                rgba(56, 189, 248, 0.05) 4px,
+                transparent 4px,
+                transparent 8px
+            );
         }
 
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            text-decoration: none;
-        }
-
-        .logo-emblem {
-            width: 44px;
-            height: 44px;
-            border-radius: 50%;
-            border: 1px solid var(--accent-cyan);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            background: rgba(0, 243, 255, 0.05);
-            box-shadow: 0 0 12px rgba(0, 243, 255, 0.2);
-            position: relative;
-        }
-
-        .logo-emblem svg {
-            width: 22px;
-            height: 22px;
-            fill: var(--accent-cyan);
-        }
-
-        .logo-text-group {
-            display: flex;
-            flex-direction: column;
-        }
-
-        .logo-title {
-            font-family: var(--font-title);
-            font-size: 0.95rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .logo-subtitle {
-            font-family: var(--font-title);
-            font-size: 0.65rem;
-            font-weight: 500;
-            color: var(--accent-cyan);
-            letter-spacing: 2.5px;
-            text-transform: uppercase;
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            gap: 2.2rem;
-            align-items: center;
-        }
-
-        nav a {
-            color: var(--text-muted);
-            text-decoration: none;
-            font-size: 0.88rem;
-            font-weight: 500;
-            letter-spacing: 0.5px;
-            transition: color 0.3s ease;
-            position: relative;
-            padding-bottom: 4px;
-        }
-
-        nav a:hover {
-            color: #fff;
-        }
-
-        nav a.active {
-            color: var(--accent-cyan);
-            font-weight: 600;
-        }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -6px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background-color: var(--accent-cyan);
-            box-shadow: 0 0 8px var(--accent-cyan);
-        }
-
-        /* Botón de Atmósfera Sonora idéntico */
-        .audio-pill {
-            background: rgba(3, 5, 8, 0.6);
-            border: 1px solid var(--border-color);
-            color: var(--text-main);
-            padding: 0.5rem 1.1rem;
-            font-family: var(--font-title);
-            font-size: 0.72rem;
-            letter-spacing: 1.5px;
-            cursor: pointer;
-            border-radius: 30px;
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            transition: all 0.3s ease;
-            box-shadow: inset 0 0 10px rgba(0, 243, 255, 0.03);
-        }
-
-        .audio-pill:hover {
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 15px var(--accent-glow);
-            color: var(--accent-cyan);
-        }
-
-        .audio-dot {
-            width: 7px;
-            height: 7px;
-            background-color: var(--text-muted);
-            border-radius: 50%;
-            transition: background-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .audio-pill.active {
-            border-color: var(--accent-cyan);
-            color: var(--accent-cyan);
-        }
-
-        .audio-pill.active .audio-dot {
-            background-color: var(--accent-cyan);
-            box-shadow: 0 0 8px var(--accent-cyan);
-        }
-
-        /* Contenido Principal */
-        main {
-            position: relative;
-            z-index: 1;
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 10rem 2rem 5rem 2rem;
-        }
-
-        .section-title {
-            font-family: var(--font-title);
-            font-size: 2.2rem;
-            text-align: center;
-            color: #fff;
-            margin-bottom: 1rem;
-            letter-spacing: 3px;
-            text-transform: uppercase;
-        }
-
-        .section-subtitle {
-            font-family: var(--font-serif);
-            font-style: italic;
-            text-align: center;
-            color: var(--text-muted);
-            font-size: 1.2rem;
-            margin-bottom: 3rem;
-        }
-
-        /* Manifiesto Card */
-        .manifesto-card {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 2.5rem;
-            margin-bottom: 4rem;
-            backdrop-filter: blur(10px);
-            position: relative;
-        }
-
-        .manifesto-card::before {
-            content: '';
-            position: absolute;
-            top: 0; left: 0; width: 4px; height: 100%;
-            background: var(--accent-cyan);
-            box-shadow: 0 0 10px var(--accent-cyan);
-        }
-
-        .manifesto-card p {
-            font-family: var(--font-serif);
-            font-size: 1.15rem;
-            line-height: 1.8;
-            color: #cbd5e1;
-            margin-bottom: 1.5rem;
-            text-align: justify;
-        }
-
-        .manifesto-card p:last-child {
-            margin-bottom: 0;
-        }
-
-        /* Buzón de Nocturnos */
-        .listener-box {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 3rem;
-            margin-bottom: 4rem;
-            backdrop-filter: blur(10px);
-        }
-
-        .listener-box h3 {
-            font-family: var(--font-title);
-            font-size: 1.5rem;
-            color: var(--accent-cyan);
-            margin-bottom: 1rem;
-            letter-spacing: 2px;
-        }
-
-        .listener-box p {
-            color: var(--text-muted);
-            margin-bottom: 2rem;
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-        }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        label {
-            display: block;
-            font-family: var(--font-title);
-            font-size: 0.8rem;
-            letter-spacing: 1px;
-            color: var(--text-main);
-            margin-bottom: 0.5rem;
-            text-transform: uppercase;
-        }
-
-        input, textarea, select {
-            width: 100%;
-            background: rgba(3, 5, 8, 0.6);
-            border: 1px solid var(--border-color);
-            border-radius: 4px;
-            padding: 0.9rem 1rem;
-            color: var(--text-main);
-            font-family: var(--font-sans);
-            font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        input:focus, textarea:focus, select:focus {
-            outline: none;
-            border-color: var(--accent-cyan);
-            box-shadow: 0 0 10px var(--accent-glow);
-        }
-
-        textarea {
-            resize: vertical;
-            min-height: 140px;
-        }
-
-        .submit-btn {
-            background: transparent;
-            border: 1px solid var(--accent-cyan);
-            color: var(--accent-cyan);
-            padding: 1rem 2rem;
-            font-family: var(--font-title);
-            font-size: 0.9rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: all 0.3s ease;
-            width: 100%;
-            box-shadow: 0 0 10px rgba(0, 243, 255, 0.1);
-        }
-
-        .submit-btn:hover {
-            background: var(--accent-cyan);
-            color: var(--bg-color);
-            box-shadow: 0 0 20px var(--accent-glow);
-        }
-
-        /* Testimonios */
-        .wall-title {
-            font-family: var(--font-title);
-            font-size: 1.5rem;
-            color: #fff;
-            margin-bottom: 2rem;
-            letter-spacing: 2px;
-            text-align: center;
-            text-transform: uppercase;
-        }
-
-        .testimonials-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .testimonial-card {
-            background: var(--panel-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            padding: 1.8rem;
-            backdrop-filter: blur(10px);
-            transition: border-color 0.3s ease;
-        }
-
-        .testimonial-card:hover {
-            border-color: var(--border-hover);
-        }
-
-        .testimonial-card .author {
-            font-family: var(--font-title);
-            font-size: 0.85rem;
-            color: var(--accent-cyan);
-            margin-bottom: 0.8rem;
-            letter-spacing: 1px;
-        }
-
-        .testimonial-card p {
-            font-family: var(--font-serif);
-            font-style: italic;
-            color: var(--text-muted);
-            font-size: 0.95rem;
-            line-height: 1.6;
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 3rem 2rem;
-            border-top: 1px solid var(--border-color);
-            color: var(--text-muted);
-            font-size: 0.85rem;
-            letter-spacing: 1px;
-            position: relative;
-            z-index: 1;
-        }
-
-        footer p {
-            margin-bottom: 0.5rem;
-        }
-
-        @media (max-width: 900px) {
-            nav ul { display: none; }
-            .form-row { grid-template-columns: 1fr; }
-            main { padding: 8rem 1rem 3rem 1rem; }
+        .locked-stamp {
+            border: 1px solid rgba(148, 163, 184, 0.28);
+            background: rgba(3, 5, 8, 0.88);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
         }
     </style>
 </head>
-<body>
+<body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
 
-    <!-- Navegación idéntica a tu diseño -->
-    <header>
-        <a href="index.html" class="logo-container">
-            <div class="logo-emblem">
-                <svg viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8zm-1-13h2v6h-2zm0 8h2v2h-2z"/></svg>
+    <!-- Lienzo atmosférico: lluvia fina nocturna y partículas luminosas -->
+    <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
+
+    <!-- =====================================================================
+         1. BARRA DE NAVEGACIÓN SUPERIOR
+         ===================================================================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/85 backdrop-blur-md border-b border-spectral/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Emblema SVG Minimalista + Título del Podcast -->
+                <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
+                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
+                        <svg class="w-7 h-7 text-spectral group-hover:text-electric transition-colors" viewBox="0 0 36 36" fill="none">
+                            <path d="M23.5 6.5C17.8 7.6 13.5 12.6 13.5 18.5C13.5 24.4 17.8 29.4 23.5 30.5C16.5 31.3 10 25.8 10 18.5C10 11.2 16.5 5.7 23.5 6.5Z" fill="currentColor" opacity="0.35"/>
+                            <path d="M18 13C15.8 13 14.5 14.7 14.5 16.8C14.5 17.8 15 18.6 15.6 19.2L13.5 29H22.5L20.4 19.2C21 18.6 21.5 17.8 21.5 16.8C21.5 14.7 20.2 13 18 13Z" fill="#e2e8f0"/>
+                            <circle cx="24.5" cy="20.5" r="2.2" fill="#67e8f9"/>
+                            <circle cx="24.5" cy="20.5" r="4.5" fill="#38bdf8" opacity="0.28"/>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-cinzel font-bold text-sm sm:text-base tracking-[0.16em] text-bone group-hover:text-white transition-colors">
+                            EL PEREGRINO
+                        </span>
+                        <span class="font-cinzel text-[10px] sm:text-xs tracking-[0.26em] text-spectral uppercase">
+                            DE LA MEDIANOCHE
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Enlaces de Navegación Desktop -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
+                    <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
+                    <a href="episodios.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">
+                        Episodios
+                    </a>
+                    <a href="expedientes.html" class="hover:text-spectral transition-colors">Expedientes</a>
+                    <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
+                    <a href="nocturnos.html" class="hover:text-spectral transition-colors">Nocturnos</a>
+                </nav>
+
+                <!-- Control Discreto de Atmósfera Sonora + Menú Móvil -->
+                <div class="flex items-center gap-3">
+                    <button id="ambientNavBtn" type="button" aria-pressed="false" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-electric hover:border-electric/60 text-xs font-cinzel tracking-wider uppercase transition-all focus:outline-none" title="Activar o silenciar atmósfera nocturna">
+                        <span id="navAudioDot" class="w-2 h-2 rounded-full bg-silverMuted/50 transition-colors"></span>
+                        <span id="navAudioLabel" class="hidden sm:inline">Atmósfera Sonora</span>
+                        <svg class="w-4 h-4 text-spectral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
+                        </svg>
+                    </button>
+
+                    <!-- Botón Menú Móvil -->
+                    <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-electric focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
             </div>
-            <div class="logo-text-group">
-                <span class="logo-title">El Peregrino</span>
-                <span class="logo-subtitle">De la Medianoche</span>
-            </div>
-        </a>
-        <nav>
-            <ul>
-                <li><a href="index.html">Inicio</a></li>
-                <li><a href="episodios.html">Episodios</a></li>
-                <li><a href="expedientes.html">Expedientes</a></li>
-                <li><a href="voces.html">Voces</a></li>
-                <li><a href="nocturnos.html" class="active">Nocturnos</a></li>
-            </ul>
-        </nav>
-        <button id="ambientBtn" class="audio-pill" onclick="toggleAmbientSound()">
-            <span class="audio-dot"></span>
-            <span>ATMÓSFERA SONORA</span>
-            <span>🔊</span>
-        </button>
+        </div>
+
+        <!-- Menú Desplegable Móvil -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5">
+            <a href="index.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Inicio</a>
+            <a href="episodios.html" aria-current="page" class="block py-2 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Episodios</a>
+            <a href="expedientes.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Expedientes</a>
+            <a href="voces.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
+            <a href="nocturnos.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Nocturnos</a>
+        </div>
     </header>
 
-    <!-- Contenido Principal -->
-    <main>
-        <h1 class="section-title">El Rincón de los Nocturnos</h1>
-        <p class="section-subtitle">"Somos los nocturnos quienes caminamos de la mano con lo inexplicable."</p>
+    <!-- =====================================================================
+         2. CABECERA DE LA TEMPORADA 1 (Hero de Emisiones)
+         ===================================================================== -->
+    <main class="relative z-10">
+        <section class="relative pt-32 pb-14 border-b border-spectral/15 overflow-hidden">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,#0e1f38_0%,#030508_78%)] z-0"></div>
+            <div class="fog-layer absolute inset-0 pointer-events-none z-0"></div>
 
-        <!-- Manifiesto -->
-        <div class="manifesto-card">
-            <p>Cuando la ciudad apaga sus luces y el bullicio diurno se desvanece en un susurro, se abre un umbral silencioso que pocos se atreven a cruzar. No es solo la ausencia de sol; es el momento en que la mente abandona sus defensas lógicas y permite que los miedos más profundos, los enigmas sin resolver y las sombras del subconsciente reclamen su espacio.</p>
-            <p>Esta comunidad pertenece a quienes encuentran refugio en la penumbra. Aquí no hay juicios ni incredulidad ante lo anómalo; solo el deseo compartido de mirar al otro lado del espejo y escuchar aquello que el ruido del mundo intenta silenciar. Bienvenid@ a tu refugio, nocturno.</p>
-        </div>
+            <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+                <!-- Sello superior -->
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-electric text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
+                    <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
+                    <span>Temporada 1 · Cada Miércoles a Medianoche en iVoox y Spotify</span>
+                </div>
 
-        <!-- Buzón Interactivo -->
-        <div class="listener-box">
-            <h3>Buzón de Mensajes y Casos</h3>
-            <p>¿Has experimentado algo que desafía la razón? ¿Conoces un caso real olvidado en los archivos de la historia que merezca ser desclasificado? Envía tu testimonio o propuesta para que sea analizado en los expedientes del programa.</p>
-            
-            <form onsubmit="handleFormSubmit(event)">
-                <div class="form-row">
-                    <div class="form-group">
-                        <label for="name">Tu Nombre o Alias (Nocturno)</label>
-                        <input type="text" id="name" required placeholder="Ej. El Vigilante / Ana M.">
+                <h1 class="font-cinzel font-extrabold text-3xl sm:text-5xl md:text-6xl tracking-[0.08em] leading-tight silver-metallic mb-5">
+                    TEMPORADA 1 · EPISODIOS
+                </h1>
+
+                <p class="font-playfair italic text-base sm:text-xl text-silverMuted max-w-3xl mx-auto leading-relaxed mb-8">
+                    «Trece noches de viaje hacia los rincones más oscuros de la mente humana. El primer capítulo ya resuena en la oscuridad; los doce restantes aguardan su hora.»
+                </p>
+
+                <!-- Divisor con onda cian minimalista -->
+                <div class="max-w-md mx-auto h-6 opacity-80" aria-hidden="true">
+                    <svg viewBox="0 0 400 24" class="w-full h-full" fill="none">
+                        <path d="M0 12 H125 L133 4 L140 20 L147 2 L154 22 L161 6 L168 18 L175 12 H225 L232 6 L239 18 L246 2 L253 22 L260 4 L267 20 L275 12 H400" 
+                              stroke="#38bdf8" stroke-width="1.3" stroke-linecap="round"/>
+                    </svg>
+                </div>
+
+                <!-- Indicadores de emisión -->
+                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mt-8 text-left">
+                    <div class="rounded-xl bg-midnight/90 border border-electric/40 p-3.5 shadow-spectral">
+                        <span class="block font-cinzel text-lg sm:text-xl font-bold text-electric">1 de 13</span>
+                        <span class="text-[11px] text-bone uppercase tracking-wider">Publicados</span>
                     </div>
-                    <div class="form-group">
-                        <label for="category">Naturaleza del Envío</label>
-                        <select id="category" required>
-                            <option value="testimonio">Testimonio Personal / Experiencia Anómala</option>
-                            <option value="caso">Propuesta de Caso Real / Crónica Negra</option>
-                            <option value="saludo">Mensaje para el Podcast</option>
-                        </select>
+                    <div class="rounded-xl bg-midnight/85 border border-spectral/20 p-3.5">
+                        <span class="block font-cinzel text-lg sm:text-xl font-bold text-silverMuted">12</span>
+                        <span class="text-[11px] text-silverMuted uppercase tracking-wider">Próximos Estrenos</span>
+                    </div>
+                    <div class="rounded-xl bg-midnight/85 border border-spectral/20 p-3.5">
+                        <span class="block font-cinzel text-lg sm:text-xl font-bold text-bone">00:00 H</span>
+                        <span class="text-[11px] text-silverMuted uppercase tracking-wider">Cita Semanal</span>
+                    </div>
+                    <div class="rounded-xl bg-midnight/85 border border-spectral/20 p-3.5">
+                        <span class="block font-cinzel text-lg sm:text-xl font-bold text-spectral">18 NOV 2026</span>
+                        <span class="text-[11px] text-silverMuted uppercase tracking-wider">Capítulo 2</span>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="message">Tu Historia o Propuesta</label>
-                    <textarea id="message" required placeholder="Escribe con detalle lo que deseas compartir..."></textarea>
+            </div>
+        </section>
+
+        <!-- =====================================================================
+             3. BARRA DE FILTRADO POR ESTADO DE EMISIÓN
+             ===================================================================== -->
+        <section class="py-6 bg-midnight/75 border-b border-spectral/15 sticky top-20 z-30 backdrop-blur-md">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+                    
+                    <!-- Botones de Estado -->
+                    <div id="statusFilters" class="flex flex-wrap items-center gap-2.5" role="tablist" aria-label="Filtrar episodios por estado">
+                        <button type="button" data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-cinzel tracking-wider uppercase bg-gradient-to-r from-spectral to-electric text-abyss font-bold shadow-spectral transition-all">
+                            Todos (13)
+                        </button>
+                        <button type="button" data-filter="published" class="filter-btn px-4 py-2 rounded-xl text-xs font-cinzel tracking-wider uppercase bg-slateCard border border-spectral/25 text-silverMuted hover:text-electric hover:border-electric/50 transition-all">
+                            Publicados (1)
+                        </button>
+                        <button type="button" data-filter="upcoming" class="filter-btn px-4 py-2 rounded-xl text-xs font-cinzel tracking-wider uppercase bg-slateCard border border-spectral/25 text-silverMuted hover:text-electric hover:border-electric/50 transition-all">
+                            Próximos Estrenos (12)
+                        </button>
+                    </div>
+
+                    <!-- Contador dinámico -->
+                    <div class="text-xs font-cinzel tracking-widest uppercase text-silverMuted">
+                        <span id="resultsCount">1 de 13 Episodios Publicados</span>
+                    </div>
                 </div>
-                <button type="submit" class="submit-btn">Enviar al Otro Lado</button>
-            </form>
-        </div>
+            </div>
+        </section>
 
-        <!-- Muro de Mensajes de Oyentes -->
-        <h2 class="wall-title">Ecos en la Penumbra</h2>
-        <div class="testimonials-grid">
-            <div class="testimonial-card">
-                <div class="author">Nocturno #412 — Valencia</div>
-                <p>"Escuchar el episodio sobre la privación de sueño a las tres de la mañana mientras llovía en la calle fue una experiencia hipnótica. Gracias por rescatar este nivel de narrativa."</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="author">Nocturno #89 — Madrid</div>
-                <p>"El rigor con el que tratáis los casos reales impresiona tanto como la ficción. El expediente de Octavia Smith Hatcher me dejó sin dormir varios días."</p>
-            </div>
-            <div class="testimonial-card">
-                <div class="author">Nocturno #105 — Alicante</div>
-                <p>"La atmósfera sonora y la voz te atrapan desde el primer segundo. Es increíble encontrar un espacio que respete tanto el misterio clásico y el horror psicológico."</p>
-            </div>
-        </div>
+        <!-- =====================================================================
+             4. LISTADO DE EPISODIOS (Capítulo 1 Protagonista + 12 Sellados)
+             ===================================================================== -->
+        <section class="py-14 sm:py-16">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+                
+                <!-- Bloque Destacado: Capítulo 1 Publicado -->
+                <div id="publishedContainer">
+                    <!-- Inyectado dinámicamente -->
+                </div>
 
+                <!-- Separador del Calendario de Próximos Estrenos -->
+                <div id="upcomingDivider" class="flex items-center gap-4 pt-2">
+                    <div class="h-px flex-1 bg-gradient-to-r from-transparent via-spectral/30 to-spectral/10"></div>
+                    <span class="font-cinzel text-xs tracking-[0.25em] text-silverMuted uppercase">
+                        Calendario Sellado · Próximas Emisiones
+                    </span>
+                    <div class="h-px flex-1 bg-gradient-to-l from-transparent via-spectral/30 to-spectral/10"></div>
+                </div>
+
+                <!-- Grid de los 12 Episodios Restantes (Borrosos y Sellados) -->
+                <div id="upcomingGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+                    <!-- Inyectado dinámicamente -->
+                </div>
+
+            </div>
+        </section>
     </main>
 
-    <!-- Pie de página -->
-    <footer>
-        <p>EL PEREGRINO DE LA MEDIANOCHE</p>
-        <p>Buenas noches, nocturnos... y que tengáis dulces sueños si os atrevéis a cerrar los ojos.</p>
+    <!-- =====================================================================
+         5. CIERRE / FOOTER MINIMALISTA
+         ===================================================================== -->
+    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="flex items-center justify-center gap-1 h-7 mb-6 opacity-80" aria-hidden="true">
+                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.1s"></span>
+                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.3s"></span>
+                <span class="w-1 h-4 bg-spectral rounded-full eq-bar" style="animation-delay: 0.5s"></span>
+                <span class="w-1 h-7 bg-electric rounded-full eq-bar" style="animation-delay: 0.2s"></span>
+                <span class="w-1 h-5 bg-spectral rounded-full eq-bar" style="animation-delay: 0.4s"></span>
+                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.6s"></span>
+                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.15s"></span>
+            </div>
+
+            <p class="font-playfair italic text-lg sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
+                «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
+            </p>
+
+            <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
+                <a href="index.html" class="hover:text-electric transition-colors">Inicio</a>
+                <a href="episodios.html" class="text-electric">Episodios</a>
+                <a href="expedientes.html" class="hover:text-electric transition-colors">Expedientes</a>
+                <a href="voces.html" class="hover:text-electric transition-colors">Voces</a>
+                <a href="nocturnos.html" class="hover:text-electric transition-colors">Nocturnos</a>
+                <span class="text-spectral/30 hidden sm:inline">|</span>
+                <a href="https://www.ivoox.com" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">iVoox ↗</a>
+                <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">Spotify ↗</a>
+            </nav>
+
+            <p class="text-xs text-silverMuted/60">
+                © 2026–2027 El Peregrino de la Medianoche · Presentado por Serafín con la colaboración de Aurora.
+            </p>
+        </div>
     </footer>
 
-    <!-- Script de Sonido Ambiental -->
+    <!-- =====================================================================
+         JAVASCRIPT MODULAR (Renderizado de Episodios, Filtros y Audio Ambiental)
+         ===================================================================== -->
     <script>
-        let audioCtx = null;
-        let isPlaying = false;
-        let oscillator = null;
-        let gainNode = null;
+        // 1. DATOS DEL EPISODIO 1 PUBLICADO (ÚNICO DESBLOQUEADO)
+        const PUBLISHED_EPISODE = {
+            number: 'CAPÍTULO 1',
+            season: 'Temporada 1 · Estreno',
+            date: '11 de noviembre de 2026',
+            duration: '29 min',
+            category: 'Parasomnias y Neurobiología Onírica',
+            title: 'Pesadillas, Sombras de la vigilia, y Muerte súbita nocturna',
+            synopsis: 'El viaje inaugural de El Peregrino de la Medianoche explora esa franja helada en la que el cuerpo permanece paralizado en la cama mientras la mente despierta atrapada dentro de una alucinación hipnagógica. Tras la dramatización, Serafín analiza la neurobiología de la parálisis del sueño y Aurora desclasifica el enigma médico del Síndrome de Muerte Súbita Inexplicada Nocturna (Bangungut) que sacudió al sudeste asiático.',
+            ivooxUrl: 'https://www.ivoox.com',
+            spotifyUrl: 'https://open.spotify.com'
+        };
 
-        function toggleAmbientSound() {
-            const btn = document.getElementById('ambientBtn');
-            if (!isPlaying) {
-                try {
-                    audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-                    oscillator = audioCtx.createOscillator();
-                    gainNode = audioCtx.createGain();
+        // 2. LISTADO DE LOS 12 EPISODIOS RESTANTES (BLOQUEADOS Y BORROSOS HASTA SU ESTRENO)
+        const UPCOMING_EPISODES = [
+            { code: 'EP-02', label: 'CAPÍTULO 2', releaseDate: '18 Nov 2026' },
+            { code: 'EP-03', label: 'CAPÍTULO 3', releaseDate: '25 Nov 2026' },
+            { code: 'EP-04', label: 'CAPÍTULO 4', releaseDate: '02 Dic 2026' },
+            { code: 'EP-05', label: 'CAPÍTULO 5', releaseDate: '09 Dic 2026' },
+            { code: 'EP-06', label: 'CAPÍTULO 6', releaseDate: '16 Dic 2026' },
+            { code: 'ESP-NAV', label: 'ESPECIAL DE NAVIDAD', releaseDate: '25 Dic 2026' },
+            { code: 'EP-07', label: 'CAPÍTULO 7', releaseDate: '13 Ene 2027' },
+            { code: 'EP-08', label: 'CAPÍTULO 8', releaseDate: '20 Ene 2027' },
+            { code: 'EP-09A', label: 'CAPÍTULO 9 (1ª PARTE)', releaseDate: '27 Ene 2027' },
+            { code: 'EP-09B', label: 'CAPÍTULO 9 (2ª PARTE)', releaseDate: '03 Feb 2027' },
+            { code: 'EP-10', label: 'CAPÍTULO 10', releaseDate: '10 Feb 2027' },
+            { code: 'ESP-SV', label: 'ESPECIAL SAN VALENTÍN', releaseDate: '14 Feb 2027' }
+        ];
 
-                    oscillator.type = 'sine';
-                    oscillator.frequency.setValueAtTime(55, audioCtx.currentTime); // Dron grave
+        // 3. GENERADORES DE HTML
+        const publishedContainer = document.getElementById('publishedContainer');
+        const upcomingDivider = document.getElementById('upcomingDivider');
+        const upcomingGrid = document.getElementById('upcomingGrid');
+        const resultsCount = document.getElementById('resultsCount');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        let currentFilter = 'all';
 
-                    gainNode.gain.setValueAtTime(0.05, audioCtx.currentTime);
+        function buildPublishedEpisodeHTML() {
+            return `
+                <article class="noir-card-published rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-card-dark">
+                    <!-- Carátula Artística Nítida con Onda de Audio Cian -->
+                    <div class="lg:col-span-5 relative min-h-[290px] sm:min-h-[320px] bg-gradient-to-b from-[#0c1b33] via-[#070f1c] to-[#030508] border-b lg:border-b-0 lg:border-r border-spectral/25 overflow-hidden flex flex-col justify-between p-6 select-none">
+                        <svg viewBox="0 0 360 320" class="absolute inset-0 w-full h-full object-cover" preserveAspectRatio="xMidYMid slice">
+                            <defs>
+                                <radialGradient id="ep1WindowGlow" cx="50%" cy="42%" r="55%">
+                                    <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
+                                    <stop offset="100%" stop-color="#030508" stop-opacity="0"/>
+                                </radialGradient>
+                            </defs>
+                            <rect width="360" height="320" fill="url(#ep1WindowGlow)"/>
+                            <!-- Ventana nocturna bajo la lluvia -->
+                            <rect x="108" y="54" width="144" height="168" rx="3" fill="#091526" stroke="#38bdf8" stroke-width="1.3" stroke-opacity="0.6"/>
+                            <line x1="180" y1="54" x2="180" y2="222" stroke="#38bdf8" stroke-width="1.1" stroke-opacity="0.45"/>
+                            <line x1="108" y1="138" x2="252" y2="138" stroke="#38bdf8" stroke-width="1.1" stroke-opacity="0.45"/>
+                            <!-- Sombra observando en la vigilia -->
+                            <circle cx="148" cy="112" r="12" fill="#030508"/>
+                            <path d="M128 182C128 150 168 150 168 182" fill="#030508"/>
+                            <!-- Destello ocular sutil -->
+                            <circle cx="144" cy="111" r="1.3" fill="#67e8f9" opacity="0.85"/>
+                            <circle cx="152" cy="111" r="1.3" fill="#67e8f9" opacity="0.85"/>
+                            <!-- Onda sonora cian luminosa en la base -->
+                            <path d="M0 278 H62 L70 262 L77 294 L84 250 L91 300 L98 266 L105 288 H152 L160 254 L167 304 L174 242 L180 308 L186 250 L193 292 H242 L250 260 L257 296 L264 248 L271 302 L278 264 L285 288 H360" 
+                                  stroke="#67e8f9" stroke-width="1.8" fill="none" opacity="0.95"/>
+                        </svg>
 
-                    oscillator.connect(gainNode);
-                    gainNode.connect(audioCtx.destination);
-                    oscillator.start();
+                        <!-- Cabecera interna de la carátula -->
+                        <div class="relative z-10 text-center pt-1">
+                            <span class="font-cinzel font-extrabold text-xl sm:text-2xl tracking-[0.16em] silver-metallic block">
+                                ${PUBLISHED_EPISODE.number}
+                            </span>
+                            <span class="font-playfair italic text-xs sm:text-sm text-bone/90 block mt-0.5">
+                                ${PUBLISHED_EPISODE.season}
+                            </span>
+                        </div>
 
-                    isPlaying = true;
-                    btn.classList.add('active');
-                } catch (e) {
-                    console.error("Error al iniciar audio:", e);
-                }
-            } else {
-                if (oscillator) {
-                    oscillator.stop();
-                    oscillator.disconnect();
-                }
-                if (audioCtx) {
-                    audioCtx.close();
-                }
-                isPlaying = false;
-                btn.classList.remove('active');
+                        <!-- Pie de la carátula -->
+                        <div class="relative z-10 flex items-center justify-between text-[11px] font-cinzel tracking-widest text-electric bg-abyss/70 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-spectral/20">
+                            <span>⏱ ${PUBLISHED_EPISODE.duration}</span>
+                            <span>11 NOV 2026</span>
+                        </div>
+                    </div>
+
+                    <!-- Información y Reproducción del Capítulo 1 -->
+                    <div class="lg:col-span-7 p-6 sm:p-9 flex flex-col justify-between">
+                        <div>
+                            <div class="flex flex-wrap items-center gap-3 mb-4">
+                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/15 text-emerald-300 border border-emerald-400/35 flex items-center gap-1.5">
+                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
+                                    Publicado · Disponible ahora
+                                </span>
+                                <span class="text-xs font-cinzel tracking-wider text-spectral uppercase">
+                                    ${PUBLISHED_EPISODE.category}
+                                </span>
+                            </div>
+
+                            <h2 class="font-cinzel text-xl sm:text-2xl md:text-3xl font-bold text-bone leading-snug mb-4">
+                                ${PUBLISHED_EPISODE.title}
+                            </h2>
+
+                            <p class="text-silverMuted text-sm sm:text-base leading-relaxed mb-6">
+                                ${PUBLISHED_EPISODE.synopsis}
+                            </p>
+
+                            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-silverMuted/90 mb-6">
+                                <span>📅 Estreno: ${PUBLISHED_EPISODE.date}</span>
+                                <span>🎧 Duración: ${PUBLISHED_EPISODE.duration}</span>
+                                <span>🎙️ Voces: Serafín &amp; Aurora</span>
+                            </div>
+                        </div>
+
+                        <!-- Botones de Acción Directa -->
+                        <div class="pt-5 border-t border-spectral/20 flex flex-wrap items-center gap-3">
+                            <a href="${PUBLISHED_EPISODE.ivooxUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-[0.14em] uppercase shadow-spectral hover:brightness-110 transition-all flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                                <span>Escuchar en iVoox</span>
+                            </a>
+
+                            <a href="${PUBLISHED_EPISODE.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-slateCard border border-electric/50 text-electric font-cinzel font-semibold text-xs tracking-[0.14em] uppercase hover:bg-electric/15 transition-all flex items-center gap-2">
+                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.18.3-.56.39-.86.21-2.35-1.44-5.31-1.76-8.79-.96-.34.08-.68-.13-.76-.47-.08-.34.13-.68.47-.76 3.81-.87 7.08-.5 9.73 1.12.3.18.39.56.21.86zm1.22-2.72c-.23.37-.71.49-1.08.26-2.69-1.65-6.79-2.13-9.97-1.16-.42.13-.86-.11-.99-.53-.13-.42.11-.86.53-.99 3.63-1.1 8.15-.57 11.25 1.34.37.23.49.71.26 1.08zm.11-2.83C14.7 8.95 9.37 8.77 6.29 9.71c-.49.15-1.01-.13-1.16-.62-.15-.49.13-1.01.62-1.16 3.53-1.07 9.41-.86 13.11 1.33.44.26.59.83.33 1.27-.26.44-.83.59-1.27.34z"/></svg>
+                                <span>Escuchar en Spotify</span>
+                            </a>
+
+                            <a href="expedientes.html" class="px-5 py-3.5 rounded-xl bg-abyss border border-spectral/35 text-bone font-cinzel text-xs tracking-[0.12em] uppercase hover:border-electric hover:text-electric transition-all flex items-center gap-2">
+                                <span>📂 Ver Expediente EXP-01</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            `;
+        }
+
+        function buildLockedEpisodeHTML(ep) {
+            return `
+                <article aria-disabled="true" class="noir-card-locked rounded-2xl overflow-hidden flex flex-col justify-between relative min-h-[370px]">
+                    
+                    <!-- Capa de fondo censurada y difuminada -->
+                    <div class="classified-blur-layer flex flex-col h-full" aria-hidden="true">
+                        <div class="h-44 bg-gradient-to-b from-[#0d1f3a] to-[#050a12] relative p-4 flex flex-col justify-between">
+                            <div class="mx-auto h-5 w-32 bg-bone/30 rounded"></div>
+                            <svg viewBox="0 0 300 40" class="w-full h-8">
+                                <path d="M0 20 H60 L70 5 L80 35 L90 10 L100 30 H160 L170 4 L180 36 L190 8 L200 32 H300" stroke="#38bdf8" stroke-width="2" fill="none"/>
+                            </svg>
+                        </div>
+                        <div class="p-6 space-y-3 flex-1">
+                            <div class="h-3 w-28 bg-spectral/30 rounded"></div>
+                            <div class="h-5 w-11/12 bg-bone/30 rounded"></div>
+                            <div class="h-5 w-3/4 bg-bone/25 rounded"></div>
+                            <div class="space-y-2 pt-2">
+                                <div class="h-3 w-full bg-silverMuted/20 rounded"></div>
+                                <div class="h-3 w-5/6 bg-silverMuted/20 rounded"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Sello Central Inviolable de Próximo Estreno -->
+                    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center bg-abyss/45 backdrop-blur-[3px]">
+                        <div class="w-13 h-13 p-3.5 rounded-full locked-stamp flex items-center justify-center text-silverMuted mb-3.5">
+                            <svg class="w-6 h-6 text-spectral/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                            </svg>
+                        </div>
+
+                        <span class="font-cinzel text-[11px] tracking-[0.22em] text-spectral/90 uppercase mb-1.5">
+                            ${ep.code} · TEMPORADA 1
+                        </span>
+
+                        <div class="px-4 py-1.5 rounded locked-stamp font-cinzel font-bold text-xs sm:text-sm tracking-[0.18em] text-bone uppercase mb-3">
+                            ${ep.label}
+                        </div>
+
+                        <p class="text-xs font-mono text-silverMuted/90">
+                            Estreno previsto: <span class="text-electric font-semibold">${ep.releaseDate}</span>
+                        </p>
+                        <span class="text-[10px] font-cinzel tracking-widest uppercase text-silverMuted/60 mt-1">
+                            00:00 H · iVoox &amp; Spotify
+                        </span>
+                    </div>
+                </article>
+            `;
+        }
+
+        function renderEpisodesPage() {
+            if (currentFilter === 'all') {
+                publishedContainer.innerHTML = buildPublishedEpisodeHTML();
+                publishedContainer.classList.remove('hidden');
+                upcomingDivider.classList.remove('hidden');
+                upcomingGrid.innerHTML = UPCOMING_EPISODES.map(buildLockedEpisodeHTML).join('');
+                upcomingGrid.classList.remove('hidden');
+                resultsCount.textContent = '1 de 13 Episodios Publicados';
+            } else if (currentFilter === 'published') {
+                publishedContainer.innerHTML = buildPublishedEpisodeHTML();
+                publishedContainer.classList.remove('hidden');
+                upcomingDivider.classList.add('hidden');
+                upcomingGrid.classList.add('hidden');
+                resultsCount.textContent = 'Mostrando 1 episodio publicado';
+            } else if (currentFilter === 'upcoming') {
+                publishedContainer.classList.add('hidden');
+                upcomingDivider.classList.add('hidden');
+                upcomingGrid.innerHTML = UPCOMING_EPISODES.map(buildLockedEpisodeHTML).join('');
+                upcomingGrid.classList.remove('hidden');
+                resultsCount.textContent = 'Mostrando 12 próximos estrenos sellados';
             }
         }
 
-        function handleFormSubmit(event) {
-            event.preventDefault();
-            alert("Mensaje enviado correctamente a la penumbra. Gracias, nocturno.");
-            event.target.reset();
+        // Control de filtros
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                currentFilter = btn.getAttribute('data-filter');
+
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-gradient-to-r', 'from-spectral', 'to-electric', 'text-abyss', 'font-bold', 'shadow-spectral');
+                    b.classList.add('bg-slateCard', 'border', 'border-spectral/25', 'text-silverMuted');
+                });
+
+                btn.classList.add('active', 'bg-gradient-to-r', 'from-spectral', 'to-electric', 'text-abyss', 'font-bold', 'shadow-spectral');
+                btn.classList.remove('bg-slateCard', 'border', 'border-spectral/25', 'text-silverMuted');
+
+                renderEpisodesPage();
+            });
+        });
+
+        // 4. MENÚ RESPONSIVE MÓVIL
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+        });
+
+        // 5. SINTETIZADOR AMBIENTAL NOCTURNO (Web Audio API)
+        const ambientNavBtn = document.getElementById('ambientNavBtn');
+        const navAudioDot = document.getElementById('navAudioDot');
+        const navAudioLabel = document.getElementById('navAudioLabel');
+
+        let isAmbientPlaying = false;
+        let audioCtx = null;
+
+        function initAndToggleAmbient() {
+            if (!audioCtx) {
+                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+                audioCtx = new AudioContextClass();
+
+                const masterGain = audioCtx.createGain();
+                masterGain.gain.value = 0.16;
+                masterGain.connect(audioCtx.destination);
+
+                const oscLow = audioCtx.createOscillator();
+                oscLow.type = 'sine';
+                oscLow.frequency.value = 55;
+
+                const oscFifth = audioCtx.createOscillator();
+                oscFifth.type = 'triangle';
+                oscFifth.frequency.value = 82.41;
+
+                const lowpass = audioCtx.createBiquadFilter();
+                lowpass.type = 'lowpass';
+                lowpass.frequency.value = 150;
+
+                const droneGain = audioCtx.createGain();
+                droneGain.gain.value = 0.55;
+
+                oscLow.connect(lowpass);
+                oscFifth.connect(lowpass);
+                lowpass.connect(droneGain);
+                droneGain.connect(masterGain);
+
+                oscLow.start();
+                oscFifth.start();
+
+                const bufferSize = 2 * audioCtx.sampleRate;
+                const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
+                const data = noiseBuffer.getChannelData(0);
+                for (let i = 0; i < bufferSize; i++) {
+                    data[i] = Math.random() * 2 - 1;
+                }
+
+                const rainSource = audioCtx.createBufferSource();
+                rainSource.buffer = noiseBuffer;
+                rainSource.loop = true;
+
+                const rainFilter = audioCtx.createBiquadFilter();
+                rainFilter.type = 'bandpass';
+                rainFilter.frequency.value = 1100;
+                rainFilter.Q.value = 1.2;
+
+                const rainGain = audioCtx.createGain();
+                rainGain.gain.value = 0.08;
+
+                rainSource.connect(rainFilter);
+                rainFilter.connect(rainGain);
+                rainGain.connect(masterGain);
+                rainSource.start();
+            }
+
+            isAmbientPlaying = !isAmbientPlaying;
+
+            if (isAmbientPlaying) {
+                if (audioCtx.state === 'suspended') audioCtx.resume();
+                ambientNavBtn.setAttribute('aria-pressed', 'true');
+                ambientNavBtn.classList.add('border-electric', 'text-electric');
+                navAudioDot.classList.remove('bg-silverMuted/50');
+                navAudioDot.classList.add('bg-electric', 'animate-ping');
+                navAudioLabel.textContent = 'Sonido Activo';
+            } else {
+                if (audioCtx.state === 'running') audioCtx.suspend();
+                ambientNavBtn.setAttribute('aria-pressed', 'false');
+                ambientNavBtn.classList.remove('border-electric', 'text-electric');
+                navAudioDot.classList.add('bg-silverMuted/50');
+                navAudioDot.classList.remove('bg-electric', 'animate-ping');
+                navAudioLabel.textContent = 'Atmósfera Sonora';
+            }
         }
+
+        ambientNavBtn.addEventListener('click', initAndToggleAmbient);
+
+        // 6. FONDO ATMOSFÉRICO: LLUVIA FINA NOCTURNA + PARTÍCULAS
+        const atmoCanvas = document.getElementById('atmosphereCanvas');
+        const atmoCtx = atmoCanvas.getContext('2d');
+        let raindrops = [];
+        let motes = [];
+
+        function initAtmosphere() {
+            atmoCanvas.width = window.innerWidth;
+            atmoCanvas.height = window.innerHeight;
+
+            raindrops = Array.from({ length: 55 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                len: Math.random() * 14 + 8,
+                speed: Math.random() * 4.5 + 4,
+                opacity: Math.random() * 0.16 + 0.05
+            }));
+
+            motes = Array.from({ length: 30 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                r: Math.random() * 1.6 + 0.5,
+                vx: (Math.random() - 0.5) * 0.22,
+                vy: -Math.random() * 0.25 - 0.05,
+                alpha: Math.random() * 0.45 + 0.15
+            }));
+        }
+
+        function renderAtmosphere() {
+            atmoCtx.clearRect(0, 0, atmoCanvas.width, atmoCanvas.height);
+
+            atmoCtx.lineWidth = 1;
+            raindrops.forEach(drop => {
+                atmoCtx.beginPath();
+                atmoCtx.strokeStyle = `rgba(103, 232, 249, ${drop.opacity})`;
+                atmoCtx.moveTo(drop.x, drop.y);
+                atmoCtx.lineTo(drop.x - 1.5, drop.y + drop.len);
+                atmoCtx.stroke();
+
+                drop.y += drop.speed;
+                drop.x -= 0.6;
+                if (drop.y > atmoCanvas.height) {
+                    drop.y = -drop.len;
+                    drop.x = Math.random() * atmoCanvas.width;
+                }
+            });
+
+            motes.forEach(m => {
+                atmoCtx.beginPath();
+                atmoCtx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+                atmoCtx.fillStyle = `rgba(56, 189, 248, ${m.alpha})`;
+                atmoCtx.fill();
+
+                m.x += m.vx;
+                m.y += m.vy;
+                if (m.y < 0) m.y = atmoCanvas.height;
+                if (m.x < 0) m.x = atmoCanvas.width;
+                if (m.x > atmoCanvas.width) m.x = 0;
+            });
+
+            requestAnimationFrame(renderAtmosphere);
+        }
+
+        window.addEventListener('resize', initAtmosphere);
+
+        window.onload = function() {
+            renderEpisodesPage();
+            initAtmosphere();
+            renderAtmosphere();
+        };
     </script>
 </body>
 </html>
