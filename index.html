@@ -113,26 +113,15 @@
 
     <!-- =====================================================================
          1. BARRA DE NAVEGACIÓN SUPERIOR (Preparada para multipágina)
-         Nota para Serafín: Edita los atributos href="..." si cambias los nombres
-         de tus futuras páginas HTML (ej. episodios.html, expedientes.html, etc.)
          ===================================================================== -->
     <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/80 backdrop-blur-md border-b border-spectral/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Emblema SVG Minimalista + Título del Podcast -->
+                <!-- Logo del Podcast en la Barra Superior -->
                 <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
-                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
-                        <!-- Silueta minimalista de luna, peregrino y farol -->
-                        <svg class="w-7 h-7 text-spectral group-hover:text-electric transition-colors" viewBox="0 0 36 36" fill="none">
-                            <!-- Media luna -->
-                            <path d="M23.5 6.5C17.8 7.6 13.5 12.6 13.5 18.5C13.5 24.4 17.8 29.4 23.5 30.5C16.5 31.3 10 25.8 10 18.5C10 11.2 16.5 5.7 23.5 6.5Z" fill="currentColor" opacity="0.35"/>
-                            <!-- Silueta encapuchada del peregrino -->
-                            <path d="M18 13C15.8 13 14.5 14.7 14.5 16.8C14.5 17.8 15 18.6 15.6 19.2L13.5 29H22.5L20.4 19.2C21 18.6 21.5 17.8 21.5 16.8C21.5 14.7 20.2 13 18 13Z" fill="#e2e8f0"/>
-                            <!-- Luz del farol en cian espectral -->
-                            <circle cx="24.5" cy="20.5" r="2.2" fill="#67e8f9"/>
-                            <circle cx="24.5" cy="20.5" r="4.5" fill="#38bdf8" opacity="0.28"/>
-                        </svg>
+                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
+                        <img src="logo.png" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col">
                         <span class="font-cinzel font-bold text-sm sm:text-base tracking-[0.16em] text-bone group-hover:text-white transition-colors">
@@ -203,19 +192,10 @@
 
             <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
                 
-                <!-- Emblema Central Minimalista -->
-                <div class="mx-auto w-20 h-20 sm:w-24 sm:h-24 mb-6 rounded-full bg-midnight/80 border border-spectral/30 flex items-center justify-center shadow-spectral relative">
-                    <div class="absolute inset-1 rounded-full border border-electric/15"></div>
-                    <svg class="w-12 h-12 sm:w-14 sm:h-14" viewBox="0 0 64 64" fill="none">
-                        <!-- Luna creciente -->
-                        <path d="M40 12C30.5 13.8 23.5 22 23.5 32C23.5 42 30.5 50.2 40 52C28.5 53.3 18 44.2 18 32C18 19.8 28.5 10.7 40 12Z" fill="#38bdf8" opacity="0.28"/>
-                        <!-- Silueta del Peregrino -->
-                        <path d="M31 22C27.2 22 25 25 25 28.6C25 30.4 25.8 31.8 26.8 32.8L23 50H39L35.2 32.8C36.2 31.8 37 30.4 37 28.6C37 25 34.8 22 31 22Z" fill="#e2e8f0"/>
-                        <!-- Cayado y farol luminoso -->
-                        <line x1="42" y1="26" x2="42" y2="50" stroke="#94a3b8" stroke-width="1.6" stroke-linecap="round"/>
-                        <circle cx="42" cy="33" r="3" fill="#67e8f9"/>
-                        <circle cx="42" cy="33" r="7" fill="#38bdf8" opacity="0.25"/>
-                    </svg>
+                <!-- Logo Central Grande en el Hero -->
+                <div class="mx-auto w-20 h-20 sm:w-24 sm:h-24 mb-6 rounded-full bg-midnight/80 border border-spectral/30 overflow-hidden flex items-center justify-center shadow-spectral relative">
+                    <div class="absolute inset-1 rounded-full border border-electric/15 pointer-events-none z-10"></div>
+                    <img src="logo.png" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
                 </div>
 
                 <!-- Etiqueta Superior -->
@@ -237,7 +217,7 @@
                     </span>
                 </blockquote>
 
-                <!-- Visualizador de Ondas de Audio en Cian Luminoso (Estilo Portadas del Podcast) -->
+                <!-- Visualizador de Ondas de Audio en Cian Luminoso -->
                 <div class="max-w-3xl mx-auto mb-10">
                     <div class="relative rounded-2xl bg-midnight/75 border border-spectral/25 p-3 sm:p-4 shadow-card-dark backdrop-blur-md">
                         <div class="flex items-center justify-between text-[11px] font-cinzel tracking-widest uppercase text-silverMuted mb-2 px-1">
@@ -269,7 +249,7 @@
                         Escuchar en Spotify
                     </a>
 
-                    <!-- CTA Secundario: Enlace a la futura página de Episodios -->
+                    <!-- CTA Secundario -->
                     <a href="episodios.html" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-midnight/90 border border-spectral/30 text-bone font-cinzel text-xs sm:text-sm tracking-[0.14em] uppercase hover:border-spectral hover:text-spectral transition-all flex items-center justify-center gap-2">
                         <span>Explorar Temporada 1</span>
                         <span>→</span>
@@ -343,7 +323,7 @@
         </section>
 
         <!-- =====================================================================
-             4. BLOQUE DESTACADO DE "ÚLTIMO EPISODIO / EN EMISIÓN" (Teaser Limpio)
+             4. BLOQUE DESTACADO DE "ÚLTIMO EPISODIO / EN EMISIÓN"
              ===================================================================== -->
         <section id="en-emision" class="relative py-20 sm:py-24">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -359,9 +339,7 @@
                     </a>
                 </div>
 
-                <!-- Tarjeta Protagonista Única -->
                 <article class="noir-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-card-dark">
-                    <!-- Ilustración Nocturna Generada en SVG estilo Portada Oficial -->
                     <div class="lg:col-span-5 relative min-h-[260px] bg-gradient-to-b from-[#0c1b33] via-[#070f1c] to-[#04070b] border-b lg:border-b-0 lg:border-r border-spectral/20 overflow-hidden flex flex-col justify-between p-5 select-none">
                         <svg viewBox="0 0 320 260" class="absolute inset-0 w-full h-full object-cover" preserveAspectRatio="xMidYMid slice">
                             <defs>
@@ -371,16 +349,13 @@
                                 </radialGradient>
                             </defs>
                             <rect width="320" height="260" fill="url(#windowGlow)"/>
-                            <!-- Ventana nocturna bajo la lluvia -->
                             <rect x="92" y="34" width="136" height="150" rx="2" fill="#091526" stroke="#38bdf8" stroke-width="1.2" stroke-opacity="0.55"/>
                             <line x1="160" y1="34" x2="160" y2="184" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.45"/>
                             <line x1="92" y1="108" x2="228" y2="108" stroke="#38bdf8" stroke-width="1" stroke-opacity="0.45"/>
-                            <!-- Sombra observando en la vigilia -->
                             <circle cx="132" cy="84" r="11" fill="#04070b"/>
                             <path d="M114 146C114 118 150 118 150 146" fill="#04070b"/>
-                            <!-- Onda sonora cian en la base de la carátula -->
                             <path d="M0 226 H55 L62 212 L68 240 L74 202 L80 245 L86 216 L92 234 H135 L142 206 L148 248 L154 196 L160 250 L166 204 L172 238 H215 L222 210 L228 242 L234 200 L240 246 L246 214 L252 234 H320" 
-                                  stroke="#67e8f9" stroke-width="1.6" fill="none" opacity="0.9"/>
+                                stroke="#67e8f9" stroke-width="1.6" fill="none" opacity="0.9"/>
                         </svg>
 
                         <div class="relative z-10 text-center pt-1">
@@ -394,7 +369,6 @@
                         </div>
                     </div>
 
-                    <!-- Detalles y Enlaces del Episodio -->
                     <div class="lg:col-span-7 p-6 sm:p-9 flex flex-col justify-between">
                         <div>
                             <div class="flex flex-wrap items-center gap-3 mb-4">
@@ -433,7 +407,6 @@
          ===================================================================== -->
     <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <!-- Mini ecualizador cian -->
             <div class="flex items-center justify-center gap-1 h-7 mb-6 opacity-80" aria-hidden="true">
                 <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.1s"></span>
                 <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.3s"></span>
@@ -444,12 +417,10 @@
                 <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.15s"></span>
             </div>
 
-            <!-- Despedida icónica -->
             <p class="font-playfair italic text-lg sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
                 «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
             </p>
 
-            <!-- Enlaces rápidos a futuras secciones y plataformas -->
             <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
                 <a href="index.html" class="text-electric">Inicio</a>
                 <a href="episodios.html" class="hover:text-electric transition-colors">Episodios</a>
@@ -468,7 +439,7 @@
     </footer>
 
     <!-- =====================================================================
-         JAVASCRIPT MODULAR (Visualizador de Ondas, Lluvia Nocturna y Audio)
+         JAVASCRIPT MODULAR
          ===================================================================== -->
     <script>
         // 1. MENÚ RESPONSIVE MÓVIL
@@ -480,7 +451,7 @@
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
 
-        // 2. SINTETIZADOR AMBIENTAL NOCTURNO (Web Audio API sin archivos externos)
+        // 2. SINTETIZADOR AMBIENTAL NOCTURNO
         const ambientNavBtn = document.getElementById('ambientNavBtn');
         const navAudioDot = document.getElementById('navAudioDot');
         const navAudioLabel = document.getElementById('navAudioLabel');
@@ -499,7 +470,6 @@
                 masterGain.gain.value = 0.16;
                 masterGain.connect(audioCtx.destination);
 
-                // Dron nocturno profundo (La1 + Mi2)
                 const oscLow = audioCtx.createOscillator();
                 oscLow.type = 'sine';
                 oscLow.frequency.value = 55;
@@ -523,7 +493,6 @@
                 oscLow.start();
                 oscFifth.start();
 
-                // Susurro de lluvia fina / estática suave
                 const bufferSize = 2 * audioCtx.sampleRate;
                 const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
                 const data = noiseBuffer.getChannelData(0);
@@ -575,7 +544,7 @@
         ambientNavBtn.addEventListener('click', initAndToggleAmbient);
         waveAudioTrigger.addEventListener('click', initAndToggleAmbient);
 
-        // 3. VISUALIZADOR DE ONDAS DE AUDIO EN CIAN LUMINOSO
+        // 3. VISUALIZADOR DE ONDAS DE AUDIO
         const waveCanvas = document.getElementById('waveCanvas');
         const waveCtx = waveCanvas.getContext('2d');
         let wavePhase = 0;
@@ -595,7 +564,6 @@
 
             waveCtx.clearRect(0, 0, width, height);
 
-            // Eje central luminoso
             waveCtx.beginPath();
             waveCtx.strokeStyle = 'rgba(56, 189, 248, 0.22)';
             waveCtx.lineWidth = 1;
@@ -603,7 +571,6 @@
             waveCtx.lineTo(width, centerY);
             waveCtx.stroke();
 
-            // Barras espectrales simétricas
             const step = 5;
             const count = Math.floor(width / step);
             const energy = isAmbientPlaying ? 1.45 : 0.72;
@@ -633,7 +600,7 @@
             requestAnimationFrame(renderWave);
         }
 
-        // 4. FONDO ATMOSFÉRICO: LLUVIA FINA NOCTURNA + PARTÍCULAS EN SUSPENSIÓN
+        // 4. FONDO ATMOSFÉRICO: LLUVIA FINA
         const atmoCanvas = document.getElementById('atmosphereCanvas');
         const atmoCtx = atmoCanvas.getContext('2d');
         let raindrops = [];
@@ -664,7 +631,6 @@
         function renderAtmosphere() {
             atmoCtx.clearRect(0, 0, atmoCanvas.width, atmoCanvas.height);
 
-            // Lluvia fina diagonal sutil
             atmoCtx.lineWidth = 1;
             raindrops.forEach(drop => {
                 atmoCtx.beginPath();
@@ -681,7 +647,6 @@
                 }
             });
 
-            // Partículas luminosas flotantes
             motes.forEach(m => {
                 atmoCtx.beginPath();
                 atmoCtx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
