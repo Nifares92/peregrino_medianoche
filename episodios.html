@@ -18,7 +18,7 @@
             theme: {
                 extend: {
                     colors: {
-                        abyss: '#030508',
+                        abyss: '#04070b',
                         midnight: '#091320',
                         slateCard: '#0e1929',
                         spectral: '#38bdf8',
@@ -34,7 +34,7 @@
                     boxShadow: {
                         'spectral': '0 0 28px -6px rgba(56, 189, 248, 0.28)',
                         'spectral-strong': '0 0 38px rgba(103, 232, 249, 0.38)',
-                        'card-dark': '0 22px 45px -15px rgba(0, 0, 0, 0.92)'
+                        'card-dark': '0 22px 45px -15px rgba(0, 0, 0, 0.88)'
                     }
                 }
             }
@@ -42,9 +42,8 @@
     </script>
 
     <style>
-        /* Estilos base y atmósfera nocturna */
         body {
-            background-color: #030508;
+            background-color: #04070b;
             color: #e2e8f0;
             overflow-x: hidden;
         }
@@ -53,7 +52,7 @@
             width: 8px;
         }
         ::-webkit-scrollbar-track {
-            background: #030508;
+            background: #04070b;
         }
         ::-webkit-scrollbar-thumb {
             background: #16253b;
@@ -64,7 +63,6 @@
             background: #38bdf8;
         }
 
-        /* Tipografía metálica plateada con reflejo cian sutil */
         .silver-metallic {
             background: linear-gradient(180deg, #ffffff 0%, #dbeafe 48%, #7dd3fc 82%, #475569 100%);
             -webkit-background-clip: text;
@@ -72,18 +70,16 @@
             filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
         }
 
-        /* Niebla sutil en movimiento */
         @keyframes fogDrift {
-            0% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
-            50% { transform: translate3d(4%, -2%, 0) scale(1.06); opacity: 0.38; }
-            100% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+            0% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.25; }
+            50% { transform: translate3d(4%, -2%, 0) scale(1.06); opacity: 0.42; }
+            100% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.25; }
         }
         .fog-layer {
             animation: fogDrift 24s ease-in-out infinite;
-            background: radial-gradient(ellipse at 50% 25%, rgba(56, 189, 248, 0.11) 0%, rgba(9, 19, 32, 0) 70%);
+            background: radial-gradient(ellipse at 50% 40%, rgba(56, 189, 248, 0.11) 0%, rgba(9, 19, 32, 0) 70%);
         }
 
-        /* Animación de barras de ecualizador */
         @keyframes pulseBar {
             0%, 100% { transform: scaleY(0.28); }
             50% { transform: scaleY(1); }
@@ -93,7 +89,6 @@
             animation: pulseBar 1.45s ease-in-out infinite;
         }
 
-        /* Tarjeta Publicada (Activa) */
         .noir-card-published {
             background: linear-gradient(155deg, rgba(14, 25, 41, 0.94) 0%, rgba(9, 19, 32, 0.98) 100%);
             border: 1px solid rgba(103, 232, 249, 0.45);
@@ -106,7 +101,6 @@
             transform: translateY(-3px);
         }
 
-        /* Tarjeta Sellada / Próximo Estreno (Inaccesible y borrosa) */
         .noir-card-locked {
             background: linear-gradient(155deg, rgba(8, 14, 24, 0.78) 0%, rgba(4, 7, 11, 0.94) 100%);
             border: 1px solid rgba(56, 189, 248, 0.11);
@@ -141,17 +135,16 @@
 </head>
 <body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
 
-    <!-- Lienzo atmosférico: lluvia fina nocturna y partículas luminosas -->
+    <!-- Lienzo atmosférico -->
     <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
 
     <!-- =====================================================================
-         1. BARRA DE NAVEGACIÓN SUPERIOR
+         1. BARRA DE NAVEGACIÓN SUPERIOR (Usa el logo general)
          ===================================================================== -->
     <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/85 backdrop-blur-md border-b border-spectral/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Logo en la Barra Superior -->
                 <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
                     <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
                         <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
@@ -166,7 +159,6 @@
                     </div>
                 </a>
 
-                <!-- Enlaces de Navegación Desktop -->
                 <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
                     <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
                     <a href="episodios.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">
@@ -177,7 +169,6 @@
                     <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
                 </nav>
 
-                <!-- Control Discreto de Atmósfera Sonora + Menú Móvil -->
                 <div class="flex items-center gap-3">
                     <button id="ambientNavBtn" type="button" aria-pressed="false" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-electric hover:border-electric/60 text-xs font-cinzel tracking-wider uppercase transition-all focus:outline-none" title="Activar o silenciar atmósfera nocturna">
                         <span id="navAudioDot" class="w-2 h-2 rounded-full bg-silverMuted/50 transition-colors"></span>
@@ -187,7 +178,6 @@
                         </svg>
                     </button>
 
-                    <!-- Botón Menú Móvil -->
                     <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-electric focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
@@ -197,7 +187,6 @@
             </div>
         </div>
 
-        <!-- Menú Desplegable Móvil -->
         <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5">
             <a href="index.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Inicio</a>
             <a href="episodios.html" aria-current="page" class="block py-2 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Episodios</a>
@@ -208,7 +197,7 @@
     </header>
 
     <!-- =====================================================================
-         2. CABECERA DE LA TEMPORADA 1 (Hero de Emisiones)
+         2. CABECERA DE LA TEMPORADA 1
          ===================================================================== -->
     <main class="relative z-10">
         <section class="relative pt-32 pb-14 border-b border-spectral/15 overflow-hidden">
@@ -216,7 +205,6 @@
             <div class="fog-layer absolute inset-0 pointer-events-none z-0"></div>
 
             <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <!-- Sello superior -->
                 <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-electric text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
                     <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
                     <span>Temporada 1 · Cada Miércoles a Medianoche en iVoox y Spotify</span>
@@ -230,15 +218,6 @@
                     «Trece noches de viaje hacia los rincones más oscuros de la mente humana. El primer capítulo ya resuena en la oscuridad; los doce restantes aguardan su hora.»
                 </p>
 
-                <!-- Divisor con onda cian minimalista -->
-                <div class="max-w-md mx-auto h-6 opacity-80" aria-hidden="true">
-                    <svg viewBox="0 0 400 24" class="w-full h-full" fill="none">
-                        <path d="M0 12 H125 L133 4 L140 20 L147 2 L154 22 L161 6 L168 18 L175 12 H225 L232 6 L239 18 L246 2 L253 22 L260 4 L267 20 L275 12 H400" 
-                              stroke="#38bdf8" stroke-width="1.3" stroke-linecap="round"/>
-                    </svg>
-                </div>
-
-                <!-- Indicadores de emisión -->
                 <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mt-8 text-left">
                     <div class="rounded-xl bg-midnight/90 border border-electric/40 p-3.5 shadow-spectral">
                         <span class="block font-cinzel text-lg sm:text-xl font-bold text-electric">1 de 13</span>
@@ -261,13 +240,11 @@
         </section>
 
         <!-- =====================================================================
-             3. BARRA DE FILTRADO POR ESTADO DE EMISIÓN
+             3. BARRA DE FILTRADO
              ===================================================================== -->
         <section class="py-6 bg-midnight/75 border-b border-spectral/15 sticky top-20 z-30 backdrop-blur-md">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    
-                    <!-- Botones de Estado -->
                     <div id="statusFilters" class="flex flex-wrap items-center gap-2.5" role="tablist" aria-label="Filtrar episodios por estado">
                         <button type="button" data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-cinzel tracking-wider uppercase bg-gradient-to-r from-spectral to-electric text-abyss font-bold shadow-spectral transition-all">
                             Todos (13)
@@ -280,7 +257,6 @@
                         </button>
                     </div>
 
-                    <!-- Contador dinámico -->
                     <div class="text-xs font-cinzel tracking-widest uppercase text-silverMuted">
                         <span id="resultsCount">1 de 13 Episodios Publicados</span>
                     </div>
@@ -294,12 +270,10 @@
         <section class="py-14 sm:py-16">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                 
-                <!-- Bloque Destacado: Capítulo 1 Publicado con tu logo.jpg -->
                 <div id="publishedContainer">
-                    <!-- Inyectado dinámicamente con logo.jpg -->
+                    <!-- Inyectado dinámicamente con la portada propia del capítulo -->
                 </div>
 
-                <!-- Separador del Calendario de Próximos Estrenos -->
                 <div id="upcomingDivider" class="flex items-center gap-4 pt-2">
                     <div class="h-px flex-1 bg-gradient-to-r from-transparent via-spectral/30 to-spectral/10"></div>
                     <span class="font-cinzel text-xs tracking-[0.25em] text-silverMuted uppercase">
@@ -308,7 +282,6 @@
                     <div class="h-px flex-1 bg-gradient-to-l from-transparent via-spectral/30 to-spectral/10"></div>
                 </div>
 
-                <!-- Grid de los 12 Episodios Restantes (Sellados) -->
                 <div id="upcomingGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
                     <!-- Inyectado dinámicamente -->
                 </div>
@@ -318,20 +291,10 @@
     </main>
 
     <!-- =====================================================================
-         5. CIERRE / FOOTER MINIMALISTA
+         5. FOOTER
          ===================================================================== -->
     <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex items-center justify-center gap-1 h-7 mb-6 opacity-80" aria-hidden="true">
-                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.1s"></span>
-                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.3s"></span>
-                <span class="w-1 h-4 bg-spectral rounded-full eq-bar" style="animation-delay: 0.5s"></span>
-                <span class="w-1 h-7 bg-electric rounded-full eq-bar" style="animation-delay: 0.2s"></span>
-                <span class="w-1 h-5 bg-spectral rounded-full eq-bar" style="animation-delay: 0.4s"></span>
-                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.6s"></span>
-                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.15s"></span>
-            </div>
-
             <p class="font-playfair italic text-lg sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
                 «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
             </p>
@@ -354,9 +317,10 @@
     </footer>
 
     <!-- =====================================================================
-         JAVASCRIPT MODULAR
+         JAVASCRIPT
          ===================================================================== -->
     <script>
+        // 1. DATOS DEL EPISODIO 1 (Aquí puedes cambiar "portada-cap1.jpg" por la imagen específica de este capítulo)
         const PUBLISHED_EPISODE = {
             number: 'CAPÍTULO 1',
             season: 'Temporada 1 · Estreno',
@@ -364,7 +328,8 @@
             duration: '29 min',
             category: 'Parasomnias y Neurobiología Onírica',
             title: 'Pesadillas, Sombras de la vigilia, y Muerte súbita nocturna',
-            synopsis: 'El viaje inaugural de El Peregrino de la Medianoche explora esa franja helada en la que el cuerpo permanece paralizado en la cama mientras la mente despierta atrapada dentro de una alucinación hipnagógica. Tras la dramatización, Serafín analiza la neurobiología de la parálisis del sueño y Aurora desclasifica el enigma médico del Síndrome de Muerte Súbita Inexplicada Nocturna (Bangungut) que sacudió al sudeste asiático.',
+            synopsis: 'El viaje inaugural de El Peregrino de la Medianoche explora esa franja helada en la que el cuerpo permanece paralizado en la cama mientras la mente despierta atrapada dentro de una alucinación hipnagógica. Tras la dramatización, Serafín analiza la neurobiología de la parparálisis del sueño y Aurora desclasifica el enigma médico del Síndrome de Muerte Súbita Inexplicada Nocturna (Bangungut) que sacudió al sudeste asiático.',
+            coverImage: 'portada-cap1.jpg', // <--- CAMBIA ESTE NOMBRE POR LA PORTADA PROPIA DEL CAPÍTULO 1
             ivooxUrl: 'https://go.ivoox.com/sq/3253800',
             spotifyUrl: 'https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx?si=0c21705f3d594815'
         };
@@ -394,11 +359,11 @@
         function buildPublishedEpisodeHTML() {
             return `
                 <article class="noir-card-published rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-card-dark">
-                    <!-- Carátula Artística con logo.jpg -->
+                    <!-- Carátula Propia del Capítulo (Usa coverImage) -->
                     <div class="lg:col-span-5 relative min-h-[290px] sm:min-h-[320px] bg-gradient-to-b from-[#0c1b33] via-[#070f1c] to-[#030508] border-b lg:border-b-0 lg:border-r border-spectral/25 overflow-hidden flex flex-col justify-between p-6 select-none">
                         
                         <div class="absolute inset-0 w-full h-full overflow-hidden">
-                            <img src="logo.jpg" alt="Portada Capítulo 1" class="w-full h-full object-cover opacity-85 hover:scale-105 transition-transform duration-500">
+                            <img src="${PUBLISHED_EPISODE.coverImage}" alt="${PUBLISHED_EPISODE.title}" class="w-full h-full object-cover opacity-90 hover:scale-105 transition-transform duration-500">
                             <div class="absolute inset-0 bg-gradient-to-t from-[#030508] via-transparent to-abyss/40"></div>
                         </div>
 
