@@ -118,21 +118,16 @@
     <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
 
     <!-- =====================================================================
-         1. BARRA DE NAVEGACIÓN SUPERIOR
+         1. BARRA DE NAVEGACIÓN SUPERIOR (Con el logo.jpg general)
          ===================================================================== -->
     <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/85 backdrop-blur-md border-b border-spectral/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Emblema SVG Minimalista + Título del Podcast -->
+                <!-- Logo General de la Web -->
                 <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
-                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
-                        <svg class="w-7 h-7 text-spectral group-hover:text-electric transition-colors" viewBox="0 0 36 36" fill="none">
-                            <path d="M23.5 6.5C17.8 7.6 13.5 12.6 13.5 18.5C13.5 24.4 17.8 29.4 23.5 30.5C16.5 31.3 10 25.8 10 18.5C10 11.2 16.5 5.7 23.5 6.5Z" fill="currentColor" opacity="0.35"/>
-                            <path d="M18 13C15.8 13 14.5 14.7 14.5 16.8C14.5 17.8 15 18.6 15.6 19.2L13.5 29H22.5L20.4 19.2C21 18.6 21.5 17.8 21.5 16.8C21.5 14.7 20.2 13 18 13Z" fill="#e2e8f0"/>
-                            <circle cx="24.5" cy="20.5" r="2.2" fill="#67e8f9"/>
-                            <circle cx="24.5" cy="20.5" r="4.5" fill="#38bdf8" opacity="0.28"/>
-                        </svg>
+                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
+                        <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col">
                         <span class="font-cinzel font-bold text-sm sm:text-base tracking-[0.16em] text-bone group-hover:text-white transition-colors">
@@ -356,14 +351,12 @@
          JAVASCRIPT: MENÚ MÓVIL, FORMULARIO Y AUDIO AMBIENTAL
          ===================================================================== -->
     <script>
-        // Formulario de envío
         function handleFormSubmit(event) {
             event.preventDefault();
             alert("Mensaje enviado correctamente a la penumbra. Gracias, nocturno.");
             event.target.reset();
         }
 
-        // Menú responsive móvil
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -372,7 +365,6 @@
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
 
-        // Sintetizador ambiental nocturno (Web Audio API)
         const ambientNavBtn = document.getElementById('ambientNavBtn');
         const navAudioDot = document.getElementById('navAudioDot');
         const navAudioLabel = document.getElementById('navAudioLabel');
@@ -458,7 +450,6 @@
 
         ambientNavBtn.addEventListener('click', initAndToggleAmbient);
 
-        // Fondo atmosférico: Lluvia fina nocturna + partículas
         const atmoCanvas = document.getElementById('atmosphereCanvas');
         const atmoCtx = atmoCanvas.getContext('2d');
         let raindrops = [];
