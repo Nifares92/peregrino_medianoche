@@ -103,31 +103,32 @@
 </head>
 <body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
 
-    <!-- Lienzo atmosférico -->
+    <!-- Lienzo atmosférico de fondo -->
     <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
 
     <!-- =====================================================================
          1. BARRA DE NAVEGACIÓN SUPERIOR
          ===================================================================== -->
-    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/80 backdrop-blur-md border-b border-spectral/15">
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/85 backdrop-blur-md border-b border-spectral/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
                 <!-- Logo General -->
-                <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
-                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors shrink-0">
                         <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-cinzel font-bold text-sm sm:text-base tracking-[0.16em] text-bone group-hover:text-white transition-colors">
+                        <span class="font-cinzel font-bold text-xs sm:text-base tracking-[0.14em] sm:tracking-[0.16em] text-bone group-hover:text-white transition-colors">
                             EL PEREGRINO
                         </span>
-                        <span class="font-cinzel text-[10px] sm:text-xs tracking-[0.26em] text-spectral uppercase">
+                        <span class="font-cinzel text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.26em] text-spectral uppercase">
                             DE LA MEDIANOCHE
                         </span>
                     </div>
                 </a>
 
+                <!-- Navegación Escritorio -->
                 <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
                     <a href="index.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">
                         Inicio
@@ -138,15 +139,8 @@
                     <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
                 </nav>
 
-                <div class="flex items-center gap-3">
-                    <button id="ambientNavBtn" type="button" aria-pressed="false" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-electric hover:border-electric/60 text-xs font-cinzel tracking-wider uppercase transition-all focus:outline-none" title="Activar o silenciar atmósfera nocturna">
-                        <span id="navAudioDot" class="w-2 h-2 rounded-full bg-silverMuted/50 transition-colors"></span>
-                        <span id="navAudioLabel" class="hidden sm:inline">Atmósfera Sonora</span>
-                        <svg class="w-4 h-4 text-spectral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
-                        </svg>
-                    </button>
-
+                <!-- Botón Menú Móvil (Sin atmósfera sonora) -->
+                <div class="flex items-center">
                     <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-electric focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
@@ -156,20 +150,21 @@
             </div>
         </div>
 
+        <!-- Menú Desplegable Móvil -->
         <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5">
-            <a href="index.html" aria-current="page" class="block py-2 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Inicio</a>
-            <a href="episodios.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Episodios</a>
-            <a href="expedientes.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Expedientes</a>
-            <a href="voces.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
-            <a href="contacto.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Nocturnos / Contacto</a>
+            <a href="index.html" aria-current="page" class="block py-2.5 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Inicio</a>
+            <a href="episodios.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Episodios</a>
+            <a href="expedientes.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Expedientes</a>
+            <a href="voces.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
+            <a href="contacto.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Nocturnos / Contacto</a>
         </div>
     </header>
 
     <!-- =====================================================================
-         2. HERO PRINCIPAL (Usa el logo general grande)
+         2. HERO PRINCIPAL
          ===================================================================== -->
     <main>
-        <section id="inicio" class="relative min-h-screen flex flex-col justify-center pt-28 pb-16 overflow-hidden">
+        <section id="inicio" class="relative min-h-screen flex flex-col justify-center pt-32 pb-16 overflow-hidden">
             <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_28%,#0e1f38_0%,#04070b_74%)] z-0"></div>
             <div class="fog-layer absolute inset-0 pointer-events-none z-0"></div>
 
@@ -186,51 +181,35 @@
                     <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
                 </div>
 
-                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-slateCard/85 border border-spectral/30 text-spectral text-[11px] sm:text-xs font-cinzel tracking-[0.22em] uppercase mb-7 shadow-spectral">
-                    <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full bg-slateCard/85 border border-spectral/30 text-spectral text-[10px] sm:text-xs font-cinzel tracking-[0.18em] sm:tracking-[0.22em] uppercase mb-6 sm:mb-7 shadow-spectral text-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse shrink-0"></span>
                     <span>Podcast de Misterio · Horror Psicológico · Crónica Negra</span>
                 </div>
 
-                <h1 class="font-cinzel font-extrabold text-3xl sm:text-5xl md:text-6xl lg:text-7xl tracking-[0.08em] leading-tight silver-metallic mb-6">
+                <h1 class="font-cinzel font-extrabold text-2xl sm:text-5xl md:text-6xl lg:text-7xl tracking-[0.06em] sm:tracking-[0.08em] leading-tight silver-metallic mb-6">
                     EL PEREGRINO DE LA MEDIANOCHE
                 </h1>
 
-                <blockquote class="font-playfair italic text-base sm:text-xl md:text-2xl text-silverMuted max-w-3xl mx-auto mb-10 leading-relaxed">
+                <blockquote class="font-playfair italic text-sm sm:text-xl md:text-2xl text-silverMuted max-w-3xl mx-auto mb-10 leading-relaxed px-2">
                     «Cuando la luna asoma tímidamente entre las sombras y la ciudad duerme sumergida en su silencio...
                     <span class="block mt-2 text-electric not-italic font-playfair font-medium">
                         ¿Preparado para mirar al otro lado?»
                     </span>
                 </blockquote>
 
-                <div class="max-w-3xl mx-auto mb-10">
-                    <div class="relative rounded-2xl bg-midnight/75 border border-spectral/25 p-3 sm:p-4 shadow-card-dark backdrop-blur-md">
-                        <div class="flex items-center justify-between text-[11px] font-cinzel tracking-widest uppercase text-silverMuted mb-2 px-1">
-                            <span class="flex items-center gap-2 text-spectral">
-                                <span id="wavePulseDot" class="w-2 h-2 rounded-full bg-spectral"></span>
-                                Frecuencia 00:00 · Serafín 
-                            </span>
-                            <button id="waveAudioTrigger" type="button" class="text-electric hover:underline focus:outline-none">
-                                Activar sonido ambiental
-                            </button>
-                        </div>
-                        <div class="relative w-full h-20 sm:h-24 rounded-xl bg-abyss/95 border border-spectral/15 overflow-hidden">
-                            <canvas id="waveCanvas" class="w-full h-full block"></canvas>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs sm:text-sm tracking-[0.14em] uppercase shadow-spectral-strong hover:brightness-110 transition-all flex items-center justify-center gap-2.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                <!-- Botones de Acción Principales (CTA) adaptados para móvil -->
+                <div class="flex flex-col sm:flex-row items-center justify-center gap-3.5 sm:gap-4 w-full px-4 sm:px-0">
+                    <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-4 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs sm:text-sm tracking-[0.14em] uppercase shadow-spectral-strong hover:brightness-110 transition-all flex items-center justify-center gap-2.5">
+                        <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                         Escuchar en iVoox
                     </a>
 
-                    <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx?si=0c21705f3d594815" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-slateCard/95 border border-electric/50 text-electric font-cinzel font-semibold text-xs sm:text-sm tracking-[0.14em] uppercase hover:bg-electric/15 hover:shadow-spectral transition-all flex items-center justify-center gap-2.5">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.18.3-.56.39-.86.21-2.35-1.44-5.31-1.76-8.79-.96-.34.08-.68-.13-.76-.47-.08-.34.13-.68.47-.76 3.81-.87 7.08-.5 9.73 1.12.3.18.39.56.21.86zm1.22-2.72c-.23.37-.71.49-1.08.26-2.69-1.65-6.79-2.13-9.97-1.16-.42.13-.86-.11-.99-.53-.13-.42.11-.86.53-.99 3.63-1.1 8.15-.57 11.25 1.34.37.23.49.71.26 1.08zm.11-2.83C14.7 8.95 9.37 8.77 6.29 9.71c-.49.15-1.01-.13-1.16-.62-.15-.49.13-1.01.62-1.16 3.53-1.07 9.41-.86 13.11 1.33.44.26.59.83.33 1.27-.26.44-.83.59-1.27.34z"/></svg>
+                    <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx?si=0c21705f3d594815" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-4 rounded-xl bg-slateCard/95 border border-electric/50 text-electric font-cinzel font-semibold text-xs sm:text-sm tracking-[0.14em] uppercase hover:bg-electric/15 hover:shadow-spectral transition-all flex items-center justify-center gap-2.5">
+                        <svg class="w-4 h-4 shrink-0" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.18.3-.56.39-.86.21-2.35-1.44-5.31-1.76-8.79-.96-.34.08-.68-.13-.76-.47-.08-.34.13-.68.47-.76 3.81-.87 7.08-.5 9.73 1.12.3.18.39.56.21.86zm1.22-2.72c-.23.37-.71.49-1.08.26-2.69-1.65-6.79-2.13-9.97-1.16-.42.13-.86-.11-.99-.53-.13-.42.11-.86.53-.99 3.63-1.1 8.15-.57 11.25 1.34.37.23.49.71.26 1.08zm.11-2.83C14.7 8.95 9.37 8.77 6.29 9.71c-.49.15-1.01-.13-1.16-.62-.15-.49.13-1.01.62-1.16 3.53-1.07 9.41-.86 13.11 1.33.44.26.59.83.33 1.27-.26.44-.83.59-1.27.34z"/></svg>
                         Escuchar en Spotify
                     </a>
 
-                    <a href="episodios.html" class="w-full sm:w-auto px-7 py-4 rounded-xl bg-midnight/90 border border-spectral/30 text-bone font-cinzel text-xs sm:text-sm tracking-[0.14em] uppercase hover:border-spectral hover:text-spectral transition-all flex items-center justify-center gap-2">
+                    <a href="episodios.html" class="w-full sm:w-auto px-6 py-3.5 sm:px-7 sm:py-4 rounded-xl bg-midnight/90 border border-spectral/30 text-bone font-cinzel text-xs sm:text-sm tracking-[0.14em] uppercase hover:border-spectral hover:text-spectral transition-all flex items-center justify-center gap-2">
                         <span>Explorar Temporada 1</span>
                         <span>→</span>
                     </a>
@@ -241,20 +220,20 @@
         <!-- =====================================================================
              3. ANATOMÍA DE CADA NOCHE
              ===================================================================== -->
-        <section id="anatomia" class="relative py-20 sm:py-24 bg-midnight/75 border-y border-spectral/15">
+        <section id="anatomia" class="relative py-16 sm:py-24 bg-midnight/75 border-y border-spectral/15">
             <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="text-center max-w-2xl mx-auto mb-14">
+                <div class="text-center max-w-2xl mx-auto mb-12 sm:mb-14">
                     <span class="font-cinzel text-xs tracking-[0.28em] text-spectral uppercase block mb-3">La Estructura del Viaje</span>
                     <h2 class="font-cinzel text-2xl sm:text-4xl font-bold silver-metallic mb-3">
                         LA ANATOMÍA DE CADA NOCHE
                     </h2>
-                    <p class="text-silverMuted text-sm sm:text-base font-light">
+                    <p class="text-silverMuted text-sm sm:text-base font-light px-2">
                         Tres actos para descender desde el relato inmersivo hasta la frialdad del expediente histórico.
                     </p>
                 </div>
 
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
-                    <article class="noir-card rounded-2xl p-7 relative overflow-hidden group">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-7">
+                    <article class="noir-card rounded-2xl p-6 sm:p-7 relative overflow-hidden group">
                         <span class="absolute top-3 right-5 font-cinzel text-5xl font-bold text-spectral/10 group-hover:text-spectral/20 transition-colors">I</span>
                         <div class="w-11 h-11 rounded-xl bg-abyss border border-spectral/30 flex items-center justify-center text-electric mb-5 shadow-spectral">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -268,7 +247,7 @@
                         </p>
                     </article>
 
-                    <article class="noir-card rounded-2xl p-7 relative overflow-hidden group">
+                    <article class="noir-card rounded-2xl p-6 sm:p-7 relative overflow-hidden group">
                         <span class="absolute top-3 right-5 font-cinzel text-5xl font-bold text-spectral/10 group-hover:text-spectral/20 transition-colors">II</span>
                         <div class="w-11 h-11 rounded-xl bg-abyss border border-spectral/30 flex items-center justify-center text-electric mb-5 shadow-spectral">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -278,11 +257,11 @@
                         <span class="text-[11px] font-cinzel tracking-[0.2em] text-electric uppercase">Acto II · Psique y Literatura</span>
                         <h3 class="font-cinzel text-xl font-bold text-bone mt-1.5 mb-3">La Anatomía del Miedo</h3>
                         <p class="text-silverMuted text-sm leading-relaxed">
-                            Análisis neurobiológico, psicológico y literario guiado por <strong class="text-bone font-medium">el Peregrino</strong> para comprender los mecanismos ocultos de la mente.
+                            Análisis neurobiológico, psicológico y literario guiado por <strong class="text-bone font-medium">Serafín</strong> para comprender los mecanismos ocultos de la mente.
                         </p>
                     </article>
 
-                    <article class="noir-card rounded-2xl p-7 relative overflow-hidden group">
+                    <article class="noir-card rounded-2xl p-6 sm:p-7 relative overflow-hidden group">
                         <span class="absolute top-3 right-5 font-cinzel text-5xl font-bold text-spectral/10 group-hover:text-spectral/20 transition-colors">III</span>
                         <div class="w-11 h-11 rounded-xl bg-abyss border border-spectral/30 flex items-center justify-center text-electric mb-5 shadow-spectral">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -292,7 +271,7 @@
                         <span class="text-[11px] font-cinzel tracking-[0.2em] text-electric uppercase">Acto III · Crónica Negra</span>
                         <h3 class="font-cinzel text-xl font-bold text-bone mt-1.5 mb-3">El Expediente Real</h3>
                         <p class="text-silverMuted text-sm leading-relaxed">
-                            Crónica negra y casos históricos rigurosamente documentados, donde la realidad supera la ficción.
+                            Crónica negra y casos históricos rigurosamente documentados presentados por <strong class="text-bone font-medium">Aurora</strong>, donde la realidad supera la ficción.
                         </p>
                     </article>
                 </div>
@@ -300,13 +279,13 @@
         </section>
 
         <!-- =====================================================================
-             4. ÚLTIMO EPISODIO EN EMISIÓN (Actualizado con portada propia limpia y datos correctos)
+             4. ÚLTIMO EPISODIO EN EMISIÓN
              ===================================================================== -->
-        <section id="en-emision" class="relative py-20 sm:py-24">
+        <section id="en-emision" class="relative py-16 sm:py-24">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-10">
+                <div class="flex flex-col sm:flex-row sm:items-end justify-between gap-4 mb-8 sm:mb-10">
                     <div>
-                        <span class="font-cinzel text-xs tracking-[0.28em] text-spectral uppercase block mb-2">Estreno Temporada 1 · Cada Miércoles a Medianoche</span>
+                        <span class="font-cinzel text-[11px] sm:text-xs tracking-[0.24em] sm:tracking-[0.28em] text-spectral uppercase block mb-2">Estreno Temporada 1 · Cada Miércoles a Medianoche</span>
                         <h2 class="font-cinzel text-2xl sm:text-4xl font-bold silver-metallic">
                             ÚLTIMO EPISODIO EN EMISIÓN
                         </h2>
@@ -316,18 +295,15 @@
                     </a>
                 </div>
 
-                <!-- Tarjeta del Último Episodio con portada limpia y Capítulo 1 al lado -->
                 <article class="noir-card rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-card-dark bg-[#0e1929]/90 border border-spectral/25">
                     
-                    <!-- Carátula propia limpia del capítulo (Apunta a portadapropia o la que prefieras, ej. portada-cap1.jpg) -->
-                    <div class="lg:col-span-5 relative min-h-[290px] sm:min-h-[320px] bg-abyss border-b lg:border-b-0 lg:border-r border-spectral/20 overflow-hidden flex flex-col justify-end p-5 select-none">
+                    <div class="lg:col-span-5 relative min-h-[260px] sm:min-h-[300px] bg-abyss border-b lg:border-b-0 lg:border-r border-spectral/20 overflow-hidden flex flex-col justify-end p-5 select-none">
                         <div class="absolute inset-0 w-full h-full overflow-hidden">
                             <img src="portada-cap1.jpg" alt="Pesadillas, Sombras de la vigilia" class="w-full h-full object-cover hover:scale-105 transition-transform duration-500">
                         </div>
                         <div class="absolute inset-x-0 bottom-0 h-16 bg-gradient-to-t from-abyss/80 to-transparent"></div>
                     </div>
 
-                    <!-- Información del episodio -->
                     <div class="lg:col-span-7 p-6 sm:p-9 flex flex-col justify-between">
                         <div>
                             <div class="flex flex-wrap items-center justify-between gap-3 mb-4">
@@ -335,8 +311,7 @@
                                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                                     Publicado · En emisión
                                 </span>
-                                <!-- Capítulo 1 al lado -->
-                                <span class="font-cinzel text-xs font-bold tracking-[0.2em] text-spectral uppercase bg-midnight/80 px-3 py-1 rounded-lg border border-spectral/30 shadow-spectral">
+                                <span class="font-cinzel text-[10px] sm:text-xs font-bold tracking-[0.16em] sm:tracking-[0.2em] text-spectral uppercase bg-midnight/80 px-3 py-1 rounded-lg border border-spectral/30 shadow-spectral">
                                     CAPÍTULO 1 · Temporada 1 · Estreno
                                 </span>
                             </div>
@@ -352,15 +327,15 @@
                             <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-silverMuted/90 mb-6">
                                 <span>📅 Estreno: 11 de noviembre de 2026</span>
                                 <span>🎧 Duración: 29 min</span>
-                                <span>🎙️ Voces: Serafín </span>
+                                <span>🎙️ Voces: Serafín &amp; Aurora</span>
                             </div>
                         </div>
 
                         <div class="pt-5 border-t border-spectral/15 flex flex-wrap items-center gap-3">
-                            <a href="https://go.ivoox.com/rf/183745440" target="_blank" rel="noopener noreferrer" class="px-5 py-3 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-wider uppercase hover:brightness-110 transition-all flex items-center gap-2">
-                                ▶ Escuchar en iVoox
+                            <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-wider uppercase hover:brightness-110 transition-all text-center">
+                                ▶ Escuchar Capítulo 1
                             </a>
-                            <a href="episodios.html" class="px-5 py-3 rounded-xl bg-abyss border border-spectral/35 text-bone font-cinzel text-xs tracking-wider uppercase hover:border-electric hover:text-electric transition-all">
+                            <a href="episodios.html" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-abyss border border-spectral/35 text-bone font-cinzel text-xs tracking-wider uppercase hover:border-electric hover:text-electric transition-all text-center">
                                 Todos los Episodios
                             </a>
                         </div>
@@ -373,23 +348,13 @@
     <!-- =====================================================================
          5. FOOTER
          ===================================================================== -->
-    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
+    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-12 sm:py-14">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex items-center justify-center gap-1 h-7 mb-6 opacity-80" aria-hidden="true">
-                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.1s"></span>
-                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.3s"></span>
-                <span class="w-1 h-4 bg-spectral rounded-full eq-bar" style="animation-delay: 0.5s"></span>
-                <span class="w-1 h-7 bg-electric rounded-full eq-bar" style="animation-delay: 0.2s"></span>
-                <span class="w-1 h-5 bg-spectral rounded-full eq-bar" style="animation-delay: 0.4s"></span>
-                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.6s"></span>
-                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.15s"></span>
-            </div>
-
-            <p class="font-playfair italic text-lg sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
+            <p class="font-playfair italic text-base sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed px-2">
                 «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
             </p>
 
-            <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
+            <nav class="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
                 <a href="index.html" class="text-electric">Inicio</a>
                 <a href="episodios.html" class="hover:text-electric transition-colors">Episodios</a>
                 <a href="expedientes.html" class="hover:text-spectral transition-colors">Expedientes</a>
@@ -401,7 +366,7 @@
             </nav>
 
             <p class="text-xs text-silverMuted/60">
-                © 2026–2027 El Peregrino de la Medianoche · Presentado por Serafín.
+                © 2026–2027 El Peregrino de la Medianoche · Presentado por Serafín con la colaboración de Aurora.
             </p>
         </div>
     </footer>
@@ -410,6 +375,7 @@
          JAVASCRIPT
          ===================================================================== -->
     <script>
+        // Menú responsive móvil
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -418,153 +384,7 @@
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
 
-        const ambientNavBtn = document.getElementById('ambientNavBtn');
-        const navAudioDot = document.getElementById('navAudioDot');
-        const navAudioLabel = document.getElementById('navAudioLabel');
-        const waveAudioTrigger = document.getElementById('waveAudioTrigger');
-        const wavePulseDot = document.getElementById('wavePulseDot');
-
-        let isAmbientPlaying = false;
-        let audioCtx = null;
-
-        function initAndToggleAmbient() {
-            if (!audioCtx) {
-                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContextClass();
-
-                const masterGain = audioCtx.createGain();
-                masterGain.gain.value = 0.16;
-                masterGain.connect(audioCtx.destination);
-
-                const oscLow = audioCtx.createOscillator();
-                oscLow.type = 'sine';
-                oscLow.frequency.value = 55;
-
-                const oscFifth = audioCtx.createOscillator();
-                oscFifth.type = 'triangle';
-                oscFifth.frequency.value = 82.41;
-
-                const lowpass = audioCtx.createBiquadFilter();
-                lowpass.type = 'lowpass';
-                lowpass.frequency.value = 150;
-
-                const droneGain = audioCtx.createGain();
-                droneGain.gain.value = 0.55;
-
-                oscLow.connect(lowpass);
-                oscFifth.connect(lowpass);
-                lowpass.connect(droneGain);
-                droneGain.connect(masterGain);
-
-                oscLow.start();
-                oscFifth.start();
-
-                const bufferSize = 2 * audioCtx.sampleRate;
-                const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                const data = noiseBuffer.getChannelData(0);
-                for (let i = 0; i < bufferSize; i++) {
-                    data[i] = Math.random() * 2 - 1;
-                }
-
-                const rainSource = audioCtx.createBufferSource();
-                rainSource.buffer = noiseBuffer;
-                rainSource.loop = true;
-
-                const rainFilter = audioCtx.createBiquadFilter();
-                rainFilter.type = 'bandpass';
-                rainFilter.frequency.value = 1100;
-                rainFilter.Q.value = 1.2;
-
-                const rainGain = audioCtx.createGain();
-                rainGain.gain.value = 0.08;
-
-                rainSource.connect(rainFilter);
-                rainFilter.connect(rainGain);
-                rainGain.connect(masterGain);
-                rainSource.start();
-            }
-
-            isAmbientPlaying = !isAmbientPlaying;
-
-            if (isAmbientPlaying) {
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                ambientNavBtn.setAttribute('aria-pressed', 'true');
-                ambientNavBtn.classList.add('border-electric', 'text-electric');
-                navAudioDot.classList.remove('bg-silverMuted/50');
-                navAudioDot.classList.add('bg-electric', 'animate-ping');
-                navAudioLabel.textContent = 'Sonido Activo';
-                waveAudioTrigger.textContent = 'Silenciar sonido ambiental';
-                wavePulseDot.classList.add('bg-electric', 'animate-ping');
-            } else {
-                if (audioCtx.state === 'running') audioCtx.suspend();
-                ambientNavBtn.setAttribute('aria-pressed', 'false');
-                ambientNavBtn.classList.remove('border-electric', 'text-electric');
-                navAudioDot.classList.add('bg-silverMuted/50');
-                navAudioDot.classList.remove('bg-electric', 'animate-ping');
-                navAudioLabel.textContent = 'Atmósfera Sonora';
-                waveAudioTrigger.textContent = 'Activar sonido ambiental';
-                wavePulseDot.classList.remove('bg-electric', 'animate-ping');
-            }
-        }
-
-        ambientNavBtn.addEventListener('click', initAndToggleAmbient);
-        waveAudioTrigger.addEventListener('click', initAndToggleAmbient);
-
-        const waveCanvas = document.getElementById('waveCanvas');
-        const waveCtx = waveCanvas.getContext('2d');
-        let wavePhase = 0;
-
-        function resizeWaveCanvas() {
-            const rect = waveCanvas.parentElement.getBoundingClientRect();
-            const dpr = window.devicePixelRatio || 1;
-            waveCanvas.width = rect.width * dpr;
-            waveCanvas.height = rect.height * dpr;
-            waveCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
-
-        function renderWave() {
-            const width = waveCanvas.width / (window.devicePixelRatio || 1);
-            const height = waveCanvas.height / (window.devicePixelRatio || 1);
-            const centerY = height / 2;
-
-            waveCtx.clearRect(0, 0, width, height);
-
-            waveCtx.beginPath();
-            waveCtx.strokeStyle = 'rgba(56, 189, 248, 0.22)';
-            waveCtx.lineWidth = 1;
-            waveCtx.moveTo(0, centerY);
-            waveCtx.lineTo(width, centerY);
-            waveCtx.stroke();
-
-            const step = 5;
-            const count = Math.floor(width / step);
-            const energy = isAmbientPlaying ? 1.45 : 0.72;
-
-            for (let i = 0; i < count; i++) {
-                const x = i * step + 2;
-                const norm = (i / count) * 2 - 1;
-                const envelope = Math.exp(-norm * norm * 2.1);
-
-                const harmonic =
-                    Math.sin(i * 0.34 + wavePhase) * 0.52 +
-                    Math.cos(i * 0.78 - wavePhase * 1.5) * 0.33 +
-                    Math.sin(i * 0.16 + wavePhase * 0.65) * 0.25;
-
-                const barH = Math.max(2, Math.abs(harmonic) * (height * 0.44) * envelope * energy);
-
-                const grad = waveCtx.createLinearGradient(0, centerY - barH, 0, centerY + barH);
-                grad.addColorStop(0, 'rgba(56, 189, 248, 0.15)');
-                grad.addColorStop(0.5, isAmbientPlaying ? '#67e8f9' : '#38bdf8');
-                grad.addColorStop(1, 'rgba(56, 189, 248, 0.15)');
-
-                waveCtx.fillStyle = grad;
-                waveCtx.fillRect(x, centerY - barH, 2.5, barH * 2);
-            }
-
-            wavePhase += isAmbientPlaying ? 0.08 : 0.032;
-            requestAnimationFrame(renderWave);
-        }
-
+        // Fondo atmosférico: Lluvia fina nocturna + partículas
         const atmoCanvas = document.getElementById('atmosphereCanvas');
         const atmoCtx = atmoCanvas.getContext('2d');
         let raindrops = [];
@@ -574,21 +394,21 @@
             atmoCanvas.width = window.innerWidth;
             atmoCanvas.height = window.innerHeight;
 
-            raindrops = Array.from({ length: 55 }, () => ({
+            raindrops = Array.from({ length: 40 }, () => ({
                 x: Math.random() * atmoCanvas.width,
                 y: Math.random() * atmoCanvas.height,
-                len: Math.random() * 14 + 8,
-                speed: Math.random() * 4.5 + 4,
-                opacity: Math.random() * 0.16 + 0.05
+                len: Math.random() * 12 + 6,
+                speed: Math.random() * 3.5 + 3,
+                opacity: Math.random() * 0.15 + 0.04
             }));
 
-            motes = Array.from({ length: 30 }, () => ({
+            motes = Array.from({ length: 20 }, () => ({
                 x: Math.random() * atmoCanvas.width,
                 y: Math.random() * atmoCanvas.height,
-                r: Math.random() * 1.6 + 0.5,
-                vx: (Math.random() - 0.5) * 0.22,
-                vy: -Math.random() * 0.25 - 0.05,
-                alpha: Math.random() * 0.45 + 0.15
+                r: Math.random() * 1.5 + 0.4,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: -Math.random() * 0.2 - 0.04,
+                alpha: Math.random() * 0.35 + 0.1
             }));
         }
 
@@ -600,11 +420,11 @@
                 atmoCtx.beginPath();
                 atmoCtx.strokeStyle = `rgba(103, 232, 249, ${drop.opacity})`;
                 atmoCtx.moveTo(drop.x, drop.y);
-                atmoCtx.lineTo(drop.x - 1.5, drop.y + drop.len);
+                atmoCtx.lineTo(drop.x - 1.2, drop.y + drop.len);
                 atmoCtx.stroke();
 
                 drop.y += drop.speed;
-                drop.x -= 0.6;
+                drop.x -= 0.5;
                 if (drop.y > atmoCanvas.height) {
                     drop.y = -drop.len;
                     drop.x = Math.random() * atmoCanvas.width;
@@ -627,14 +447,9 @@
             requestAnimationFrame(renderAtmosphere);
         }
 
-        window.addEventListener('resize', () => {
-            resizeWaveCanvas();
-            initAtmosphere();
-        });
+        window.addEventListener('resize', initAtmosphere);
 
         window.onload = function() {
-            resizeWaveCanvas();
-            renderWave();
             initAtmosphere();
             renderAtmosphere();
         };
