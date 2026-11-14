@@ -1,1 +1,408 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente EXP-01: Pesadillas y Muerte Súbita Nocturna | El Peregrino de la Medianoche</title>
+    <meta name="description" content="Análisis exhaustivo del Capítulo 1: Parálisis del sueño, alucinaciones hipnagógicas, el Síndrome Sunds y el misterio histórico de los refugiados Hmong.">
+    
+    <!-- Google Fonts: Cinzel, Playfair Display e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abyss: '#030508',
+                        midnight: '#091320',
+                        slateCard: '#0e1929',
+                        spectral: '#38bdf8',
+                        electric: '#67e8f9',
+                        bone: '#e2e8f0',
+                        silverMuted: '#94a3b8'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'spectral': '0 0 28px -6px rgba(56, 189, 248, 0.28)',
+                        'spectral-strong': '0 0 38px rgba(103, 232, 249, 0.38)',
+                        'card-dark': '0 22px 45px -15px rgba(0, 0, 0, 0.92)'
+                    }
+                }
+            }
+        }
+    </script>
 
+    <style>
+        body {
+            background-color: #030508;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030508;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #16253b;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
+        .silver-metallic {
+            background: linear-gradient(180deg, #ffffff 0%, #dbeafe 48%, #7dd3fc 82%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
+        }
+
+        @keyframes fogDrift {
+            0% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+            50% { transform: translate3d(4%, -2%, 0) scale(1.06); opacity: 0.38; }
+            100% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+        }
+        .fog-layer {
+            animation: fogDrift 24s ease-in-out infinite;
+            background: radial-gradient(ellipse at 50% 25%, rgba(56, 189, 248, 0.11) 0%, rgba(9, 19, 32, 0) 70%);
+        }
+
+        .forensic-stamp {
+            border: 1px solid rgba(56, 189, 248, 0.32);
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(56, 189, 248, 0.05),
+                rgba(56, 189, 248, 0.05) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+        }
+
+        /* Estilo tipográfico de blog forense para lectura inmersiva */
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1.05rem;
+            color: #cbd5e1;
+        }
+        .blog-content h2 {
+            font-family: 'Cinzel', serif;
+            color: #f8fafc;
+            font-weight: 700;
+            font-size: 1.75rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            padding-bottom: 0.5rem;
+        }
+        .blog-content h3 {
+            font-family: 'Cinzel', serif;
+            color: #67e8f9;
+            font-weight: 600;
+            font-size: 1.25rem;
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+        }
+        .blog-content blockquote {
+            border-left: 3px solid #38bdf8;
+            padding-left: 1.25rem;
+            margin: 1.5rem 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #e2e8f0;
+            background: rgba(14, 25, 41, 0.5);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
+
+    <!-- Lienzo atmosférico -->
+    <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
+
+    <!-- =====================================================================
+         1. BARRA DE NAVEGACIÓN SUPERIOR
+         ===================================================================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/85 backdrop-blur-md border-b border-spectral/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo General -->
+                <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
+                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
+                        <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-cinzel font-bold text-sm sm:text-base tracking-[0.16em] text-bone group-hover:text-white transition-colors">
+                            EL PEREGRINO
+                        </span>
+                        <span class="font-cinzel text-[10px] sm:text-xs tracking-[0.26em] text-spectral uppercase">
+                            DE LA MEDIANOCHE
+                        </span>
+                    </div>
+                </a>
+
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
+                    <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
+                    <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
+                    <a href="expedientes.html" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">Expedientes</a>
+                    <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
+                    <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <a href="expedientes.html" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-electric hover:border-electric/60 text-xs font-cinzel tracking-wider uppercase transition-all">
+                        <span>← Volver al Archivo</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         2. CABECERA DEL ARTÍCULO (BLOG EXPEDIENTE 01)
+         ===================================================================== -->
+    <main class="relative z-10 pt-32 pb-24">
+        <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            
+            <!-- Metadatos superiores -->
+            <div class="text-center mb-10">
+                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-electric text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+                    <span>EXP-01 // CAPÍTULO 1 · DESCLASIFICADO · 11 NOV 2026</span>
+                </div>
+
+                <h1 class="font-cinzel font-extrabold text-2xl sm:text-4xl md:text-5xl tracking-[0.06em] leading-tight silver-metallic mb-6">
+                    Pesadillas, Sombras de la Vigilia y Muerte Súbita Nocturna
+                </h1>
+
+                <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-silverMuted">
+                    <span>Investigación: Serafín &amp; Aurora</span>
+                    <span>•</span>
+                    <span>Duración del audio: 29 min</span>
+                    <span>•</span>
+                    <span>Categoría: Parasomnias y Neurobiología Onírica</span>
+                </div>
+            </div>
+
+            <!-- Reproductor rápido de audio o llamada a iVoox / Spotify -->
+            <div class="rounded-2xl bg-midnight/90 border border-spectral/30 p-5 mb-12 shadow-card-dark flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-xl bg-spectral/10 border border-spectral/30 flex items-center justify-center text-electric">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-cinzel text-sm font-bold text-bone">¿Prefieres escuchar la emisión sonora?</h4>
+                        <p class="text-xs text-silverMuted">Disfruta de la dramatización y el análisis completo con atmósfera binaural.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                    <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-spectral text-abyss font-cinzel font-bold text-xs uppercase tracking-wider text-center hover:bg-electric transition-all">
+                        iVoox
+                    </a>
+                    <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-slateCard border border-electric/40 text-electric font-cinzel font-semibold text-xs uppercase tracking-wider text-center hover:bg-electric/15 transition-all">
+                        Spotify
+                    </a>
+                </div>
+            </div>
+
+            <!-- CUERPO DEL ARTÍCULO / BLOG EXTENSO -->
+            <div class="blog-content space-y-6">
+                
+                <h2>1. Introducción: El Umbral entre la Vigilia y el Abismo</h2>
+                <p>
+                    Hay un territorio geográfico y mental al que todos nos vemos irremediablemente arrastrados cada vez que el sol se oculta. Un paisaje que desafía los mapas convencionales y se repliega en los pliegues más profundos de la psique humana. En este espacio, la lógica geométrica de la vigilia se disuelve, y las leyes físicas que rigen nuestro día a día dejan de tener vigencia.
+                </p>
+                <p>
+                    Cuando cerramos los ojos y nos entregamos al descanso, cruzamos una frontera invisible. Para la mayoría, este tránsito es un bálsamo reparador; sin embargo, para aquellos que sufren alteraciones en los mecanismos del sueño, el dormitorio deja de ser un santuario de paz para convertirse en un escenario de terror psicológico y fisiológico.
+                </p>
+
+                <h2>2. El Caso Real: La Epidemia Silenciosa del «Bangungut»</h2>
+                <p>
+                    Entre finales de la década de 1970 y principios de los años 80, los servicios de salud y los centros epidemiológicos de los Estados Unidos comenzaron a documentar un fenómeno médico profundamente desconcertante. Oleadas de refugiados procedentes del sudeste asiático —en su gran mayoría hombres jóvenes y adultos pertenecientes a la etnia Hmong, que habían huido de las secuelas de la guerra de Vietnam— empezaron a morir de manera súbita e inexplicable mientras dormían.
+                </p>
+                <p>
+                    El patrón clínico era idéntico en casi todos los casos: los hombres se acostaban en aparente estado de buena salud, sin antecedentes cardiovasculares graves ni indicios de enfermedad terminal. A mitad de la noche, emitían ronquidos agónicos, gemidos ahogados o espasmos musculares repentinos. Si sus familiares intentaban despertarlos, hallaban un cuerpo rígido o flácido, con una expresión de pánico absoluto congelada en el rostro. Cuando los equipos médicos forenses practicaban las autopsias, se encontraban con un callejón sin salida: no había lesiones traumáticas, ni venenos, ni insuficiencias orgánicas aparentes. El veredicto forense repetía una fórmula escalofriante: <em>«Causa de muerte desconocida»</em>.
+                </p>
+                
+                <h3>Las Raíces Folclóricas del Terror Nocturno</h3>
+                <p>
+                    Para los refugiados Hmong, la causa de estas muertes no requería de microscopios ni laboratorios occidentales; la respuesta formaba parte de su mitología ancestral. El fenómeno se conocía tradicionalmente como <strong>Bangungut</strong> (en Filipinas, que significa literalmente <em>«levantarse y gemir en sueños»</em>) o <strong>Lai Tai</strong> (en Tailandia).
+                </p>
+                <p>
+                    Según sus creencias, estas muertes eran provocadas por el <em>Dab Tsuam</em>, un espíritu maligno —a menudo concebido como una bruja o una entidad de pesadilla— que se posaba pesadamente sobre el pecho del durmiente, bloqueando la respiración y alimentándose del terror vital de su víctima hasta romperle el corazón. Los hombres, atrapados en una parálisis donde querían gritar y no podían, sucumbían ante la furia de la entidad.
+                </p>
+
+                <blockquote>
+                    «La muerte no llegó en el campo de batalla ni bajo el fuego cruzado de la selva; los refugiados descubrieron con horror que su asesino más implacable los esperaba dentro de su propia alcoba, en el silencio absoluto de la medianoche.»
+                </blockquote>
+
+                <h2>3. Anatomía Científica: La Parálisis del Sueño y el Síndrome de Brugada</h2>
+                <p>
+                    ¿Qué hay de cierto entre la separación de mito y realidad? La ciencia médica actual ha logrado desentrañar fragmentos fundamentales de este misterio, conectando las experiencias subjetivas del terror nocturno con disfunciones fisiológicas concretas.
+                </p>
+
+                <h3>La Mecánica de la Parálisis del Sueño</h3>
+                <p>
+                    Durante la fase REM (Movimiento Ocular Rápido), el cerebro humano experimenta un estado de alta actividad onírica mientras desactiva de manera temporal los músculos voluntarios mediante un mecanismo de atonía muscular. Esto evita que nos levantemos físicamente a reproducir los movimientos de nuestros sueños.
+                </p>
+                <p>
+                    Sin embargo, en episodios de parálisis del sueño, se produce una disincronía neurológica: la corteza cerebral recupera la lucidez y el estado de alerta antes de que el tronco encefálico reactive el tono muscular y ponga fin a la atonía. El individuo experimenta un despertar consciente pero es incapaz de moverse o hablar. 
+                </p>
+                <p>
+                    Esta vulnerabilidad activa de inmediato los centros de alarma de la amígdala cerebral. Al no poder respirar con normalidad (debido a la respiración superficial propia del sueño REM), el cerebro interpreta la situación como una amenaza de asfixia inminente y proyecta alucinaciones hipnagógicas hiperrealistas: presencias invisibles, figuras humanoides al pie de la cama y una presión asfixiante sobre el tórax.
+                </p>
+
+                <h3>El Factor Genético: El Síndrome de Brugada</h3>
+                <p>
+                    Más allá del componente neurológico de las alucinaciones, la investigación cardiológica identificó que muchos de los varones del sudeste asiático portaban una mutación genética conocida como el <strong>Síndrome de Brugada</strong>. Se trata de una canalopatía hereditaria que altera los impulsos eléctricos del corazón. Durante el sueño profundo y los estados de relajación nocturna, el sistema nervioso parasimpático predomina, lo que puede desencadenar arritmias ventriculares malignas fatales (como la fibrilación ventricular), transformando una pesadilla de ahogo en un paro cardíaco real e irreversible.
+                </p>
+
+                <h2>4. Espejos Literarios y Cinematográficos: Del Óleo de Fuseli a Freddy Krueger</h2>
+                <p>
+                    El impacto cultural de las pesadillas y la parálisis del sueño ha trascendido con creces los manuales médicos, convirtiéndose en uno de los motores creativos más potentes del arte gótico y el cine de terror contemporáneo.
+                </p>
+                <p>
+                    En 1781, el pintor anglo-suizo <strong>Henry Fuseli</strong> conmocionó al público europeo con su obra maestra <em>«La pesadilla» (The Nightmare)</em>. En el lienzo, una mujer yace profundamente dormida en una postura de abandono, con un demonio grotesco (un íncubo) agazapado directamente sobre su pecho, mientras una yegua espectral observa desde la oscuridad de la cortina. Fuseli logró plasmar visualmente con una precisión milimétrica la opresión torácica y la carga alucinatoria de la parálisis del sueño siglos antes de que la psicología moderna la bautizara.
+                </p>
+                <p>
+                    Siglos después, en la década de 1980, el director de cine <strong>Wes Craven</strong> se encontraba revisando recortes de prensa sobre las muertes inexplicables de los refugiados laosianos en California. La premisa de que personas sanas murieran aterrorizadas única y exclusivamente por no poder escapar de sus pesadillas le pareció el germen perfecto para una obra cinematográfica. Así nació <em>«A Nightmare on Elm Street» (Pesadilla en Elm Street, 1984)</em> y el icónico personaje de Freddy Krueger, un recordatorio ficcionado de que el lugar donde somos más vulnerables es, irónicamente, aquel donde cerramos los ojos para descansar.
+                </p>
+
+                <h2>5. Conclusión: El Terror que Habita en el Interior</h2>
+                <p>
+                    Las pesadillas y los fenómenos asociados al umbral del sueño nos recuerdan que la frontera entre la razón y el misterio es sumamente frágil. Ya sea explicadas a través del prisma de los antiguos demonios medievales, de las canalopatías cardíacas o de las complejas alucinaciones de la parálisis del sueño, las sombras de la noche continúan reclamando nuestra atención.
+                </p>
+                <p>
+                    Al fin y al cabo, como bien demuestran los relatos de <em>El Peregrino de la Medianoche</em>, el monstruo más peligroso no es aquel que acecha en el exterior, sino el que aguarda pacientemente en los abismos de nuestra propia mente, esperando a que apaguemos la luz.
+                </p>
+
+            </div>
+
+            <!-- Navegación inferior de vuelta -->
+            <div class="mt-16 pt-8 border-t border-spectral/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <a href="expedientes.html" class="px-6 py-3 rounded-xl bg-slateCard border border-spectral/30 text-bone font-cinzel text-xs uppercase tracking-wider hover:border-electric hover:text-electric transition-all">
+                    ← Volver al Archivo de Expedientes
+                </a>
+                <a href="episodios.html" class="px-6 py-3 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs uppercase tracking-wider hover:brightness-110 transition-all">
+                    Ver Calendario de Episodios →
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- =====================================================================
+         3. FOOTER
+         ===================================================================== -->
+    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-playfair italic text-lg sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
+                «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
+            </p>
+
+            <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
+                <a href="index.html" class="hover:text-electric transition-colors">Inicio</a>
+                <a href="episodios.html" class="hover:text-electric transition-colors">Episodios</a>
+                <a href="expedientes.html" class="text-electric">Expedientes</a>
+                <a href="voces.html" class="hover:text-electric transition-colors">Voces</a>
+                <a href="contacto.html" class="hover:text-electric transition-colors">Contacto</a>
+                <span class="text-spectral/30 hidden sm:inline">|</span>
+                <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">iVoox ↗</a>
+                <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">Spotify ↗</a>
+            </nav>
+
+            <p class="text-xs text-silverMuted/60">
+                © 2026–2027 El Peregrino de la Medianoche · Presentado por Serafín con la colaboración de Aurora.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script de atmósfera nocturna -->
+    <script>
+        const atmoCanvas = document.getElementById('atmosphereCanvas');
+        const atmoCtx = atmoCanvas.getContext('2d');
+        let raindrops = [];
+        let motes = [];
+
+        function initAtmosphere() {
+            atmoCanvas.width = window.innerWidth;
+            atmoCanvas.height = window.innerHeight;
+
+            raindrops = Array.from({ length: 55 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                len: Math.random() * 14 + 8,
+                speed: Math.random() * 4.5 + 4,
+                opacity: Math.random() * 0.16 + 0.05
+            }));
+
+            motes = Array.from({ length: 30 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                r: Math.random() * 1.6 + 0.5,
+                vx: (Math.random() - 0.5) * 0.22,
+                vy: -Math.random() * 0.25 - 0.05,
+                alpha: Math.random() * 0.45 + 0.15
+            }));
+        }
+
+        function renderAtmosphere() {
+            atmoCtx.clearRect(0, 0, atmoCanvas.width, atmoCanvas.height);
+
+            atmoCtx.lineWidth = 1;
+            raindrops.forEach(drop => {
+                atmoCtx.beginPath();
+                atmoCtx.strokeStyle = `rgba(103, 232, 249, ${drop.opacity})`;
+                atmoCtx.moveTo(drop.x, drop.y);
+                atmoCtx.lineTo(drop.x - 1.5, drop.y + drop.len);
+                atmoCtx.stroke();
+
+                drop.y += drop.speed;
+                drop.x -= 0.6;
+                if (drop.y > atmoCanvas.height) {
+                    drop.y = -drop.len;
+                    drop.x = Math.random() * atmoCanvas.width;
+                }
+            });
+
+            motes.forEach(m => {
+                atmoCtx.beginPath();
+                atmoCtx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+                atmoCtx.fillStyle = `rgba(56, 189, 248, ${m.alpha})`;
+                atmoCtx.fill();
+
+                m.x += m.vx;
+                m.y += m.vy;
+                if (m.y < 0) m.y = atmoCanvas.height;
+                if (m.x < 0) m.x = atmoCanvas.width;
+                if (m.x > atmoCanvas.width) m.x = 0;
+            });
+
+            requestAnimationFrame(renderAtmosphere);
+        }
+
+        window.addEventListener('resize', initAtmosphere);
+
+        window.onload = function() {
+            initAtmosphere();
+            renderAtmosphere();
+        };
+    </script>
+</body>
+</html>
