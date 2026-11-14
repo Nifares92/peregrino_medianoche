@@ -42,7 +42,6 @@
     </script>
 
     <style>
-        /* Estilos base y atmósfera nocturna */
         body {
             background-color: #05080f;
             color: #e2e8f0;
@@ -64,7 +63,6 @@
             background: #00e5ff;
         }
 
-        /* Tipografía metálica plateada con reflejo cian sutil */
         .silver-metallic {
             background: linear-gradient(180deg, #ffffff 0%, #dbeafe 48%, #7dd3fc 82%, #475569 100%);
             -webkit-background-clip: text;
@@ -72,7 +70,6 @@
             filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
         }
 
-        /* Niebla sutil en movimiento */
         @keyframes fogDrift {
             0% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
             50% { transform: translate3d(4%, -2%, 0) scale(1.06); opacity: 0.38; }
@@ -83,7 +80,6 @@
             background: radial-gradient(ellipse at 50% 25%, rgba(0, 229, 255, 0.11) 0%, rgba(11, 19, 34, 0) 70%);
         }
 
-        /* Animación de barras de ecualizador */
         @keyframes pulseBar {
             0%, 100% { transform: scaleY(0.28); }
             50% { transform: scaleY(1); }
@@ -93,7 +89,6 @@
             animation: pulseBar 1.45s ease-in-out infinite;
         }
 
-        /* Tarjeta Activa de Serafín */
         .noir-card-active {
             background: linear-gradient(155deg, rgba(15, 27, 46, 0.94) 0%, rgba(11, 19, 34, 0.98) 100%);
             border: 1px solid rgba(0, 229, 255, 0.42);
@@ -105,7 +100,6 @@
             box-shadow: 0 24px 50px -12px rgba(0, 0, 0, 0.95), 0 0 38px -6px rgba(0, 229, 255, 0.36);
         }
 
-        /* Tarjeta Sellada / Próximas Incorporaciones */
         .noir-card-locked {
             background: linear-gradient(155deg, rgba(9, 15, 27, 0.8) 0%, rgba(5, 8, 15, 0.95) 100%);
             border: 1px solid rgba(0, 229, 255, 0.12);
@@ -140,25 +134,20 @@
 </head>
 <body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
 
-    <!-- Lienzo atmosférico: lluvia fina nocturna y partículas luminosas -->
+    <!-- Lienzo atmosférico -->
     <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
 
     <!-- =====================================================================
-         1. BARRA DE NAVEGACIÓN SUPERIOR (Idéntica a index.html, episodios.html y expedientes.html)
+         1. BARRA DE NAVEGACIÓN SUPERIOR (Con el logo general de la web)
          ===================================================================== -->
     <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/85 backdrop-blur-md border-b border-spectral/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Emblema SVG Minimalista + Título del Podcast -->
+                <!-- Logo General -->
                 <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
-                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
-                        <svg class="w-7 h-7 text-spectral group-hover:text-electric transition-colors" viewBox="0 0 36 36" fill="none">
-                            <path d="M23.5 6.5C17.8 7.6 13.5 12.6 13.5 18.5C13.5 24.4 17.8 29.4 23.5 30.5C16.5 31.3 10 25.8 10 18.5C10 11.2 16.5 5.7 23.5 6.5Z" fill="currentColor" opacity="0.35"/>
-                            <path d="M18 13C15.8 13 14.5 14.7 14.5 16.8C14.5 17.8 15 18.6 15.6 19.2L13.5 29H22.5L20.4 19.2C21 18.6 21.5 17.8 21.5 16.8C21.5 14.7 20.2 13 18 13Z" fill="#e2e8f0"/>
-                            <circle cx="24.5" cy="20.5" r="2.2" fill="#00e5ff"/>
-                            <circle cx="24.5" cy="20.5" r="4.5" fill="#00e5ff" opacity="0.28"/>
-                        </svg>
+                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
+                        <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col">
                         <span class="font-cinzel font-bold text-sm sm:text-base tracking-[0.16em] text-bone group-hover:text-white transition-colors">
@@ -181,7 +170,6 @@
                     <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
                 </nav>
 
-                <!-- Control Discreto de Atmósfera Sonora + Menú Móvil -->
                 <div class="flex items-center gap-3">
                     <button id="ambientNavBtn" type="button" aria-pressed="false" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-spectral hover:border-spectral/70 text-xs font-cinzel tracking-wider uppercase transition-all focus:outline-none" title="Activar o silenciar atmósfera nocturna">
                         <span id="navAudioDot" class="w-2 h-2 rounded-full bg-silverMuted/50 transition-colors"></span>
@@ -191,7 +179,6 @@
                         </svg>
                     </button>
 
-                    <!-- Botón Menú Móvil -->
                     <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-spectral focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
@@ -201,7 +188,6 @@
             </div>
         </div>
 
-        <!-- Menú Desplegable Móvil -->
         <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5">
             <a href="index.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Inicio</a>
             <a href="episodios.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Episodios</a>
@@ -212,7 +198,7 @@
     </header>
 
     <!-- =====================================================================
-         2. CABECERA DE LAS VOCES (Hero)
+         2. CABECERA DE LAS VOCES
          ===================================================================== -->
     <main class="relative z-10">
         <section class="relative pt-32 pb-14 border-b border-spectral/15 overflow-hidden">
@@ -220,7 +206,6 @@
             <div class="fog-layer absolute inset-0 pointer-events-none z-0"></div>
 
             <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <!-- Sello superior -->
                 <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-spectral text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
                     <span class="w-1.5 h-1.5 rounded-full bg-spectral animate-pulse"></span>
                     <span>QUIÉNES HABITAN LA PENUMBRA</span>
@@ -234,7 +219,6 @@
                     «Cada noche en El Peregrino de la Medianoche es guiada a través de los corredores más oscuros de la mente humana, donde el susurro de la narración desvela lo que se oculta tras la vigilia.»
                 </p>
 
-                <!-- Divisor con onda cian minimalista -->
                 <div class="max-w-md mx-auto h-6 opacity-80" aria-hidden="true">
                     <svg viewBox="0 0 400 24" class="w-full h-full" fill="none">
                         <path d="M0 12 H125 L133 4 L140 20 L147 2 L154 22 L161 6 L168 18 L175 12 H225 L232 6 L239 18 L246 2 L253 22 L260 4 L267 20 L275 12 H400" 
@@ -245,21 +229,16 @@
         </section>
 
         <!-- =====================================================================
-             3. TARJETA PRINCIPAL ACTIVA: SERAFÍN (Única voz activa actualmente)
+             3. TARJETA PRINCIPAL ACTIVA: SERAFÍN
              ===================================================================== -->
         <section class="py-14 sm:py-16">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                 
-                <!-- Ficha de Serafín -->
                 <article class="noir-card-active rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-card-dark">
-                    
-                    <!-- Columna Izquierda: Retrato Simbólico Nocturno + Frecuencia Vocal -->
                     <div class="lg:col-span-5 relative min-h-[310px] bg-gradient-to-b from-[#0e203b] via-[#081222] to-[#05080f] border-b lg:border-b-0 lg:border-r border-spectral/25 p-7 flex flex-col justify-between items-center text-center select-none overflow-hidden">
                         
-                        <!-- Resplandor de fondo -->
                         <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(0,229,255,0.16),transparent_68%)] pointer-events-none"></div>
 
-                        <!-- Etiqueta superior -->
                         <div class="relative z-10 w-full flex items-center justify-between text-[11px] font-cinzel tracking-widest uppercase">
                             <span class="px-2.5 py-1 rounded forensic-stamp text-spectral">VOZ 01</span>
                             <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/35 flex items-center gap-1.5">
@@ -268,16 +247,12 @@
                             </span>
                         </div>
 
-                        <!-- Emblema Artístico del Guía -->
                         <div class="relative z-10 my-6">
                             <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-abyss/90 border border-spectral/45 flex items-center justify-center shadow-spectral relative mx-auto">
                                 <div class="absolute inset-1.5 rounded-full border border-spectral/15"></div>
                                 <svg class="w-16 h-16 sm:w-20 sm:h-20" viewBox="0 0 80 80" fill="none">
-                                    <!-- Media luna nocturna -->
                                     <path d="M51 15C38.5 17.5 29.5 28 29.5 40.5C29.5 53 38.5 63.5 51 66C36 67.8 22 56 22 40.5C22 25 36 13.2 51 15Z" fill="#00e5ff" opacity="0.25"/>
-                                    <!-- Silueta encapuchada de Serafín -->
                                     <path d="M39 27C34 27 31 30.8 31 35.5C31 37.8 32 39.6 33.4 41L28.5 64H49.5L44.6 41C46 39.6 47 37.8 47 35.5C47 30.8 44 27 39 27Z" fill="#e2e8f0"/>
-                                    <!-- Cayado y farol en cian espectral -->
                                     <line x1="54" y1="32" x2="54" y2="64" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
                                     <circle cx="54" cy="41" r="3.5" fill="#00e5ff"/>
                                     <circle cx="54" cy="41" r="8.5" fill="#00e5ff" opacity="0.25"/>
@@ -285,7 +260,6 @@
                             </div>
                         </div>
 
-                        <!-- Visualizador de Onda Vocal en Vivo (Canvas) -->
                         <div class="relative z-10 w-full">
                             <div class="text-[10px] font-cinzel tracking-[0.2em] text-silverMuted uppercase mb-1.5">
                                 Frecuencia Vocal · Medianoche
@@ -296,7 +270,6 @@
                         </div>
                     </div>
 
-                    <!-- Columna Derecha: Perfil, Roles y Cita Icónica -->
                     <div class="lg:col-span-7 p-6 sm:p-9 flex flex-col justify-between">
                         <div>
                             <span class="text-xs font-cinzel tracking-[0.22em] text-spectral uppercase block mb-2">
@@ -311,7 +284,6 @@
                                 Actualmente <strong class="text-bone font-medium">Serafín es la única voz activa</strong> de <em>El Peregrino de la Medianoche</em>. Es el encargado de recibir a los oyentes en el ritual de apertura, dar vida e interpretación a los relatos dramatizados y conducir la inmersión posterior hacia las raíces psicológicas, neurobiológicas, literarias y criminológicas de cada miedo.
                             </p>
 
-                            <!-- Etiquetas de responsabilidades en el programa -->
                             <div class="grid grid-cols-1 sm:grid-cols-3 gap-2.5 mb-6">
                                 <div class="rounded-xl bg-abyss/80 border border-spectral/20 p-3">
                                     <span class="block font-cinzel text-[11px] text-spectral uppercase tracking-wider">Acto I</span>
@@ -327,13 +299,11 @@
                                 </div>
                             </div>
 
-                            <!-- Cita Icónica de Apertura -->
                             <blockquote class="rounded-xl bg-abyss/90 border-l-2 border-spectral p-4 sm:p-5 font-playfair italic text-sm sm:text-base text-bone/95 leading-relaxed">
                                 «Cuando la luna asoma tímidamente entre las sombras y la ciudad duerme sumergida en su silencio, un susurro atraviesa la oscuridad... Bienvenidos, nocturnos, a una noche más.»
                             </blockquote>
                         </div>
 
-                        <!-- Enlaces rápidos -->
                         <div class="pt-6 mt-6 border-t border-spectral/20 flex flex-wrap items-center gap-3">
                             <a href="episodios.html" class="px-5 py-3 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-[0.14em] uppercase shadow-spectral hover:brightness-110 transition-all">
                                 ▶ Escuchar Episodio 1
@@ -345,7 +315,6 @@
                     </div>
                 </article>
 
-                <!-- Separador de Archivo Sellado -->
                 <div class="flex items-center gap-4 pt-2">
                     <div class="h-px flex-1 bg-gradient-to-r from-transparent via-spectral/30 to-spectral/10"></div>
                     <span class="font-cinzel text-xs tracking-[0.25em] text-silverMuted uppercase">
@@ -354,12 +323,7 @@
                     <div class="h-px flex-1 bg-gradient-to-l from-transparent via-spectral/30 to-spectral/10"></div>
                 </div>
 
-                <!-- =====================================================================
-                     4. TARJETA SECUNDARIA CLASIFICADA / BORROSA (Futuras Incorporaciones)
-                     ===================================================================== -->
                 <article aria-disabled="true" class="noir-card-locked rounded-2xl p-7 sm:p-9 relative overflow-hidden min-h-[250px] flex items-center justify-center">
-                    
-                    <!-- Capa de fondo censurada y borrosa -->
                     <div class="classified-blur-layer w-full grid grid-cols-1 md:grid-cols-12 gap-6 items-center" aria-hidden="true">
                         <div class="md:col-span-4 flex flex-col items-center gap-3">
                             <div class="w-24 h-24 rounded-full bg-spectral/25"></div>
@@ -369,12 +333,9 @@
                             <div class="h-3 w-40 bg-spectral/30 rounded"></div>
                             <div class="h-6 w-56 bg-bone/30 rounded"></div>
                             <div class="h-3.5 w-full bg-silverMuted/20 rounded"></div>
-                            <div class="h-3.5 w-5/6 bg-silverMuted/20 rounded"></div>
-                            <div class="h-3.5 w-4/6 bg-silverMuted/20 rounded"></div>
                         </div>
                     </div>
 
-                    <!-- Sello Central Inviolable -->
                     <div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center bg-abyss/50 backdrop-blur-[3px]">
                         <div class="w-12 h-12 rounded-full locked-stamp flex items-center justify-center text-spectral mb-3.5">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -391,26 +352,15 @@
                         </p>
                     </div>
                 </article>
-
             </div>
         </section>
     </main>
 
     <!-- =====================================================================
-         5. CIERRE / FOOTER MINIMALISTA (Idéntico a index.html, episodios.html y expedientes.html)
+         5. FOOTER
          ===================================================================== -->
     <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex items-center justify-center gap-1 h-7 mb-6 opacity-80" aria-hidden="true">
-                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.1s"></span>
-                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.3s"></span>
-                <span class="w-1 h-4 bg-spectral rounded-full eq-bar" style="animation-delay: 0.5s"></span>
-                <span class="w-1 h-7 bg-electric rounded-full eq-bar" style="animation-delay: 0.2s"></span>
-                <span class="w-1 h-5 bg-spectral rounded-full eq-bar" style="animation-delay: 0.4s"></span>
-                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.6s"></span>
-                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.15s"></span>
-            </div>
-
             <p class="font-playfair italic text-lg sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
                 «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
             </p>
@@ -433,10 +383,9 @@
     </footer>
 
     <!-- =====================================================================
-         JAVASCRIPT MODULAR (Onda Vocal Cian, Lluvia Nocturna y Audio Ambiental)
+         JAVASCRIPT
          ===================================================================== -->
     <script>
-        // 1. MENÚ RESPONSIVE MÓVIL
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -445,7 +394,6 @@
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
 
-        // 2. SINTETIZADOR AMBIENTAL NOCTURNO (Web Audio API)
         const ambientNavBtn = document.getElementById('ambientNavBtn');
         const navAudioDot = document.getElementById('navAudioDot');
         const navAudioLabel = document.getElementById('navAudioLabel');
@@ -531,7 +479,6 @@
 
         ambientNavBtn.addEventListener('click', initAndToggleAmbient);
 
-        // 3. VISUALIZADOR DE ONDA VOCAL CIAN EN LA FICHA DE SERAFÍN
         const voiceWaveCanvas = document.getElementById('voiceWaveCanvas');
         const voiceWaveCtx = voiceWaveCanvas.getContext('2d');
         let wavePhase = 0;
@@ -582,7 +529,6 @@
             requestAnimationFrame(renderVoiceWave);
         }
 
-        // 4. FONDO ATMOSFÉRICO: LLUVIA FINA NOCTURNA + PARTÍCULAS EN SUSPENSIÓN
         const atmoCanvas = document.getElementById('atmosphereCanvas');
         const atmoCtx = atmoCanvas.getContext('2d');
         let raindrops = [];
