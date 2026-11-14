@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Temporada 1 · Episodios | El Peregrino de la Medianoche</title>
-    <meta name="description" content="Calendario oficial de emisión y capítulos de la Temporada 1 de El Peregrino de la Medianoche. Cada miércoles a medianoche en iVoox y Spotify.">
+    <title>Comunidad de Nocturnos | El Peregrino de la Medianoche</title>
+    <meta name="description" content="El rincón oficial de la comunidad de oyentes de El Peregrino de la Medianoche. Envía tus testimonios y propuestas de casos reales.">
     
     <!-- Google Fonts: Cinzel, Playfair Display e Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -89,30 +89,15 @@
             animation: pulseBar 1.45s ease-in-out infinite;
         }
 
-        .noir-card-published {
+        .nocturne-card {
             background: linear-gradient(155deg, rgba(14, 25, 41, 0.94) 0%, rgba(9, 19, 32, 0.98) 100%);
-            border: 1px solid rgba(103, 232, 249, 0.45);
-            box-shadow: 0 18px 38px -12px rgba(0, 0, 0, 0.92), 0 0 32px -8px rgba(56, 189, 248, 0.28);
+            border: 1px solid rgba(56, 189, 248, 0.25);
+            box-shadow: 0 18px 38px -12px rgba(0, 0, 0, 0.92), 0 0 32px -8px rgba(56, 189, 248, 0.18);
             transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
         }
-        .noir-card-published:hover {
-            border-color: rgba(103, 232, 249, 0.85);
-            box-shadow: 0 22px 45px -12px rgba(0, 0, 0, 0.95), 0 0 38px -6px rgba(103, 232, 249, 0.38);
-            transform: translateY(-3px);
-        }
-
-        .noir-card-locked {
-            background: linear-gradient(155deg, rgba(8, 14, 24, 0.78) 0%, rgba(4, 7, 11, 0.94) 100%);
-            border: 1px solid rgba(56, 189, 248, 0.11);
-            cursor: not-allowed;
-            user-select: none;
-        }
-
-        .classified-blur-layer {
-            filter: blur(7px) brightness(0.45) contrast(1.1);
-            opacity: 0.42;
-            pointer-events: none;
-            user-select: none;
+        .nocturne-card:hover {
+            border-color: rgba(56, 189, 248, 0.55);
+            box-shadow: 0 22px 45px -12px rgba(0, 0, 0, 0.95), 0 0 38px -6px rgba(56, 189, 248, 0.3);
         }
 
         .forensic-stamp {
@@ -124,12 +109,6 @@
                 transparent 4px,
                 transparent 8px
             );
-        }
-
-        .locked-stamp {
-            border: 1px solid rgba(148, 163, 184, 0.28);
-            background: rgba(3, 5, 8, 0.88);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
         }
     </style>
 </head>
@@ -168,12 +147,12 @@
                 <!-- Enlaces de Navegación Desktop -->
                 <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
                     <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
-                    <a href="episodios.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">
-                        Episodios
-                    </a>
+                    <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
                     <a href="expedientes.html" class="hover:text-spectral transition-colors">Expedientes</a>
                     <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
-                    <a href="nocturnos.html" class="hover:text-spectral transition-colors">Nocturnos</a>
+                    <a href="nocturnos.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">
+                        Nocturnos
+                    </a>
                 </nav>
 
                 <!-- Control Discreto de Atmósfera Sonora + Menú Móvil -->
@@ -199,125 +178,146 @@
         <!-- Menú Desplegable Móvil -->
         <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5">
             <a href="index.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Inicio</a>
-            <a href="episodios.html" aria-current="page" class="block py-2 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Episodios</a>
+            <a href="episodios.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Episodios</a>
             <a href="expedientes.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Expedientes</a>
             <a href="voces.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
-            <a href="nocturnos.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Nocturnos</a>
+            <a href="nocturnos.html" aria-current="page" class="block py-2 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Nocturnos</a>
         </div>
     </header>
 
     <!-- =====================================================================
-         2. CABECERA DE LA TEMPORADA 1 (Hero de Emisiones)
+         2. CONTENIDO PRINCIPAL DE LA COMUNIDAD DE NOCTURNOS
          ===================================================================== -->
-    <main class="relative z-10">
-        <section class="relative pt-32 pb-14 border-b border-spectral/15 overflow-hidden">
-            <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_20%,#0e1f38_0%,#030508_78%)] z-0"></div>
-            <div class="fog-layer absolute inset-0 pointer-events-none z-0"></div>
+    <main class="relative z-10 pt-32 pb-20">
+        
+        <!-- Cabecera de Sección -->
+        <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-14">
+            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-electric text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
+                <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
+                <span>Comunidad Oficial · Los que caminan con lo inexplicable</span>
+            </div>
 
-            <div class="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <!-- Sello superior -->
-                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-electric text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
-                    <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
-                    <span>Temporada 1 · Cada Miércoles a Medianoche en iVoox y Spotify</span>
+            <h1 class="font-cinzel font-extrabold text-3xl sm:text-5xl md:text-6xl tracking-[0.08em] leading-tight silver-metallic mb-5">
+                EL RINCÓN DE LOS NOCTURNOS
+            </h1>
+
+            <p class="font-playfair italic text-base sm:text-xl text-silverMuted max-w-3xl mx-auto leading-relaxed mb-6">
+                «Cuando las luces se apagan y la ciudad duerme, un susurro atraviesa la oscuridad. Este es el refugio para quienes miran al otro lado del espejo.»
+            </p>
+
+            <div class="max-w-md mx-auto h-6 opacity-80" aria-hidden="true">
+                <svg viewBox="0 0 400 24" class="w-full h-full" fill="none">
+                    <path d="M0 12 H125 L133 4 L140 20 L147 2 L154 22 L161 6 L168 18 L175 12 H225 L232 6 L239 18 L246 2 L253 22 L260 4 L267 20 L275 12 H400" 
+                          stroke="#38bdf8" stroke-width="1.3" stroke-linecap="round"/>
+                </svg>
+            </div>
+        </section>
+
+        <!-- Manifiesto -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="nocturne-card rounded-2xl p-8 sm:p-10 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-1.5 h-full bg-spectral shadow-spectral"></div>
+                <h2 class="font-cinzel font-bold text-xl sm:text-2xl text-bone mb-6 tracking-wide uppercase">Manifiesto del Nocturno</h2>
+                <div class="space-y-4 font-playfair italic text-base sm:text-lg text-silverMuted leading-relaxed">
+                    <p>Cuando la ciudad apaga sus luces y el bullicio diurno se desvanece en un susurro, se abre un umbral silencioso que pocos se atreven a cruzar. No es solo la ausencia de sol; es el momento en que la mente abandona sus defensas lógicas y permite que los miedos más profundos, los enigmas sin resolver y las sombras del subconsciente reclamen su espacio.</p>
+                    <p>Esta comunidad pertenece a quienes encuentran refugio en la penumbra. Aquí no hay juicios ni incredulidad ante lo anómalo; solo el deseo compartido de mirar al otro lado del espejo y escuchar aquello que el ruido del mundo intenta silenciar. Bienvenid@ a tu refugio, nocturno.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Buzón de Mensajes e Historias (Formulario Interactivo) -->
+        <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
+            <div class="nocturne-card rounded-2xl p-8 sm:p-10">
+                <div class="flex items-center gap-3 mb-4">
+                    <span class="p-2 rounded-lg bg-spectral/10 text-spectral border border-spectral/30">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
+                        </svg>
+                    </span>
+                    <div>
+                        <h3 class="font-cinzel font-bold text-xl text-bone tracking-wide">Buzón de Mensajes y Casos</h3>
+                        <p class="text-xs text-silverMuted font-mono">Envía tu testimonio o propuesta de investigación al equipo</p>
+                    </div>
                 </div>
 
-                <h1 class="font-cinzel font-extrabold text-3xl sm:text-5xl md:text-6xl tracking-[0.08em] leading-tight silver-metallic mb-5">
-                    TEMPORADA 1 · EPISODIOS
-                </h1>
-
-                <p class="font-playfair italic text-base sm:text-xl text-silverMuted max-w-3xl mx-auto leading-relaxed mb-8">
-                    «Trece noches de viaje hacia los rincones más oscuros de la mente humana. El primer capítulo ya resuena en la oscuridad; los doce restantes aguardan su hora.»
+                <p class="text-silverMuted text-sm sm:text-base mb-8 leading-relaxed">
+                    ¿Has experimentado algo que desafía la razón? ¿Conoces un caso real olvidado en los archivos de la historia que merezca ser desclasificado? Envía tu testimonio o propuesta para que sea analizado en los expedientes del programa.
                 </p>
 
-                <!-- Divisor con onda cian minimalista -->
-                <div class="max-w-md mx-auto h-6 opacity-80" aria-hidden="true">
-                    <svg viewBox="0 0 400 24" class="w-full h-full" fill="none">
-                        <path d="M0 12 H125 L133 4 L140 20 L147 2 L154 22 L161 6 L168 18 L175 12 H225 L232 6 L239 18 L246 2 L253 22 L260 4 L267 20 L275 12 H400" 
-                              stroke="#38bdf8" stroke-width="1.3" stroke-linecap="round"/>
-                    </svg>
+                <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                        <div>
+                            <label for="name" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Tu Nombre o Alias (Nocturno)</label>
+                            <input type="text" id="name" required placeholder="Ej. El Vigilante / Ana M." class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors">
+                        </div>
+                        <div>
+                            <label for="category" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Naturaleza del Envío</label>
+                            <select id="category" required class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors">
+                                <option value="testimonio">Testimonio Personal / Experiencia Anómala</option>
+                                <option value="caso">Propuesta de Caso Real / Crónica Negra</option>
+                                <option value="saludo">Mensaje para el Podcast</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div>
+                        <label for="message" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Tu Historia o Propuesta</label>
+                        <textarea id="message" rows="5" required placeholder="Escribe con detalle lo que deseas compartir con Serafín y Aurora..." class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors resize-y"></textarea>
+                    </div>
+                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-[0.18em] uppercase shadow-spectral hover:brightness-110 transition-all">
+                        Enviar al Otro Lado
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Muro de Testimonios / Ecos en la Penumbra -->
+        <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="font-cinzel font-bold text-2xl text-center text-bone tracking-widest uppercase mb-10">
+                Ecos en la Penumbra
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
+                <div class="nocturne-card rounded-2xl p-7 flex flex-col justify-between">
+                    <div>
+                        <span class="font-cinzel text-xs text-spectral tracking-widest uppercase block mb-3">Nocturno #412 — Valencia</span>
+                        <p class="font-playfair italic text-silverMuted text-base leading-relaxed">
+                            «Escuchar el episodio sobre la privación de sueño a las tres de la mañana mientras llovía en la calle fue una experiencia hipnótica. Gracias por rescatar este nivel de narrativa.»
+                        </p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-spectral/15 text-[11px] font-mono text-silverMuted/60">
+                        📅 Testimonio verificado en archivo
+                    </div>
                 </div>
 
-                <!-- Indicadores de emisión -->
-                <div class="grid grid-cols-2 sm:grid-cols-4 gap-3 max-w-3xl mx-auto mt-8 text-left">
-                    <div class="rounded-xl bg-midnight/90 border border-electric/40 p-3.5 shadow-spectral">
-                        <span class="block font-cinzel text-lg sm:text-xl font-bold text-electric">1 de 13</span>
-                        <span class="text-[11px] text-bone uppercase tracking-wider">Publicados</span>
+                <div class="nocturne-card rounded-2xl p-7 flex flex-col justify-between">
+                    <div>
+                        <span class="font-cinzel text-xs text-spectral tracking-widest uppercase block mb-3">Nocturno #89 — Madrid</span>
+                        <p class="font-playfair italic text-silverMuted text-base leading-relaxed">
+                            «El rigor con el que tratáis los casos reales impresiona tanto como la ficción. El expediente de Octavia Smith Hatcher me dejó sin dormir varios días.»
+                        </p>
                     </div>
-                    <div class="rounded-xl bg-midnight/85 border border-spectral/20 p-3.5">
-                        <span class="block font-cinzel text-lg sm:text-xl font-bold text-silverMuted">12</span>
-                        <span class="text-[11px] text-silverMuted uppercase tracking-wider">Próximos Estrenos</span>
+                    <div class="mt-6 pt-4 border-t border-spectral/15 text-[11px] font-mono text-silverMuted/60">
+                        📅 Testimonio verificado en archivo
                     </div>
-                    <div class="rounded-xl bg-midnight/85 border border-spectral/20 p-3.5">
-                        <span class="block font-cinzel text-lg sm:text-xl font-bold text-bone">00:00 H</span>
-                        <span class="text-[11px] text-silverMuted uppercase tracking-wider">Cita Semanal</span>
+                </div>
+
+                <div class="nocturne-card rounded-2xl p-7 flex flex-col justify-between">
+                    <div>
+                        <span class="font-cinzel text-xs text-spectral tracking-widest uppercase block mb-3">Nocturno #105 — Alicante</span>
+                        <p class="font-playfair italic text-silverMuted text-base leading-relaxed">
+                            «La atmósfera sonora y la voz te atrapan desde el primer segundo. Es increíble encontrar un espacio que respete tanto el misterio clásico y el horror psicológico.»
+                        </p>
                     </div>
-                    <div class="rounded-xl bg-midnight/85 border border-spectral/20 p-3.5">
-                        <span class="block font-cinzel text-lg sm:text-xl font-bold text-spectral">18 NOV 2026</span>
-                        <span class="text-[11px] text-silverMuted uppercase tracking-wider">Capítulo 2</span>
+                    <div class="mt-6 pt-4 border-t border-spectral/15 text-[11px] font-mono text-silverMuted/60">
+                        📅 Testimonio verificado en archivo
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- =====================================================================
-             3. BARRA DE FILTRADO POR ESTADO DE EMISIÓN
-             ===================================================================== -->
-        <section class="py-6 bg-midnight/75 border-b border-spectral/15 sticky top-20 z-30 backdrop-blur-md">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
-                    
-                    <!-- Botones de Estado -->
-                    <div id="statusFilters" class="flex flex-wrap items-center gap-2.5" role="tablist" aria-label="Filtrar episodios por estado">
-                        <button type="button" data-filter="all" class="filter-btn active px-4 py-2 rounded-xl text-xs font-cinzel tracking-wider uppercase bg-gradient-to-r from-spectral to-electric text-abyss font-bold shadow-spectral transition-all">
-                            Todos (13)
-                        </button>
-                        <button type="button" data-filter="published" class="filter-btn px-4 py-2 rounded-xl text-xs font-cinzel tracking-wider uppercase bg-slateCard border border-spectral/25 text-silverMuted hover:text-electric hover:border-electric/50 transition-all">
-                            Publicados (1)
-                        </button>
-                        <button type="button" data-filter="upcoming" class="filter-btn px-4 py-2 rounded-xl text-xs font-cinzel tracking-wider uppercase bg-slateCard border border-spectral/25 text-silverMuted hover:text-electric hover:border-electric/50 transition-all">
-                            Próximos Estrenos (12)
-                        </button>
-                    </div>
-
-                    <!-- Contador dinámico -->
-                    <div class="text-xs font-cinzel tracking-widest uppercase text-silverMuted">
-                        <span id="resultsCount">1 de 13 Episodios Publicados</span>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- =====================================================================
-             4. LISTADO DE EPISODIOS (Capítulo 1 Protagonista + 12 Sellados)
-             ===================================================================== -->
-        <section class="py-14 sm:py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
-                
-                <!-- Bloque Destacado: Capítulo 1 Publicado -->
-                <div id="publishedContainer">
-                    <!-- Inyectado dinámicamente -->
-                </div>
-
-                <!-- Separador del Calendario de Próximos Estrenos -->
-                <div id="upcomingDivider" class="flex items-center gap-4 pt-2">
-                    <div class="h-px flex-1 bg-gradient-to-r from-transparent via-spectral/30 to-spectral/10"></div>
-                    <span class="font-cinzel text-xs tracking-[0.25em] text-silverMuted uppercase">
-                        Calendario Sellado · Próximas Emisiones
-                    </span>
-                    <div class="h-px flex-1 bg-gradient-to-l from-transparent via-spectral/30 to-spectral/10"></div>
-                </div>
-
-                <!-- Grid de los 12 Episodios Restantes (Borrosos y Sellados) -->
-                <div id="upcomingGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
-                    <!-- Inyectado dinámicamente -->
-                </div>
-
-            </div>
-        </section>
     </main>
 
     <!-- =====================================================================
-         5. CIERRE / FOOTER MINIMALISTA
+         3. CIERRE / FOOTER MINIMALISTA
          ===================================================================== -->
     <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -337,10 +337,10 @@
 
             <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
                 <a href="index.html" class="hover:text-electric transition-colors">Inicio</a>
-                <a href="episodios.html" class="text-electric">Episodios</a>
+                <a href="episodios.html" class="hover:text-electric transition-colors">Episodios</a>
                 <a href="expedientes.html" class="hover:text-electric transition-colors">Expedientes</a>
                 <a href="voces.html" class="hover:text-electric transition-colors">Voces</a>
-                <a href="nocturnos.html" class="hover:text-electric transition-colors">Nocturnos</a>
+                <a href="nocturnos.html" class="text-electric">Nocturnos</a>
                 <span class="text-spectral/30 hidden sm:inline">|</span>
                 <a href="https://www.ivoox.com" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">iVoox ↗</a>
                 <a href="https://open.spotify.com" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">Spotify ↗</a>
@@ -353,231 +353,17 @@
     </footer>
 
     <!-- =====================================================================
-         JAVASCRIPT MODULAR (Renderizado de Episodios, Filtros y Audio Ambiental)
+         JAVASCRIPT: MENÚ MÓVIL, FORMULARIO Y AUDIO AMBIENTAL
          ===================================================================== -->
     <script>
-        // 1. DATOS DEL EPISODIO 1 PUBLICADO (ÚNICO DESBLOQUEADO)
-        const PUBLISHED_EPISODE = {
-            number: 'CAPÍTULO 1',
-            season: 'Temporada 1 · Estreno',
-            date: '11 de noviembre de 2026',
-            duration: '29 min',
-            category: 'Parasomnias y Neurobiología Onírica',
-            title: 'Pesadillas, Sombras de la vigilia, y Muerte súbita nocturna',
-            synopsis: 'El viaje inaugural de El Peregrino de la Medianoche explora esa franja helada en la que el cuerpo permanece paralizado en la cama mientras la mente despierta atrapada dentro de una alucinación hipnagógica. Tras la dramatización, Serafín analiza la neurobiología de la parálisis del sueño y Aurora desclasifica el enigma médico del Síndrome de Muerte Súbita Inexplicada Nocturna (Bangungut) que sacudió al sudeste asiático.',
-            ivooxUrl: 'https://www.ivoox.com',
-            spotifyUrl: 'https://open.spotify.com'
-        };
-
-        // 2. LISTADO DE LOS 12 EPISODIOS RESTANTES (BLOQUEADOS Y BORROSOS HASTA SU ESTRENO)
-        const UPCOMING_EPISODES = [
-            { code: 'EP-02', label: 'CAPÍTULO 2', releaseDate: '18 Nov 2026' },
-            { code: 'EP-03', label: 'CAPÍTULO 3', releaseDate: '25 Nov 2026' },
-            { code: 'EP-04', label: 'CAPÍTULO 4', releaseDate: '02 Dic 2026' },
-            { code: 'EP-05', label: 'CAPÍTULO 5', releaseDate: '09 Dic 2026' },
-            { code: 'EP-06', label: 'CAPÍTULO 6', releaseDate: '16 Dic 2026' },
-            { code: 'ESP-NAV', label: 'ESPECIAL DE NAVIDAD', releaseDate: '25 Dic 2026' },
-            { code: 'EP-07', label: 'CAPÍTULO 7', releaseDate: '13 Ene 2027' },
-            { code: 'EP-08', label: 'CAPÍTULO 8', releaseDate: '20 Ene 2027' },
-            { code: 'EP-09A', label: 'CAPÍTULO 9 (1ª PARTE)', releaseDate: '27 Ene 2027' },
-            { code: 'EP-09B', label: 'CAPÍTULO 9 (2ª PARTE)', releaseDate: '03 Feb 2027' },
-            { code: 'EP-10', label: 'CAPÍTULO 10', releaseDate: '10 Feb 2027' },
-            { code: 'ESP-SV', label: 'ESPECIAL SAN VALENTÍN', releaseDate: '14 Feb 2027' }
-        ];
-
-        // 3. GENERADORES DE HTML
-        const publishedContainer = document.getElementById('publishedContainer');
-        const upcomingDivider = document.getElementById('upcomingDivider');
-        const upcomingGrid = document.getElementById('upcomingGrid');
-        const resultsCount = document.getElementById('resultsCount');
-        const filterBtns = document.querySelectorAll('.filter-btn');
-        let currentFilter = 'all';
-
-        function buildPublishedEpisodeHTML() {
-            return `
-                <article class="noir-card-published rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-card-dark">
-                    <!-- Carátula Artística Nítida con Onda de Audio Cian -->
-                    <div class="lg:col-span-5 relative min-h-[290px] sm:min-h-[320px] bg-gradient-to-b from-[#0c1b33] via-[#070f1c] to-[#030508] border-b lg:border-b-0 lg:border-r border-spectral/25 overflow-hidden flex flex-col justify-between p-6 select-none">
-                        <svg viewBox="0 0 360 320" class="absolute inset-0 w-full h-full object-cover" preserveAspectRatio="xMidYMid slice">
-                            <defs>
-                                <radialGradient id="ep1WindowGlow" cx="50%" cy="42%" r="55%">
-                                    <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.35"/>
-                                    <stop offset="100%" stop-color="#030508" stop-opacity="0"/>
-                                </radialGradient>
-                            </defs>
-                            <rect width="360" height="320" fill="url(#ep1WindowGlow)"/>
-                            <!-- Ventana nocturna bajo la lluvia -->
-                            <rect x="108" y="54" width="144" height="168" rx="3" fill="#091526" stroke="#38bdf8" stroke-width="1.3" stroke-opacity="0.6"/>
-                            <line x1="180" y1="54" x2="180" y2="222" stroke="#38bdf8" stroke-width="1.1" stroke-opacity="0.45"/>
-                            <line x1="108" y1="138" x2="252" y2="138" stroke="#38bdf8" stroke-width="1.1" stroke-opacity="0.45"/>
-                            <!-- Sombra observando en la vigilia -->
-                            <circle cx="148" cy="112" r="12" fill="#030508"/>
-                            <path d="M128 182C128 150 168 150 168 182" fill="#030508"/>
-                            <!-- Destello ocular sutil -->
-                            <circle cx="144" cy="111" r="1.3" fill="#67e8f9" opacity="0.85"/>
-                            <circle cx="152" cy="111" r="1.3" fill="#67e8f9" opacity="0.85"/>
-                            <!-- Onda sonora cian luminosa en la base -->
-                            <path d="M0 278 H62 L70 262 L77 294 L84 250 L91 300 L98 266 L105 288 H152 L160 254 L167 304 L174 242 L180 308 L186 250 L193 292 H242 L250 260 L257 296 L264 248 L271 302 L278 264 L285 288 H360" 
-                                  stroke="#67e8f9" stroke-width="1.8" fill="none" opacity="0.95"/>
-                        </svg>
-
-                        <!-- Cabecera interna de la carátula -->
-                        <div class="relative z-10 text-center pt-1">
-                            <span class="font-cinzel font-extrabold text-xl sm:text-2xl tracking-[0.16em] silver-metallic block">
-                                ${PUBLISHED_EPISODE.number}
-                            </span>
-                            <span class="font-playfair italic text-xs sm:text-sm text-bone/90 block mt-0.5">
-                                ${PUBLISHED_EPISODE.season}
-                            </span>
-                        </div>
-
-                        <!-- Pie de la carátula -->
-                        <div class="relative z-10 flex items-center justify-between text-[11px] font-cinzel tracking-widest text-electric bg-abyss/70 backdrop-blur-sm px-3 py-1.5 rounded-lg border border-spectral/20">
-                            <span>⏱ ${PUBLISHED_EPISODE.duration}</span>
-                            <span>11 NOV 2026</span>
-                        </div>
-                    </div>
-
-                    <!-- Información y Reproducción del Capítulo 1 -->
-                    <div class="lg:col-span-7 p-6 sm:p-9 flex flex-col justify-between">
-                        <div>
-                            <div class="flex flex-wrap items-center gap-3 mb-4">
-                                <span class="px-3 py-1 rounded-full text-xs font-medium bg-emerald-500/15 text-emerald-300 border border-emerald-400/35 flex items-center gap-1.5">
-                                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
-                                    Publicado · Disponible ahora
-                                </span>
-                                <span class="text-xs font-cinzel tracking-wider text-spectral uppercase">
-                                    ${PUBLISHED_EPISODE.category}
-                                </span>
-                            </div>
-
-                            <h2 class="font-cinzel text-xl sm:text-2xl md:text-3xl font-bold text-bone leading-snug mb-4">
-                                ${PUBLISHED_EPISODE.title}
-                            </h2>
-
-                            <p class="text-silverMuted text-sm sm:text-base leading-relaxed mb-6">
-                                ${PUBLISHED_EPISODE.synopsis}
-                            </p>
-
-                            <div class="flex flex-wrap items-center gap-x-6 gap-y-2 text-xs font-mono text-silverMuted/90 mb-6">
-                                <span>📅 Estreno: ${PUBLISHED_EPISODE.date}</span>
-                                <span>🎧 Duración: ${PUBLISHED_EPISODE.duration}</span>
-                                <span>🎙️ Voces: Serafín &amp; Aurora</span>
-                            </div>
-                        </div>
-
-                        <!-- Botones de Acción Directa -->
-                        <div class="pt-5 border-t border-spectral/20 flex flex-wrap items-center gap-3">
-                            <a href="${PUBLISHED_EPISODE.ivooxUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-[0.14em] uppercase shadow-spectral hover:brightness-110 transition-all flex items-center gap-2">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
-                                <span>Escuchar en iVoox</span>
-                            </a>
-
-                            <a href="${PUBLISHED_EPISODE.spotifyUrl}" target="_blank" rel="noopener noreferrer" class="px-5 py-3.5 rounded-xl bg-slateCard border border-electric/50 text-electric font-cinzel font-semibold text-xs tracking-[0.14em] uppercase hover:bg-electric/15 transition-all flex items-center gap-2">
-                                <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm4.59 14.42c-.18.3-.56.39-.86.21-2.35-1.44-5.31-1.76-8.79-.96-.34.08-.68-.13-.76-.47-.08-.34.13-.68.47-.76 3.81-.87 7.08-.5 9.73 1.12.3.18.39.56.21.86zm1.22-2.72c-.23.37-.71.49-1.08.26-2.69-1.65-6.79-2.13-9.97-1.16-.42.13-.86-.11-.99-.53-.13-.42.11-.86.53-.99 3.63-1.1 8.15-.57 11.25 1.34.37.23.49.71.26 1.08zm.11-2.83C14.7 8.95 9.37 8.77 6.29 9.71c-.49.15-1.01-.13-1.16-.62-.15-.49.13-1.01.62-1.16 3.53-1.07 9.41-.86 13.11 1.33.44.26.59.83.33 1.27-.26.44-.83.59-1.27.34z"/></svg>
-                                <span>Escuchar en Spotify</span>
-                            </a>
-
-                            <a href="expedientes.html" class="px-5 py-3.5 rounded-xl bg-abyss border border-spectral/35 text-bone font-cinzel text-xs tracking-[0.12em] uppercase hover:border-electric hover:text-electric transition-all flex items-center gap-2">
-                                <span>📂 Ver Expediente EXP-01</span>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            `;
+        // Formulario de envío
+        function handleFormSubmit(event) {
+            event.preventDefault();
+            alert("Mensaje enviado correctamente a la penumbra. Gracias, nocturno.");
+            event.target.reset();
         }
 
-        function buildLockedEpisodeHTML(ep) {
-            return `
-                <article aria-disabled="true" class="noir-card-locked rounded-2xl overflow-hidden flex flex-col justify-between relative min-h-[370px]">
-                    
-                    <!-- Capa de fondo censurada y difuminada -->
-                    <div class="classified-blur-layer flex flex-col h-full" aria-hidden="true">
-                        <div class="h-44 bg-gradient-to-b from-[#0d1f3a] to-[#050a12] relative p-4 flex flex-col justify-between">
-                            <div class="mx-auto h-5 w-32 bg-bone/30 rounded"></div>
-                            <svg viewBox="0 0 300 40" class="w-full h-8">
-                                <path d="M0 20 H60 L70 5 L80 35 L90 10 L100 30 H160 L170 4 L180 36 L190 8 L200 32 H300" stroke="#38bdf8" stroke-width="2" fill="none"/>
-                            </svg>
-                        </div>
-                        <div class="p-6 space-y-3 flex-1">
-                            <div class="h-3 w-28 bg-spectral/30 rounded"></div>
-                            <div class="h-5 w-11/12 bg-bone/30 rounded"></div>
-                            <div class="h-5 w-3/4 bg-bone/25 rounded"></div>
-                            <div class="space-y-2 pt-2">
-                                <div class="h-3 w-full bg-silverMuted/20 rounded"></div>
-                                <div class="h-3 w-5/6 bg-silverMuted/20 rounded"></div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Sello Central Inviolable de Próximo Estreno -->
-                    <div class="absolute inset-0 z-10 flex flex-col items-center justify-center p-6 text-center bg-abyss/45 backdrop-blur-[3px]">
-                        <div class="w-13 h-13 p-3.5 rounded-full locked-stamp flex items-center justify-center text-silverMuted mb-3.5">
-                            <svg class="w-6 h-6 text-spectral/80" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                            </svg>
-                        </div>
-
-                        <span class="font-cinzel text-[11px] tracking-[0.22em] text-spectral/90 uppercase mb-1.5">
-                            ${ep.code} · TEMPORADA 1
-                        </span>
-
-                        <div class="px-4 py-1.5 rounded locked-stamp font-cinzel font-bold text-xs sm:text-sm tracking-[0.18em] text-bone uppercase mb-3">
-                            ${ep.label}
-                        </div>
-
-                        <p class="text-xs font-mono text-silverMuted/90">
-                            Estreno previsto: <span class="text-electric font-semibold">${ep.releaseDate}</span>
-                        </p>
-                        <span class="text-[10px] font-cinzel tracking-widest uppercase text-silverMuted/60 mt-1">
-                            00:00 H · iVoox &amp; Spotify
-                        </span>
-                    </div>
-                </article>
-            `;
-        }
-
-        function renderEpisodesPage() {
-            if (currentFilter === 'all') {
-                publishedContainer.innerHTML = buildPublishedEpisodeHTML();
-                publishedContainer.classList.remove('hidden');
-                upcomingDivider.classList.remove('hidden');
-                upcomingGrid.innerHTML = UPCOMING_EPISODES.map(buildLockedEpisodeHTML).join('');
-                upcomingGrid.classList.remove('hidden');
-                resultsCount.textContent = '1 de 13 Episodios Publicados';
-            } else if (currentFilter === 'published') {
-                publishedContainer.innerHTML = buildPublishedEpisodeHTML();
-                publishedContainer.classList.remove('hidden');
-                upcomingDivider.classList.add('hidden');
-                upcomingGrid.classList.add('hidden');
-                resultsCount.textContent = 'Mostrando 1 episodio publicado';
-            } else if (currentFilter === 'upcoming') {
-                publishedContainer.classList.add('hidden');
-                upcomingDivider.classList.add('hidden');
-                upcomingGrid.innerHTML = UPCOMING_EPISODES.map(buildLockedEpisodeHTML).join('');
-                upcomingGrid.classList.remove('hidden');
-                resultsCount.textContent = 'Mostrando 12 próximos estrenos sellados';
-            }
-        }
-
-        // Control de filtros
-        filterBtns.forEach(btn => {
-            btn.addEventListener('click', () => {
-                currentFilter = btn.getAttribute('data-filter');
-
-                filterBtns.forEach(b => {
-                    b.classList.remove('active', 'bg-gradient-to-r', 'from-spectral', 'to-electric', 'text-abyss', 'font-bold', 'shadow-spectral');
-                    b.classList.add('bg-slateCard', 'border', 'border-spectral/25', 'text-silverMuted');
-                });
-
-                btn.classList.add('active', 'bg-gradient-to-r', 'from-spectral', 'to-electric', 'text-abyss', 'font-bold', 'shadow-spectral');
-                btn.classList.remove('bg-slateCard', 'border', 'border-spectral/25', 'text-silverMuted');
-
-                renderEpisodesPage();
-            });
-        });
-
-        // 4. MENÚ RESPONSIVE MÓVIL
+        // Menú responsive móvil
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -586,7 +372,7 @@
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
 
-        // 5. SINTETIZADOR AMBIENTAL NOCTURNO (Web Audio API)
+        // Sintetizador ambiental nocturno (Web Audio API)
         const ambientNavBtn = document.getElementById('ambientNavBtn');
         const navAudioDot = document.getElementById('navAudioDot');
         const navAudioLabel = document.getElementById('navAudioLabel');
@@ -672,7 +458,7 @@
 
         ambientNavBtn.addEventListener('click', initAndToggleAmbient);
 
-        // 6. FONDO ATMOSFÉRICO: LLUVIA FINA NOCTURNA + PARTÍCULAS
+        // Fondo atmosférico: Lluvia fina nocturna + partículas
         const atmoCanvas = document.getElementById('atmosphereCanvas');
         const atmoCtx = atmoCanvas.getContext('2d');
         let raindrops = [];
@@ -738,7 +524,6 @@
         window.addEventListener('resize', initAtmosphere);
 
         window.onload = function() {
-            renderEpisodesPage();
             initAtmosphere();
             renderAtmosphere();
         };
