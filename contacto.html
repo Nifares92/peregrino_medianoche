@@ -80,15 +80,6 @@
             background: radial-gradient(ellipse at 50% 25%, rgba(56, 189, 248, 0.11) 0%, rgba(9, 19, 32, 0) 70%);
         }
 
-        @keyframes pulseBar {
-            0%, 100% { transform: scaleY(0.28); }
-            50% { transform: scaleY(1); }
-        }
-        .eq-bar {
-            transform-origin: center;
-            animation: pulseBar 1.45s ease-in-out infinite;
-        }
-
         .nocturne-card {
             background: linear-gradient(155deg, rgba(14, 25, 41, 0.94) 0%, rgba(9, 19, 32, 0.98) 100%);
             border: 1px solid rgba(56, 189, 248, 0.25);
@@ -114,53 +105,42 @@
 </head>
 <body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
 
-    <!-- Lienzo atmosférico: lluvia fina nocturna y partículas luminosas -->
+    <!-- Lienzo atmosférico -->
     <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
 
     <!-- =====================================================================
-         1. BARRA DE NAVEGACIÓN SUPERIOR (Con el logo.jpg general)
+         1. BARRA DE NAVEGACIÓN SUPERIOR
          ===================================================================== -->
     <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/85 backdrop-blur-md border-b border-spectral/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Logo General de la Web -->
+                <!-- Logo General -->
                 <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
-                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
+                    <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors shrink-0">
                         <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-cinzel font-bold text-sm sm:text-base tracking-[0.16em] text-bone group-hover:text-white transition-colors">
+                        <span class="font-cinzel font-bold text-xs sm:text-base tracking-[0.14em] sm:tracking-[0.16em] text-bone group-hover:text-white transition-colors">
                             EL PEREGRINO
                         </span>
-                        <span class="font-cinzel text-[10px] sm:text-xs tracking-[0.26em] text-spectral uppercase">
+                        <span class="font-cinzel text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.26em] text-spectral uppercase">
                             DE LA MEDIANOCHE
                         </span>
                     </div>
                 </a>
 
-                <!-- Enlaces de Navegación Desktop -->
                 <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
                     <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
                     <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
                     <a href="expedientes.html" class="hover:text-spectral transition-colors">Expedientes</a>
                     <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
-                    <a href="nocturnos.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">
+                    <a href="contacto.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">
                         Nocturnos
                     </a>
                 </nav>
 
-                <!-- Control Discreto de Atmósfera Sonora + Menú Móvil -->
-                <div class="flex items-center gap-3">
-                    <button id="ambientNavBtn" type="button" aria-pressed="false" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-electric hover:border-electric/60 text-xs font-cinzel tracking-wider uppercase transition-all focus:outline-none" title="Activar o silenciar atmósfera nocturna">
-                        <span id="navAudioDot" class="w-2 h-2 rounded-full bg-silverMuted/50 transition-colors"></span>
-                        <span id="navAudioLabel" class="hidden sm:inline">Atmósfera Sonora</span>
-                        <svg class="w-4 h-4 text-spectral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
-                        </svg>
-                    </button>
-
-                    <!-- Botón Menú Móvil -->
+                <div class="flex items-center">
                     <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-electric focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
@@ -170,33 +150,31 @@
             </div>
         </div>
 
-        <!-- Menú Desplegable Móvil -->
         <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5">
-            <a href="index.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Inicio</a>
-            <a href="episodios.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Episodios</a>
-            <a href="expedientes.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Expedientes</a>
-            <a href="voces.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
-            <a href="nocturnos.html" aria-current="page" class="block py-2 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Nocturnos</a>
+            <a href="index.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Inicio</a>
+            <a href="episodios.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Episodios</a>
+            <a href="expedientes.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Expedientes</a>
+            <a href="voces.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
+            <a href="contacto.html" aria-current="page" class="block py-2.5 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Nocturnos / Contacto</a>
         </div>
     </header>
 
     <!-- =====================================================================
-         2. CONTENIDO PRINCIPAL DE LA COMUNIDAD DE NOCTURNOS
+         2. CONTENIDO PRINCIPAL
          ===================================================================== -->
     <main class="relative z-10 pt-32 pb-20">
         
-        <!-- Cabecera de Sección -->
         <section class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center mb-14">
-            <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-electric text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
-                <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse"></span>
+            <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full forensic-stamp text-electric text-[10px] sm:text-xs font-cinzel tracking-[0.18em] sm:tracking-[0.24em] uppercase mb-6 shadow-spectral text-center">
+                <span class="w-1.5 h-1.5 rounded-full bg-electric animate-pulse shrink-0"></span>
                 <span>Comunidad Oficial · Los que caminan con lo inexplicable</span>
             </div>
 
-            <h1 class="font-cinzel font-extrabold text-3xl sm:text-5xl md:text-6xl tracking-[0.08em] leading-tight silver-metallic mb-5">
+            <h1 class="font-cinzel font-extrabold text-2xl sm:text-5xl md:text-6xl tracking-[0.06em] sm:tracking-[0.08em] leading-tight silver-metallic mb-5">
                 EL RINCÓN DE LOS NOCTURNOS
             </h1>
 
-            <p class="font-playfair italic text-base sm:text-xl text-silverMuted max-w-3xl mx-auto leading-relaxed mb-6">
+            <p class="font-playfair italic text-sm sm:text-xl text-silverMuted max-w-3xl mx-auto leading-relaxed mb-6 px-2">
                 «Cuando las luces se apagan y la ciudad duerme, un susurro atraviesa la oscuridad. Este es el refugio para quienes miran al otro lado del espejo.»
             </p>
 
@@ -210,27 +188,27 @@
 
         <!-- Manifiesto -->
         <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-            <div class="nocturne-card rounded-2xl p-8 sm:p-10 relative overflow-hidden">
+            <div class="nocturne-card rounded-2xl p-6 sm:p-10 relative overflow-hidden">
                 <div class="absolute top-0 left-0 w-1.5 h-full bg-spectral shadow-spectral"></div>
-                <h2 class="font-cinzel font-bold text-xl sm:text-2xl text-bone mb-6 tracking-wide uppercase">Manifiesto del Nocturno</h2>
-                <div class="space-y-4 font-playfair italic text-base sm:text-lg text-silverMuted leading-relaxed">
+                <h2 class="font-cinzel font-bold text-lg sm:text-2xl text-bone mb-6 tracking-wide uppercase">Manifiesto del Nocturno</h2>
+                <div class="space-y-4 font-playfair italic text-sm sm:text-lg text-silverMuted leading-relaxed">
                     <p>Cuando la ciudad apaga sus luces y el bullicio diurno se desvanece en un susurro, se abre un umbral silencioso que pocos se atreven a cruzar. No es solo la ausencia de sol; es el momento en que la mente abandona sus defensas lógicas y permite que los miedos más profundos, los enigmas sin resolver y las sombras del subconsciente reclamen su espacio.</p>
                     <p>Esta comunidad pertenece a quienes encuentran refugio en la penumbra. Aquí no hay juicios ni incredulidad ante lo anómalo; solo el deseo compartido de mirar al otro lado del espejo y escuchar aquello que el ruido del mundo intenta silenciar. Bienvenid@ a tu refugio, nocturno.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Buzón de Mensajes e Historias (Formulario Interactivo) -->
+        <!-- Buzón conectado a Google Sheets -->
         <section class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 mb-20">
-            <div class="nocturne-card rounded-2xl p-8 sm:p-10">
+            <div class="nocturne-card rounded-2xl p-6 sm:p-10">
                 <div class="flex items-center gap-3 mb-4">
-                    <span class="p-2 rounded-lg bg-spectral/10 text-spectral border border-spectral/30">
+                    <span class="p-2 rounded-lg bg-spectral/10 text-spectral border border-spectral/30 shrink-0">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                         </svg>
                     </span>
                     <div>
-                        <h3 class="font-cinzel font-bold text-xl text-bone tracking-wide">Buzón de Mensajes y Casos</h3>
+                        <h3 class="font-cinzel font-bold text-lg sm:text-xl text-bone tracking-wide">Buzón de Mensajes y Casos</h3>
                         <p class="text-xs text-silverMuted font-mono">Envía tu testimonio o propuesta de investigación al equipo</p>
                     </div>
                 </div>
@@ -239,35 +217,39 @@
                     ¿Has experimentado algo que desafía la razón? ¿Conoces un caso real olvidado en los archivos de la historia que merezca ser desclasificado? Envía tu testimonio o propuesta para que sea analizado en los expedientes del programa.
                 </p>
 
-                <form onsubmit="handleFormSubmit(event)" class="space-y-6">
+                <form id="contactForm" onsubmit="enviarAlBuzon(event)" class="space-y-6">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
                         <div>
                             <label for="name" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Tu Nombre o Alias (Nocturno)</label>
-                            <input type="text" id="name" required placeholder="Ej. El Vigilante / Ana M." class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors">
+                            <input type="text" id="name" name="name" required placeholder="Ej. El Vigilante / Ana M." class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors">
                         </div>
                         <div>
-                            <label for="category" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Naturaleza del Envío</label>
-                            <select id="category" required class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors">
-                                <option value="testimonio">Testimonio Personal / Experiencia Anómala</option>
-                                <option value="caso">Propuesta de Caso Real / Crónica Negra</option>
-                                <option value="saludo">Mensaje para el Podcast</option>
-                            </select>
+                            <label for="email" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Tu Correo Electrónico</label>
+                            <input type="email" id="email" name="email" required placeholder="nocturno@correo.com" class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors">
                         </div>
                     </div>
                     <div>
-                        <label for="message" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Tu Historia o Propuesta</label>
-                        <textarea id="message" rows="5" required placeholder="Escribe con detalle lo que deseas compartir con Serafín y Aurora..." class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors resize-y"></textarea>
+                        <label for="category" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Naturaleza del Envío</label>
+                        <select id="category" name="category" required class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors">
+                            <option value="testimonio">Testimonio Personal / Experiencia Anómala</option>
+                            <option value="caso">Propuesta de Caso Real / Crónica Negra</option>
+                            <option value="saludo">Mensaje para el Podcast</option>
+                        </select>
                     </div>
-                    <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-[0.18em] uppercase shadow-spectral hover:brightness-110 transition-all">
+                    <div>
+                        <label for="message" class="block font-cinzel text-xs tracking-wider text-bone uppercase mb-2">Tu Historia o Propuesta</label>
+                        <textarea id="message" name="message" rows="5" required placeholder="Escribe con detalle lo que deseas compartir con Serafín..." class="w-full bg-midnight/90 border border-spectral/30 rounded-xl px-4 py-3 text-bone text-sm focus:outline-none focus:border-electric transition-colors resize-y"></textarea>
+                    </div>
+                    <button type="submit" id="submitBtn" class="w-full py-4 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-[0.18em] uppercase shadow-spectral hover:brightness-110 transition-all text-center">
                         Enviar al Otro Lado
                     </button>
                 </form>
             </div>
         </section>
 
-        <!-- Muro de Testimonios / Ecos en la Penumbra -->
+        <!-- Muro de Testimonios -->
         <section class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="font-cinzel font-bold text-2xl text-center text-bone tracking-widest uppercase mb-10">
+            <h2 class="font-cinzel font-bold text-xl sm:text-2xl text-center text-bone tracking-widest uppercase mb-10">
                 Ecos en la Penumbra
             </h2>
             <div class="grid grid-cols-1 md:grid-cols-3 gap-7">
@@ -308,53 +290,70 @@
                 </div>
             </div>
         </section>
-
     </main>
 
     <!-- =====================================================================
-         3. CIERRE / FOOTER MINIMALISTA
+         3. FOOTER
          ===================================================================== -->
-    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
+    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-12 sm:py-14">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <div class="flex items-center justify-center gap-1 h-7 mb-6 opacity-80" aria-hidden="true">
-                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.1s"></span>
-                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.3s"></span>
-                <span class="w-1 h-4 bg-spectral rounded-full eq-bar" style="animation-delay: 0.5s"></span>
-                <span class="w-1 h-7 bg-electric rounded-full eq-bar" style="animation-delay: 0.2s"></span>
-                <span class="w-1 h-5 bg-spectral rounded-full eq-bar" style="animation-delay: 0.4s"></span>
-                <span class="w-1 h-6 bg-electric rounded-full eq-bar" style="animation-delay: 0.6s"></span>
-                <span class="w-1 h-3 bg-spectral rounded-full eq-bar" style="animation-delay: 0.15s"></span>
-            </div>
-
-            <p class="font-playfair italic text-lg sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
+            <p class="font-playfair italic text-base sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed px-2">
                 «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
             </p>
 
-            <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
+            <nav class="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
                 <a href="index.html" class="hover:text-electric transition-colors">Inicio</a>
                 <a href="episodios.html" class="hover:text-electric transition-colors">Episodios</a>
-                <a href="expedientes.html" class="hover:text-electric transition-colors">Expedientes</a>
-                <a href="voces.html" class="hover:text-electric transition-colors">Voces</a>
-                <a href="nocturnos.html" class="text-electric">Nocturnos</a>
+                <a href="expedientes.html" class="hover:text-spectral transition-colors">Expedientes</a>
+                <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
+                <a href="contacto.html" class="text-electric">Nocturnos</a>
                 <span class="text-spectral/30 hidden sm:inline">|</span>
                 <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">iVoox ↗</a>
                 <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx?si=0c21705f3d594815" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">Spotify ↗</a>
             </nav>
 
             <p class="text-xs text-silverMuted/60">
-                © 2026–2027 El Peregrino de la Medianoche · Presentado por Serafín con la colaboración de Aurora.
+                © 2026–2027 El Peregrino de la Medianoche · Presentado por Serafín.
             </p>
         </div>
     </footer>
 
     <!-- =====================================================================
-         JAVASCRIPT: MENÚ MÓVIL, FORMULARIO Y AUDIO AMBIENTAL
+         JAVASCRIPT (Buzón conectado a Google Sheets + Lluvia)
          ===================================================================== -->
     <script>
-        function handleFormSubmit(event) {
+        const SCRIPT_URL = "https://script.google.com/macros/s/AKfycbyw59o6xrQwHiprPUDyz6lPporYEo8SpA8QcUVx6JTaSD5LaQVTSY6wOxC_Yg0KepE-bQ/exec";
+
+        function enviarAlBuzon(event) {
             event.preventDefault();
-            alert("Mensaje enviado correctamente a la penumbra. Gracias, nocturno.");
-            event.target.reset();
+            const btn = document.getElementById('submitBtn');
+            btn.textContent = "Enviando a la penumbra...";
+            btn.disabled = true;
+
+            const formData = new URLSearchParams({
+                name: document.getElementById('name').value,
+                email: document.getElementById('email').value,
+                category: document.getElementById('category').value,
+                message: document.getElementById('message').value
+            });
+
+            fetch(SCRIPT_URL, {
+                method: 'POST',
+                mode: 'no-cors',
+                body: formData
+            })
+            .then(() => {
+                alert("Mensaje enviado correctamente al archivo de los nocturnos.");
+                document.getElementById('contactForm').reset();
+                btn.textContent = "Enviar al Otro Lado";
+                btn.disabled = false;
+            })
+            .catch(err => {
+                console.error(err);
+                alert("Hubo un error al enviar el mensaje. Inténtalo de nuevo.");
+                btn.textContent = "Enviar al Otro Lado";
+                btn.disabled = false;
+            });
         }
 
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
@@ -365,91 +364,6 @@
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
 
-        const ambientNavBtn = document.getElementById('ambientNavBtn');
-        const navAudioDot = document.getElementById('navAudioDot');
-        const navAudioLabel = document.getElementById('navAudioLabel');
-
-        let isAmbientPlaying = false;
-        let audioCtx = null;
-
-        function initAndToggleAmbient() {
-            if (!audioCtx) {
-                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContextClass();
-
-                const masterGain = audioCtx.createGain();
-                masterGain.gain.value = 0.16;
-                masterGain.connect(audioCtx.destination);
-
-                const oscLow = audioCtx.createOscillator();
-                oscLow.type = 'sine';
-                oscLow.frequency.value = 55;
-
-                const oscFifth = audioCtx.createOscillator();
-                oscFifth.type = 'triangle';
-                oscFifth.frequency.value = 82.41;
-
-                const lowpass = audioCtx.createBiquadFilter();
-                lowpass.type = 'lowpass';
-                lowpass.frequency.value = 150;
-
-                const droneGain = audioCtx.createGain();
-                droneGain.gain.value = 0.55;
-
-                oscLow.connect(lowpass);
-                oscFifth.connect(lowpass);
-                lowpass.connect(droneGain);
-                droneGain.connect(masterGain);
-
-                oscLow.start();
-                oscFifth.start();
-
-                const bufferSize = 2 * audioCtx.sampleRate;
-                const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                const data = noiseBuffer.getChannelData(0);
-                for (let i = 0; i < bufferSize; i++) {
-                    data[i] = Math.random() * 2 - 1;
-                }
-
-                const rainSource = audioCtx.createBufferSource();
-                rainSource.buffer = noiseBuffer;
-                rainSource.loop = true;
-
-                const rainFilter = audioCtx.createBiquadFilter();
-                rainFilter.type = 'bandpass';
-                rainFilter.frequency.value = 1100;
-                rainFilter.Q.value = 1.2;
-
-                const rainGain = audioCtx.createGain();
-                rainGain.gain.value = 0.08;
-
-                rainSource.connect(rainFilter);
-                rainFilter.connect(rainGain);
-                rainGain.connect(masterGain);
-                rainSource.start();
-            }
-
-            isAmbientPlaying = !isAmbientPlaying;
-
-            if (isAmbientPlaying) {
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                ambientNavBtn.setAttribute('aria-pressed', 'true');
-                ambientNavBtn.classList.add('border-electric', 'text-electric');
-                navAudioDot.classList.remove('bg-silverMuted/50');
-                navAudioDot.classList.add('bg-electric', 'animate-ping');
-                navAudioLabel.textContent = 'Sonido Activo';
-            } else {
-                if (audioCtx.state === 'running') audioCtx.suspend();
-                ambientNavBtn.setAttribute('aria-pressed', 'false');
-                ambientNavBtn.classList.remove('border-electric', 'text-electric');
-                navAudioDot.classList.add('bg-silverMuted/50');
-                navAudioDot.classList.remove('bg-electric', 'animate-ping');
-                navAudioLabel.textContent = 'Atmósfera Sonora';
-            }
-        }
-
-        ambientNavBtn.addEventListener('click', initAndToggleAmbient);
-
         const atmoCanvas = document.getElementById('atmosphereCanvas');
         const atmoCtx = atmoCanvas.getContext('2d');
         let raindrops = [];
@@ -459,21 +373,21 @@
             atmoCanvas.width = window.innerWidth;
             atmoCanvas.height = window.innerHeight;
 
-            raindrops = Array.from({ length: 55 }, () => ({
+            raindrops = Array.from({ length: 40 }, () => ({
                 x: Math.random() * atmoCanvas.width,
                 y: Math.random() * atmoCanvas.height,
-                len: Math.random() * 14 + 8,
-                speed: Math.random() * 4.5 + 4,
-                opacity: Math.random() * 0.16 + 0.05
+                len: Math.random() * 12 + 6,
+                speed: Math.random() * 3.5 + 3,
+                opacity: Math.random() * 0.15 + 0.04
             }));
 
-            motes = Array.from({ length: 30 }, () => ({
+            motes = Array.from({ length: 20 }, () => ({
                 x: Math.random() * atmoCanvas.width,
                 y: Math.random() * atmoCanvas.height,
-                r: Math.random() * 1.6 + 0.5,
-                vx: (Math.random() - 0.5) * 0.22,
-                vy: -Math.random() * 0.25 - 0.05,
-                alpha: Math.random() * 0.45 + 0.15
+                r: Math.random() * 1.5 + 0.4,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: -Math.random() * 0.2 - 0.04,
+                alpha: Math.random() * 0.35 + 0.1
             }));
         }
 
@@ -485,11 +399,11 @@
                 atmoCtx.beginPath();
                 atmoCtx.strokeStyle = `rgba(103, 232, 249, ${drop.opacity})`;
                 atmoCtx.moveTo(drop.x, drop.y);
-                atmoCtx.lineTo(drop.x - 1.5, drop.y + drop.len);
+                atmoCtx.lineTo(drop.x - 1.2, drop.y + drop.len);
                 atmoCtx.stroke();
 
                 drop.y += drop.speed;
-                drop.x -= 0.6;
+                drop.x -= 0.5;
                 if (drop.y > atmoCanvas.height) {
                     drop.y = -drop.len;
                     drop.x = Math.random() * atmoCanvas.width;
