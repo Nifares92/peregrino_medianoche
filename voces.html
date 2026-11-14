@@ -138,28 +138,28 @@
     <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
 
     <!-- =====================================================================
-         1. BARRA DE NAVEGACIÓN SUPERIOR (Con el logo general de la web)
+         1. BARRA DE NAVEGACIÓN SUPERIOR
          ===================================================================== -->
     <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/85 backdrop-blur-md border-b border-spectral/15">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
                 <!-- Logo General -->
-                <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
-                    <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors shrink-0">
                         <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
                     </div>
                     <div class="flex flex-col">
-                        <span class="font-cinzel font-bold text-sm sm:text-base tracking-[0.16em] text-bone group-hover:text-white transition-colors">
+                        <span class="font-cinzel font-bold text-xs sm:text-base tracking-[0.14em] sm:tracking-[0.16em] text-bone group-hover:text-white transition-colors">
                             EL PEREGRINO
                         </span>
-                        <span class="font-cinzel text-[10px] sm:text-xs tracking-[0.26em] text-spectral uppercase">
+                        <span class="font-cinzel text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.26em] text-spectral uppercase">
                             DE LA MEDIANOCHE
                         </span>
                     </div>
                 </a>
 
-                <!-- Enlaces de Navegación Desktop -->
+                <!-- Navegación Escritorio -->
                 <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
                     <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
                     <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
@@ -170,15 +170,8 @@
                     <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
                 </nav>
 
-                <div class="flex items-center gap-3">
-                    <button id="ambientNavBtn" type="button" aria-pressed="false" class="inline-flex items-center gap-2 px-3.5 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-spectral hover:border-spectral/70 text-xs font-cinzel tracking-wider uppercase transition-all focus:outline-none" title="Activar o silenciar atmósfera nocturna">
-                        <span id="navAudioDot" class="w-2 h-2 rounded-full bg-silverMuted/50 transition-colors"></span>
-                        <span id="navAudioLabel" class="hidden sm:inline">Atmósfera Sonora</span>
-                        <svg class="w-4 h-4 text-spectral" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z"/>
-                        </svg>
-                    </button>
-
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center">
                     <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-spectral focus:outline-none">
                         <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
@@ -188,12 +181,13 @@
             </div>
         </div>
 
+        <!-- Menú Desplegable Móvil -->
         <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5">
-            <a href="index.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Inicio</a>
-            <a href="episodios.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Episodios</a>
-            <a href="expedientes.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Expedientes</a>
-            <a href="voces.html" aria-current="page" class="block py-2 px-3 rounded-lg bg-spectral/10 text-spectral font-medium text-sm">Voces</a>
-            <a href="contacto.html" class="block py-2 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Nocturnos / Contacto</a>
+            <a href="index.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Inicio</a>
+            <a href="episodios.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Episodios</a>
+            <a href="expedientes.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Expedientes</a>
+            <a href="voces.html" aria-current="page" class="block py-2.5 px-3 rounded-lg bg-spectral/10 text-spectral font-medium text-sm">Voces</a>
+            <a href="contacto.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-spectral transition-colors">Nocturnos / Contacto</a>
         </div>
     </header>
 
@@ -206,8 +200,8 @@
             <div class="fog-layer absolute inset-0 pointer-events-none z-0"></div>
 
             <div class="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-                <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-spectral text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
-                    <span class="w-1.5 h-1.5 rounded-full bg-spectral animate-pulse"></span>
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full forensic-stamp text-spectral text-[10px] sm:text-xs font-cinzel tracking-[0.18em] sm:tracking-[0.24em] uppercase mb-6 shadow-spectral text-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-spectral animate-pulse shrink-0"></span>
                     <span>QUIÉNES HABITAN LA PENUMBRA</span>
                 </div>
 
@@ -215,7 +209,7 @@
                     LAS VOCES
                 </h1>
 
-                <p class="font-playfair italic text-base sm:text-xl text-silverMuted max-w-3xl mx-auto leading-relaxed mb-8">
+                <p class="font-playfair italic text-sm sm:text-xl text-silverMuted max-w-3xl mx-auto leading-relaxed mb-8 px-2">
                     «Cada noche en El Peregrino de la Medianoche es guiada a través de los corredores más oscuros de la mente humana, donde el susurro de la narración desvela lo que se oculta tras la vigilia.»
                 </p>
 
@@ -305,10 +299,10 @@
                         </div>
 
                         <div class="pt-6 mt-6 border-t border-spectral/20 flex flex-wrap items-center gap-3">
-                            <a href="episodios.html" class="px-5 py-3 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-[0.14em] uppercase shadow-spectral hover:brightness-110 transition-all">
+                            <a href="episodios.html" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs tracking-[0.14em] uppercase shadow-spectral hover:brightness-110 transition-all text-center">
                                 ▶ Escuchar Episodio 1
                             </a>
-                            <a href="contacto.html" class="px-5 py-3 rounded-xl bg-abyss border border-spectral/35 text-bone font-cinzel text-xs tracking-[0.12em] uppercase hover:border-spectral hover:text-spectral transition-all">
+                            <a href="contacto.html" class="w-full sm:w-auto px-5 py-3 rounded-xl bg-abyss border border-spectral/35 text-bone font-cinzel text-xs tracking-[0.12em] uppercase hover:border-spectral hover:text-spectral transition-all text-center">
                                 Escribir a Serafín
                             </a>
                         </div>
@@ -347,7 +341,7 @@
                             PRÓXIMAS INCORPORACIONES · ARCHIVO SELLADO
                         </div>
 
-                        <p class="text-xs sm:text-sm text-silverMuted max-w-xl leading-relaxed">
+                        <p class="text-xs sm:text-sm text-silverMuted max-w-xl leading-relaxed px-2">
                             Espacio reservado para futuras voces invitadas y colaboradores documentales —como las crónicas de casos reales de <span class="text-spectral/90 font-medium">Aurora</span>— que se desbloquearán en próximos capítulos de la temporada.
                         </p>
                     </div>
@@ -359,13 +353,13 @@
     <!-- =====================================================================
          5. FOOTER
          ===================================================================== -->
-    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-14">
+    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-12 sm:py-14">
         <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-            <p class="font-playfair italic text-lg sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
+            <p class="font-playfair italic text-base sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed px-2">
                 «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
             </p>
 
-            <nav class="flex flex-wrap items-center justify-center gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
+            <nav class="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
                 <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
                 <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
                 <a href="expedientes.html" class="hover:text-spectral transition-colors">Expedientes</a>
@@ -393,91 +387,6 @@
             const isHidden = mobileMenu.classList.toggle('hidden');
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
-
-        const ambientNavBtn = document.getElementById('ambientNavBtn');
-        const navAudioDot = document.getElementById('navAudioDot');
-        const navAudioLabel = document.getElementById('navAudioLabel');
-
-        let isAmbientPlaying = false;
-        let audioCtx = null;
-
-        function initAndToggleAmbient() {
-            if (!audioCtx) {
-                const AudioContextClass = window.AudioContext || window.webkitAudioContext;
-                audioCtx = new AudioContextClass();
-
-                const masterGain = audioCtx.createGain();
-                masterGain.gain.value = 0.16;
-                masterGain.connect(audioCtx.destination);
-
-                const oscLow = audioCtx.createOscillator();
-                oscLow.type = 'sine';
-                oscLow.frequency.value = 55;
-
-                const oscFifth = audioCtx.createOscillator();
-                oscFifth.type = 'triangle';
-                oscFifth.frequency.value = 82.41;
-
-                const lowpass = audioCtx.createBiquadFilter();
-                lowpass.type = 'lowpass';
-                lowpass.frequency.value = 150;
-
-                const droneGain = audioCtx.createGain();
-                droneGain.gain.value = 0.55;
-
-                oscLow.connect(lowpass);
-                oscFifth.connect(lowpass);
-                lowpass.connect(droneGain);
-                droneGain.connect(masterGain);
-
-                oscLow.start();
-                oscFifth.start();
-
-                const bufferSize = 2 * audioCtx.sampleRate;
-                const noiseBuffer = audioCtx.createBuffer(1, bufferSize, audioCtx.sampleRate);
-                const data = noiseBuffer.getChannelData(0);
-                for (let i = 0; i < bufferSize; i++) {
-                    data[i] = Math.random() * 2 - 1;
-                }
-
-                const rainSource = audioCtx.createBufferSource();
-                rainSource.buffer = noiseBuffer;
-                rainSource.loop = true;
-
-                const rainFilter = audioCtx.createBiquadFilter();
-                rainFilter.type = 'bandpass';
-                rainFilter.frequency.value = 1100;
-                rainFilter.Q.value = 1.2;
-
-                const rainGain = audioCtx.createGain();
-                rainGain.gain.value = 0.08;
-
-                rainSource.connect(rainFilter);
-                rainFilter.connect(rainGain);
-                rainGain.connect(masterGain);
-                rainSource.start();
-            }
-
-            isAmbientPlaying = !isAmbientPlaying;
-
-            if (isAmbientPlaying) {
-                if (audioCtx.state === 'suspended') audioCtx.resume();
-                ambientNavBtn.setAttribute('aria-pressed', 'true');
-                ambientNavBtn.classList.add('border-spectral', 'text-spectral');
-                navAudioDot.classList.remove('bg-silverMuted/50');
-                navAudioDot.classList.add('bg-spectral', 'animate-ping');
-                navAudioLabel.textContent = 'Sonido Activo';
-            } else {
-                if (audioCtx.state === 'running') audioCtx.suspend();
-                ambientNavBtn.setAttribute('aria-pressed', 'false');
-                ambientNavBtn.classList.remove('border-spectral', 'text-spectral');
-                navAudioDot.classList.add('bg-silverMuted/50');
-                navAudioDot.classList.remove('bg-spectral', 'animate-ping');
-                navAudioLabel.textContent = 'Atmósfera Sonora';
-            }
-        }
-
-        ambientNavBtn.addEventListener('click', initAndToggleAmbient);
 
         const voiceWaveCanvas = document.getElementById('voiceWaveCanvas');
         const voiceWaveCtx = voiceWaveCanvas.getContext('2d');
@@ -507,7 +416,7 @@
 
             const step = 4;
             const count = Math.floor(width / step);
-            const energy = isAmbientPlaying ? 1.4 : 0.78;
+            const energy = 0.78;
 
             for (let i = 0; i < count; i++) {
                 const x = i * step + 1.5;
@@ -521,11 +430,11 @@
 
                 const barH = Math.max(1.5, Math.abs(harmonic) * (height * 0.44) * envelope * energy);
 
-                voiceWaveCtx.fillStyle = isAmbientPlaying ? '#67e8f9' : '#00e5ff';
+                voiceWaveCtx.fillStyle = '#00e5ff';
                 voiceWaveCtx.fillRect(x, centerY - barH, 2, barH * 2);
             }
 
-            wavePhase += isAmbientPlaying ? 0.08 : 0.035;
+            wavePhase += 0.035;
             requestAnimationFrame(renderVoiceWave);
         }
 
@@ -538,21 +447,21 @@
             atmoCanvas.width = window.innerWidth;
             atmoCanvas.height = window.innerHeight;
 
-            raindrops = Array.from({ length: 55 }, () => ({
+            raindrops = Array.from({ length: 40 }, () => ({
                 x: Math.random() * atmoCanvas.width,
                 y: Math.random() * atmoCanvas.height,
-                len: Math.random() * 14 + 8,
-                speed: Math.random() * 4.5 + 4,
-                opacity: Math.random() * 0.16 + 0.05
+                len: Math.random() * 12 + 6,
+                speed: Math.random() * 3.5 + 3,
+                opacity: Math.random() * 0.15 + 0.04
             }));
 
-            motes = Array.from({ length: 30 }, () => ({
+            motes = Array.from({ length: 20 }, () => ({
                 x: Math.random() * atmoCanvas.width,
                 y: Math.random() * atmoCanvas.height,
-                r: Math.random() * 1.6 + 0.5,
-                vx: (Math.random() - 0.5) * 0.22,
-                vy: -Math.random() * 0.25 - 0.05,
-                alpha: Math.random() * 0.45 + 0.15
+                r: Math.random() * 1.5 + 0.4,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: -Math.random() * 0.2 - 0.04,
+                alpha: Math.random() * 0.35 + 0.1
             }));
         }
 
@@ -563,12 +472,13 @@
             raindrops.forEach(drop => {
                 atmoCtx.beginPath();
                 atmoCtx.strokeStyle = `rgba(0, 229, 255, ${drop.opacity})`;
+                atmoCanvas.style.zIndex = '0';
                 atmoCtx.moveTo(drop.x, drop.y);
-                atmoCtx.lineTo(drop.x - 1.5, drop.y + drop.len);
+                atmoCtx.lineTo(drop.x - 1.2, drop.y + drop.len);
                 atmoCtx.stroke();
 
                 drop.y += drop.speed;
-                drop.x -= 0.6;
+                drop.x -= 0.5;
                 if (drop.y > atmoCanvas.height) {
                     drop.y = -drop.len;
                     drop.x = Math.random() * atmoCanvas.width;
