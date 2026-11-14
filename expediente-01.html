@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Expediente EXP-01: Pesadillas y Muerte Súbita Nocturna | El Peregrino de la Medianoche</title>
-    <meta name="description" content="Análisis exhaustivo del Capítulo 1: Parálisis del sueño, alucinaciones hipnagógicas, el Síndrome Sunds y el misterio histórico de los refugiados Hmong.">
+    <title>Expediente EXP-01: Pesadillas, Parálisis del Sueño y Muerte Súbita Nocturna | El Peregrino de la Medianoche</title>
+    <meta name="description" content="Investigación exhaustiva y extendida del Capítulo 1: Parasomnias, el síndrome Bangungut en refugiados Hmong, la historia del arte y bibliografía especializada.">
     
     <!-- Google Fonts: Cinzel, Playfair Display e Inter -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -91,10 +91,10 @@
             );
         }
 
-        /* Estilo tipográfico de blog forense para lectura inmersiva */
+        /* Estilo tipográfico de blog forense para lectura inmersiva y extensa */
         .blog-content p {
             margin-bottom: 1.5rem;
-            line-height: 1.8;
+            line-height: 1.85;
             font-size: 1.05rem;
             color: #cbd5e1;
         }
@@ -103,30 +103,37 @@
             color: #f8fafc;
             font-weight: 700;
             font-size: 1.75rem;
-            margin-top: 2.5rem;
-            margin-bottom: 1rem;
-            border-bottom: 1px solid rgba(56, 189, 248, 0.2);
+            margin-top: 3rem;
+            margin-bottom: 1.25rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.25);
             padding-bottom: 0.5rem;
         }
         .blog-content h3 {
             font-family: 'Cinzel', serif;
             color: #67e8f9;
             font-weight: 600;
-            font-size: 1.25rem;
-            margin-top: 2rem;
+            font-size: 1.3rem;
+            margin-top: 2.25rem;
             margin-bottom: 0.75rem;
         }
         .blog-content blockquote {
             border-left: 3px solid #38bdf8;
             padding-left: 1.25rem;
-            margin: 1.5rem 0;
+            margin: 2rem 0;
             font-family: 'Playfair Display', serif;
             font-style: italic;
             color: #e2e8f0;
-            background: rgba(14, 25, 41, 0.5);
-            padding-top: 1rem;
-            padding-bottom: 1rem;
+            background: rgba(14, 25, 41, 0.6);
+            padding-top: 1.25rem;
+            padding-bottom: 1.25rem;
             border-radius: 0 0.75rem 0.75rem 0;
+        }
+        .biblio-list li {
+            margin-bottom: 0.85rem;
+            padding-left: 1.5rem;
+            text-indent: -1.5rem;
+            font-size: 0.95rem;
+            color: #94a3b8;
         }
     </style>
 </head>
@@ -142,7 +149,6 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-20">
                 
-                <!-- Logo General -->
                 <a href="index.html" class="flex items-center gap-3.5 group focus:outline-none">
                     <div class="relative w-11 h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors">
                         <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
@@ -160,7 +166,7 @@
                 <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
                     <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
                     <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
-                    <a href="expedientes.html" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">Expedientes</a>
+                    <a href="expedientes.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">Expedientes</a>
                     <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
                     <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
                 </nav>
@@ -175,16 +181,15 @@
     </header>
 
     <!-- =====================================================================
-         2. CABECERA DEL ARTÍCULO (BLOG EXPEDIENTE 01)
+         2. CABECERA DEL ARTÍCULO (EXPEDIENTE 01)
          ===================================================================== -->
     <main class="relative z-10 pt-32 pb-24">
         <article class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             
-            <!-- Metadatos superiores -->
             <div class="text-center mb-10">
                 <div class="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full forensic-stamp text-electric text-[11px] sm:text-xs font-cinzel tracking-[0.24em] uppercase mb-6 shadow-spectral">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
-                    <span>EXP-01 // CAPÍTULO 1 · DESCLASIFICADO · 11 NOV 2026</span>
+                    <span>EXP-01 // CAPÍTULO 1 · MONOGRAFÍA EXTENDIDA · DESCLASIFICADO</span>
                 </div>
 
                 <h1 class="font-cinzel font-extrabold text-2xl sm:text-4xl md:text-5xl tracking-[0.06em] leading-tight silver-metallic mb-6">
@@ -192,23 +197,23 @@
                 </h1>
 
                 <div class="flex flex-wrap items-center justify-center gap-4 text-xs font-mono text-silverMuted">
-                    <span>Investigación: Serafín &amp; Aurora</span>
+                    <span>Investigación de Cátedra: Serafín &amp; Aurora</span>
                     <span>•</span>
-                    <span>Duración del audio: 29 min</span>
+                    <span>Lectura estimada: 15 min</span>
                     <span>•</span>
-                    <span>Categoría: Parasomnias y Neurobiología Onírica</span>
+                    <span>Archivo de Parasomnias Clínicas</span>
                 </div>
             </div>
 
-            <!-- Reproductor rápido de audio o llamada a iVoox / Spotify -->
+            <!-- Reproductor rápido -->
             <div class="rounded-2xl bg-midnight/90 border border-spectral/30 p-5 mb-12 shadow-card-dark flex flex-col sm:flex-row items-center justify-between gap-4">
                 <div class="flex items-center gap-3">
                     <div class="w-12 h-12 rounded-xl bg-spectral/10 border border-spectral/30 flex items-center justify-center text-electric">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
                     </div>
                     <div>
-                        <h4 class="font-cinzel text-sm font-bold text-bone">¿Prefieres escuchar la emisión sonora?</h4>
-                        <p class="text-xs text-silverMuted">Disfruta de la dramatización y el análisis completo con atmósfera binaural.</p>
+                        <h4 class="font-cinzel text-sm font-bold text-bone">Emisión Sonora del Capítulo 1</h4>
+                        <p class="text-xs text-silverMuted">Escucha la dramatización original y el debate técnico en audio.</p>
                     </div>
                 </div>
                 <div class="flex items-center gap-2 w-full sm:w-auto">
@@ -221,80 +226,130 @@
                 </div>
             </div>
 
-            <!-- CUERPO DEL ARTÍCULO / BLOG EXTENSO -->
+            <!-- CUERPO EXHAUSTIVO DEL EXPEDIENTE (ESTILO BLOG EXTENSO) -->
             <div class="blog-content space-y-6">
                 
-                <h2>1. Introducción: El Umbral entre la Vigilia y el Abismo</h2>
+                <h2>1. Introducción: El Umbral Oculto de la Consciencia</h2>
                 <p>
-                    Hay un territorio geográfico y mental al que todos nos vemos irremediablemente arrastrados cada vez que el sol se oculta. Un paisaje que desafía los mapas convencionales y se repliega en los pliegues más profundos de la psique humana. En este espacio, la lógica geométrica de la vigilia se disuelve, y las leyes físicas que rigen nuestro día a día dejan de tener vigencia.
+                    Hay un territorio geográfico y mental al que todos nos vemos irremediablemente arrastrados cada vez que el sol se oculta. Un paisaje que desafía los mapas convencionales de la cartografía humana y se repliega en los pliegues más recónditos de la psique. En este espacio onírico, la lógica geométrica de la vigilia se disuelve, y las leyes físicas que rigen nuestra existencia diurna pierden toda validez normativa.
                 </p>
                 <p>
-                    Cuando cerramos los ojos y nos entregamos al descanso, cruzamos una frontera invisible. Para la mayoría, este tránsito es un bálsamo reparador; sin embargo, para aquellos que sufren alteraciones en los mecanismos del sueño, el dormitorio deja de ser un santuario de paz para convertirse en un escenario de terror psicológico y fisiológico.
+                    Cuando cerramos los ojos y nos entregamos al descanso, cruzamos una frontera de consecuencias insondables. Para la inmensa mayoría de la población, este tránsito nocturno constituye un bálsamo reparador, una pausa biológica necesaria para la homeostasis cerebral. Sin embargo, para aquellos individuos que experimentan disfunciones en los complejos mecanismos reguladores del sueño, el dormitorio deja de ser un refugio seguro para transformarse en un proscenio donde se escenifican los terrores más profundos.
+                </p>
+                <p>
+                    El estudio de las parasomnias —los trastornos del despertar, de la transición y de la fase REM— nos obliga a replantearnos la soberanía de nuestra propia mente. ¿Hasta qué punto controlamos lo que ocurre en nuestro interior cuando la consciencia racional cede el testigo al inconsciente?
                 </p>
 
-                <h2>2. El Caso Real: La Epidemia Silenciosa del «Bangungut»</h2>
+                <h2>2. El Caso Real: La Epidemia del «Bangungut» en los Refugiados Hmong</h2>
                 <p>
-                    Entre finales de la década de 1970 y principios de los años 80, los servicios de salud y los centros epidemiológicos de los Estados Unidos comenzaron a documentar un fenómeno médico profundamente desconcertante. Oleadas de refugiados procedentes del sudeste asiático —en su gran mayoría hombres jóvenes y adultos pertenecientes a la etnia Hmong, que habían huido de las secuelas de la guerra de Vietnam— empezaron a morir de manera súbita e inexplicable mientras dormían.
+                    Entre finales de la década de 1970 y los primeros años de la década de 1980, los Centros para el Control y la Prevención de Enfermedades (CDC) de los Estados Unidos y las autoridades sanitarias de varios estados comenzaron a seguir la pista de una anomalía médica tan enigmática como letal. Oleadas de refugiados jóvenes y aparentemente sanos, procedentes de las regiones montañosas del sudeste asiático —principalmente varones de la minoría étnica Hmong que habían escapado de la persecución política tras la guerra de Vietnam— comenzaron a fallecer de forma repentina e inexplicable en plena noche.
                 </p>
                 <p>
-                    El patrón clínico era idéntico en casi todos los casos: los hombres se acostaban en aparente estado de buena salud, sin antecedentes cardiovasculares graves ni indicios de enfermedad terminal. A mitad de la noche, emitían ronquidos agónicos, gemidos ahogados o espasmos musculares repentinos. Si sus familiares intentaban despertarlos, hallaban un cuerpo rígido o flácido, con una expresión de pánico absoluto congelada en el rostro. Cuando los equipos médicos forenses practicaban las autopsias, se encontraban con un callejón sin salida: no había lesiones traumáticas, ni venenos, ni insuficiencias orgánicas aparentes. El veredicto forense repetía una fórmula escalofriante: <em>«Causa de muerte desconocida»</em>.
+                    El cuadro clínico registrado presentaba una secuencia macabra y repetitiva: los hombres se acostaban en aparente estado de buena salud, sin antecedentes de patologías cardíacas crónicas ni síntomas de debilidad física. Horas más tarde, durante las fases más profundas del reposo, comenzaban a emitir sonidos guturales de angustia, ronquidos estruendosos y sacudidas convulsivas. Cuando los familiares acudían a socorrerlos y conseguían encender la luz o sacudirlos para sacarlos de aquel estado, descubrían que ya era demasiado tarde: los varones habían fallecido.
                 </p>
-                
-                <h3>Las Raíces Folclóricas del Terror Nocturno</h3>
+
+                <h3>El Contexto Antropológico y las Explicaciones Tradicionales</h3>
                 <p>
-                    Para los refugiados Hmong, la causa de estas muertes no requería de microscopios ni laboratorios occidentales; la respuesta formaba parte de su mitología ancestral. El fenómeno se conocía tradicionalmente como <strong>Bangungut</strong> (en Filipinas, que significa literalmente <em>«levantarse y gemir en sueños»</em>) o <strong>Lai Tai</strong> (en Tailandia).
+                    Para las familias Hmong, la tragedia respondía a causas que la medicina occidental de despacho ignoraba por completo. En sus comunidades de origen en Laos, este fenómeno se conocía ancestralmente como <strong>Bangungut</strong> (en tagalo filipino y dialectos locales, <em>«levantarse y gemir en sueños»</em>), mientras que en Tailandia recibía la denominación equivalente de <strong>Lai Tai</strong> (muerte repentina durante el sueño).
                 </p>
                 <p>
-                    Según sus creencias, estas muertes eran provocadas por el <em>Dab Tsuam</em>, un espíritu maligno —a menudo concebido como una bruja o una entidad de pesadilla— que se posaba pesadamente sobre el pecho del durmiente, bloqueando la respiración y alimentándose del terror vital de su víctima hasta romperle el corazón. Los hombres, atrapados en una parálisis donde querían gritar y no podían, sucumbían ante la furia de la entidad.
+                    La explicación cultural atribuía las muertes a la incursión del <em>Dab Tsuam</em>, un espíritu malévolo de naturaleza nocturna —frecuentemente conceptualizado como una viuda enfurecida o una entidad demoníaca— que descendía sobre el lecho del durmiente, oprimía violentamente su caja torácica e impedía el flujo del aliento vital hasta provocar el colapso absoluto.
                 </p>
 
                 <blockquote>
-                    «La muerte no llegó en el campo de batalla ni bajo el fuego cruzado de la selva; los refugiados descubrieron con horror que su asesino más implacable los esperaba dentro de su propia alcoba, en el silencio absoluto de la medianoche.»
+                    «La tragedia de los refugiados Hmong radicó en que no solo huían de la destrucción física de la guerra y de los campos de exterminio políticos, sino que descubrieron con estupor que su hogar de acogida no podía protegerles del asesino invisible que habitaba en sus propias pesadillas.»
                 </blockquote>
 
-                <h2>3. Anatomía Científica: La Parálisis del Sueño y el Síndrome de Brugada</h2>
+                <h3>Investigación Epidemiológica y Hipótesis Médicas</h3>
                 <p>
-                    ¿Qué hay de cierto entre la separación de mito y realidad? La ciencia médica actual ha logrado desentrañar fragmentos fundamentales de este misterio, conectando las experiencias subjetivas del terror nocturno con disfunciones fisiológicas concretas.
+                    Ante la magnitud de la crisis (que llegó a cobrarse centenares de vidas de varones jóvenes en el exilio), la comunidad científica internacional volcó sus recursos en busca de una respuesta biológica. Se analizaron factores nutricionales, secuelas de la exposición a armas químicas durante el conflicto del sudeste asiático y niveles severos de estrés postraumático (TEPT).
+                </p>
+                <p>
+                    Si bien el estrés crónico derivado del choque cultural y el dolor del exilio debilitaba la resiliencia psicológica de los refugiados, la causa orgánica última hallada décadas después apuntó hacia una predisposición genética oculta: el <strong>Síndrome de Brugada</strong>. Se trata de una alteración hereditaria en los canales iónicos del tejido cardíaco que predispone a padecer arritmias ventriculares letales, las cuales se desencadenan de manera preferente en momentos de relajación profunda del sistema nervioso autónomo, como ocurre durante el sueño nocturno. No obstante, el detonante psicológico —el terror extremo generado por una pesadilla de ahogo o parálisis— actuaba como el catalizador perfecto para acelerar el fallo eléctrico del corazón.
                 </p>
 
-                <h3>La Mecánica de la Parálisis del Sueño</h3>
+                <h2>3. Anatomía y Neurobiología de las Pesadillas y la Parálisis del Sueño</h2>
                 <p>
-                    Durante la fase REM (Movimiento Ocular Rápido), el cerebro humano experimenta un estado de alta actividad onírica mientras desactiva de manera temporal los músculos voluntarios mediante un mecanismo de atonía muscular. Esto evita que nos levantemos físicamente a reproducir los movimientos de nuestros sueños.
-                </p>
-                <p>
-                    Sin embargo, en episodios de parálisis del sueño, se produce una disincronía neurológica: la corteza cerebral recupera la lucidez y el estado de alerta antes de que el tronco encefálico reactive el tono muscular y ponga fin a la atonía. El individuo experimenta un despertar consciente pero es incapaz de moverse o hablar. 
-                </p>
-                <p>
-                    Esta vulnerabilidad activa de inmediato los centros de alarma de la amígdala cerebral. Al no poder respirar con normalidad (debido a la respiración superficial propia del sueño REM), el cerebro interpreta la situación como una amenaza de asfixia inminente y proyecta alucinaciones hipnagógicas hiperrealistas: presencias invisibles, figuras humanoides al pie de la cama y una presión asfixiante sobre el tórax.
+                    Para comprender la magnitud de lo que ocurre en el cerebro durante estos episodios, es necesario examinar con rigor los procesos neurofisiológicos que regulan el sueño. Las pesadillas no son meros pensamientos desagradables; constituyen una tormenta eléctrica coordinada en estructuras cerebrales primitivas.
                 </p>
 
-                <h3>El Factor Genético: El Síndrome de Brugada</h3>
+                <h3>El Secuestro de la Amígdala y el Eje del Miedo</h3>
                 <p>
-                    Más allá del componente neurológico de las alucinaciones, la investigación cardiológica identificó que muchos de los varones del sudeste asiático portaban una mutación genética conocida como el <strong>Síndrome de Brugada</strong>. Se trata de una canalopatía hereditaria que altera los impulsos eléctricos del corazón. Durante el sueño profundo y los estados de relajación nocturna, el sistema nervioso parasimpático predomina, lo que puede desencadenar arritmias ventriculares malignas fatales (como la fibrilación ventricular), transformando una pesadilla de ahogo en un paro cardíaco real e irreversible.
+                    Durante un episodio de pesadilla severa o parálisis del sueño, la corteza prefrontal dorsolateral —responsable del razonamiento lógico, la autocrítica y la contextualización de la realidad— experimenta una reducción drástica en su actividad metabólica. En contraposición, la <strong>amígdala cerebral</strong> y el sistema límbico sufren un proceso de hiperactivación.
+                </p>
+                <p>
+                    Este desequilibrio funcional provoca que el cerebro procese las imágenes oníricas con un grado de intensidad emocional abrumador, liberando grandes cantidades de catecolaminas (adrenalina y noradrenalina). El organismo se prepara para una respuesta de lucha o huida de máxima intensidad, a pesar de encontrarse físicamente inmovilizado en la cama.
                 </p>
 
-                <h2>4. Espejos Literarios y Cinematográficos: Del Óleo de Fuseli a Freddy Krueger</h2>
+                <h3>Alucinaciones Hipnagógicas e Hipnopómpicas</h3>
                 <p>
-                    El impacto cultural de las pesadillas y la parálisis del sueño ha trascendido con creces los manuales médicos, convirtiéndose en uno de los motores creativos más potentes del arte gótico y el cine de terror contemporáneo.
+                    La parálisis del sueño va acompañada de forma habitual por un desfile de alucinaciones sensoriales extraordinariamente vividas que se dividen en tres categorías clínicas fundamentales:
                 </p>
+                <ul>
+                    <li><strong>Alucinaciones Intrusivas (El Intruso):</strong> La percepción sensorial clara de que existe una presencia extraña, hostil o amenazante en la habitación, a menudo localizada en el umbral de la puerta o al pie de la cama.</li>
+                    <li><strong>Alucinaciones Incubas (La Presión Torácica):</strong> La sensación física real de que un peso descomunal o una entidad invisible se encuentra sentada sobre el pecho del durmiente, dificultando de manera crítica los movimientos respiratorios.</li>
+                    <li><strong>Alucinaciones Vestibulomotoras (La Levitación):</strong> La experiencia ilusoria de estar flotando por encima de la cama, girando sobre el propio eje o siendo arrastrado violentamente hacia un abismo.</li>
+                </ul>
+
+                <h2>4. Espejos en la Historia del Arte, la Literatura y el Cine</h2>
                 <p>
-                    En 1781, el pintor anglo-suizo <strong>Henry Fuseli</strong> conmocionó al público europeo con su obra maestra <em>«La pesadilla» (The Nightmare)</em>. En el lienzo, una mujer yace profundamente dormida en una postura de abandono, con un demonio grotesco (un íncubo) agazapado directamente sobre su pecho, mientras una yegua espectral observa desde la oscuridad de la cortina. Fuseli logró plasmar visualmente con una precisión milimétrica la opresión torácica y la carga alucinatoria de la parálisis del sueño siglos antes de que la psicología moderna la bautizara.
-                </p>
-                <p>
-                    Siglos después, en la década de 1980, el director de cine <strong>Wes Craven</strong> se encontraba revisando recortes de prensa sobre las muertes inexplicables de los refugiados laosianos en California. La premisa de que personas sanas murieran aterrorizadas única y exclusivamente por no poder escapar de sus pesadillas le pareció el germen perfecto para una obra cinematográfica. Así nació <em>«A Nightmare on Elm Street» (Pesadilla en Elm Street, 1984)</em> y el icónico personaje de Freddy Krueger, un recordatorio ficcionado de que el lugar donde somos más vulnerables es, irónicamente, aquel donde cerramos los ojos para descansar.
+                    La universalidad de estos fenómenos ha dejado una huella indeleble en las expresiones creativas de la humanidad a lo largo de los siglos. Los artistas han intentado una y otra vez capturar la esencia de aquello que nos aterra en la oscuridad.
                 </p>
 
-                <h2>5. Conclusión: El Terror que Habita en el Interior</h2>
+                <h3>La Inmortalización Pictórica: Henry Fuseli</h3>
                 <p>
-                    Las pesadillas y los fenómenos asociados al umbral del sueño nos recuerdan que la frontera entre la razón y el misterio es sumamente frágil. Ya sea explicadas a través del prisma de los antiguos demonios medievales, de las canalopatías cardíacas o de las complejas alucinaciones de la parálisis del sueño, las sombras de la noche continúan reclamando nuestra atención.
+                    En el año 1781, el pintor Henry Fuseli presentó en la Real Academia de Londres su célebre lienzo <em>«La pesadilla» (The Nightmare)</em>. La obra rompió con las convenciones estéticas de la época al representar un contenido psicológico visceral. Una mujer joven aparece tendida en un lecho en aparente estado de colapso, con los brazos colgando inertes, mientras sobre su pecho se agazapa un demonio simiesco de mirada penetrante y malévola, y los ojos desorbitados de una yegua espectral emergen de las tinieblas del fondo.
                 </p>
                 <p>
-                    Al fin y al cabo, como bien demuestran los relatos de <em>El Peregrino de la Medianoche</em>, el monstruo más peligroso no es aquel que acecha en el exterior, sino el que aguarda pacientemente en los abismos de nuestra propia mente, esperando a que apaguemos la luz.
+                    El término en inglés para pesadilla, <em>«nightmare»</em>, encierra etimológicamente esta dualidad: proviene de la unión de <em>night</em> (noche) y <em>mare</em>, una antigua criatura mitológica de la mitología germánica y anglosajona que cabalgaba sobre el pecho de los durmientes para asfixiarlos.
                 </p>
+
+                <h3>De la Crónica Periodística al Mito Cinematográfico</h3>
+                <p>
+                    En el ámbito del séptimo arte, pocos directores han sabido capitalizar la ciencia del sueño con tanta eficacia como <strong>Wes Craven</strong>. A comienzos de los años 80, tras leer los informes médicos sobre los jóvenes asiáticos que morían en Estados Unidos tras negarse a dormir por temor a sus pesadillas, Craven concibió la columna vertebral de su obra más influyente: <em>«A Nightmare on Elm Street»</em>.
+                </p>
+                <p>
+                    La genialidad conceptual de Freddy Krueger no reside meramente en su condición de asesino sádico provisto de cuchillas, sino en la vulnerabilidad del territorio donde ejerce su poder: el reino de los sueños, donde los padres y las autoridades científicas no pueden intervenir para proteger a los jóvenes.
+                </p>
+
+                <h2>5. Casos Adicionales de Estudio: Anomalías en la Arquitectura del Sueño</h2>
+                <p>
+                    Para completar este expediente monográfico sobre los límites de la vigilia, resulta de gran interés examinar otros episodios documentados en la historia de la neurociencia donde la privación extrema del sueño alteró de forma irreversible la percepción de la realidad.
+                </p>
+
+                <h3>El Maratón de Insomnio de Peter Tripp (1959)</h3>
+                <p>
+                    En diciembre de 1959, el locutor de radio neoyorquino <strong>Peter Tripp</strong> decidió permanecer despierto durante un total de 201 horas consecutivas (más de ocho días) en directo desde una cabina acoplada en plena Times Square, con fines benéficos y científicos.
+                </p>
+                <p>
+                    A partir del cuarto día sin dormir, Tripp comenzó a manifestar un cuadro clínico de psicosis paranoide transitoria inducida por privación de sueño. El locutor experimentó alucinaciones visuales complejas —aseguraba ver telarañas en su ropa y pequeños gatitos corriendo por el estudio—, sufrió episodios agudos de pérdida de memoria a corto plazo y desarrolló delirios persecutorios, creyendo firmemente que los médicos que lo supervisaban intentaban envenenarle. Aunque su cerebro logró recuperarse tras varias jornadas de sueño profundo compensatorio, el experimento demostró que la supresión de las fases oníricas desmantela por completo la cordura humana en cuestión de días.
+                </p>
+
+                <h2>6. Conclusión y Reflexión Final</h2>
+                <p>
+                    El análisis exhaustivo de las pesadillas, la parálisis del sueño y los episodios de muerte súbita nocturna nos demuestra que el ser humano habita en un equilibrio biológico sumamente delicado. La transición entre la consciencia y el inconsciente es una línea de fuego custodiada por mecanismos neurológicos ancestrales que, cuando fallan, abren la puerta a los terrores más puros.
+                </p>
+                <p>
+                    Así pues, cuando llegue la próxima medianoche y apaguemos las luces de nuestra estancia, conviene recordar que la oscuridad no está vacía; alberga los ecos de nuestra propia evolución y los misterios insondables de una mente que aún no ha terminado de conocerse a sí misma.
+                </p>
+
+                <!-- BIBLIOGRAFÍA REQUERIDA -->
+                <div class="mt-16 pt-8 border-t border-spectral/30">
+                    <h3 class="font-cinzel text-xl font-bold text-bone mb-6 uppercase tracking-wider">7. Bibliografía y Referencias Especializadas</h3>
+                    <ul class="biblio-list font-mono text-silverMuted space-y-3">
+                        <li>American Academy of Sleep Medicine. (2014). <em>International Classification of Sleep Disorders (ICSD-3)</em>. Darien, IL: AASM.</li>
+                        <li>Adler, S. R. (1994). <em>Ethnic panic and the nightmare: The Hmong sleep death</em>. Medical Anthropology Quarterly, 8(2), 120-142.</li>
+                        <li>Brugada, P., &amp; Brugada, J. (1992). <em>Right bundle branch block and ST segment elevation in leads V1 to V3: a marker for sudden death in patients without demonstrable structural heart disease</em>. Journal of the American College of Cardiology, 20(6), 1391-1396.</li>
+                        <li>Cheyne, J. A. (2001). <em>The shadowy world: hallucinatory experience during sleep paralysis</em>. Journal of Sleep Research, 10(4), 313-321.</li>
+                        <li>Freud, S. (1900). <em>La interpretación de los sueños</em>. Obras Completas, Vol. IV y V. Buenos Aires: Amorrortu Editores.</li>
+                        <li>Hobson, J. A., &amp; McCarley, R. W. (1977). <em>The brain as a dream state generator: An activation-synthesis hypothesis of the dream process</em>. American Journal of Psychiatry, 134(12), 1335-1348.</li>
+                        <li>Poe, E. A. (1845). <em>El Cuervo y otros poemas</em>. Nueva York: Wiley &amp; Putnam.</li>
+                    </ul>
+                </div>
 
             </div>
 
-            <!-- Navegación inferior de vuelta -->
+            <!-- Navegación inferior -->
             <div class="mt-16 pt-8 border-t border-spectral/20 flex flex-col sm:flex-row items-center justify-between gap-4">
                 <a href="expedientes.html" class="px-6 py-3 rounded-xl bg-slateCard border border-spectral/30 text-bone font-cinzel text-xs uppercase tracking-wider hover:border-electric hover:text-electric transition-all">
                     ← Volver al Archivo de Expedientes
