@@ -220,11 +220,11 @@
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                 
                 <article class="noir-card-active rounded-2xl overflow-hidden grid grid-cols-1 lg:grid-cols-12 shadow-card-dark">
-                    <div class="lg:col-span-5 relative min-h-[310px] bg-gradient-to-b from-[#0e203b] via-[#081222] to-[#05080f] border-b lg:border-b-0 lg:border-r border-spectral/25 p-7 flex flex-col justify-between items-center text-center select-none overflow-hidden">
+                    <!-- COLUMNA IZQUIERDA: Imagen a toda altura -->
+                    <div class="lg:col-span-5 relative min-h-[380px] lg:min-h-full bg-gradient-to-b from-[#0e203b] via-[#081222] to-[#05080f] border-b lg:border-b-0 lg:border-r border-spectral/25 flex flex-col justify-between overflow-hidden">
                         
-                        <div class="absolute inset-0 bg-[radial-gradient(circle_at_50%_38%,rgba(0,229,255,0.16),transparent_68%)] pointer-events-none"></div>
-
-                        <div class="relative z-10 w-full flex items-center justify-between text-[11px] font-cinzel tracking-widest uppercase">
+                        <!-- Cabecera superpuesta con etiquetas (VOZ 01 y En Emisión) -->
+                        <div class="absolute top-0 inset-x-0 z-20 p-5 flex items-center justify-between text-[11px] font-cinzel tracking-widest uppercase bg-gradient-to-b from-abyss/90 to-transparent">
                             <span class="px-2.5 py-1 rounded forensic-stamp text-spectral">VOZ 01</span>
                             <span class="px-2.5 py-1 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-400/35 flex items-center gap-1.5">
                                 <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
@@ -232,31 +232,16 @@
                             </span>
                         </div>
 
-                        <div class="relative z-10 my-6">
-                            <div class="w-28 h-28 sm:w-32 sm:h-32 rounded-full bg-abyss/90 border border-spectral/45 flex items-center justify-center shadow-spectral relative mx-auto">
-                                <div class="absolute inset-1.5 rounded-full border border-spectral/15"></div>
-                                <svg class="w-16 h-16 sm:w-20 sm:h-20" viewBox="0 0 80 80" fill="none">
-                                    <path d="M51 15C38.5 17.5 29.5 28 29.5 40.5C29.5 53 38.5 63.5 51 66C36 67.8 22 56 22 40.5C22 25 36 13.2 51 15Z" fill="#00e5ff" opacity="0.25"/>
-                                    <path d="M39 27C34 27 31 30.8 31 35.5C31 37.8 32 39.6 33.4 41L28.5 64H49.5L44.6 41C46 39.6 47 37.8 47 35.5C47 30.8 44 27 39 27Z" fill="#e2e8f0"/>
-                                    <line x1="54" y1="32" x2="54" y2="64" stroke="#94a3b8" stroke-width="2" stroke-linecap="round"/>
-                                    <circle cx="54" cy="41" r="3.5" fill="#00e5ff"/>
-                                    <circle cx="54" cy="41" r="8.5" fill="#00e5ff" opacity="0.25"/>
-                                </svg>
-                            </div>
+                        <!-- Imagen principal ocupando todo el bloque -->
+                        <div class="absolute inset-0 w-full h-full z-10">
+                            <img src="voz-serafin.jpg" alt="Serafín - El Peregrino de la Medianoche" class="w-full h-full object-cover filter grayscale-[0.15] brightness-105">
                         </div>
 
-                        <div class="relative z-10 w-full mt-auto">
-                            <div class="text-[10px] font-cinzel tracking-[0.2em] text-silverMuted uppercase mb-2">
-                                Frecuencia Vocal · Identificador Visual
-                            </div>
-                            
-                            <!-- Contenedor con la imagen estática apuntando a tu repositorio -->
-                            <div class="rounded-xl bg-abyss/90 border border-spectral/20 overflow-hidden p-1.5 aspect-[16/6] flex items-center justify-center">
-                                <img src="voz-serafin.jpg" alt="Frecuencia Vocal de Serafín" class="w-full h-full object-cover rounded-lg filter grayscale-[0.2] brightness-110">
-                            </div>
-                        </div>
+                        <!-- Gradiente inferior decorativo opcional para fundir con el borde -->
+                        <div class="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-abyss/80 to-transparent z-15 pointer-events-none"></div>
                     </div>
 
+                    <!-- COLUMNA DERECHA: Información -->
                     <div class="lg:col-span-7 p-6 sm:p-9 flex flex-col justify-between">
                         <div>
                             <span class="text-xs font-cinzel tracking-[0.22em] text-spectral uppercase block mb-2">
@@ -370,10 +355,9 @@
     </footer>
 
     <!-- =====================================================================
-         JAVASCRIPT (Solo atmósfera y menú móvil)
+         JAVASCRIPT
          ===================================================================== -->
     <script>
-        // --- Menú Móvil ---
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
