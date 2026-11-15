@@ -80,15 +80,6 @@
             background: radial-gradient(ellipse at 50% 25%, rgba(0, 229, 255, 0.11) 0%, rgba(11, 19, 34, 0) 70%);
         }
 
-        @keyframes pulseBar {
-            0%, 100% { transform: scaleY(0.28); }
-            50% { transform: scaleY(1); }
-        }
-        .eq-bar {
-            transform-origin: center;
-            animation: pulseBar 1.45s ease-in-out infinite;
-        }
-
         .noir-card-active {
             background: linear-gradient(155deg, rgba(15, 27, 46, 0.94) 0%, rgba(11, 19, 34, 0.98) 100%);
             border: 1px solid rgba(0, 229, 255, 0.42);
@@ -130,6 +121,87 @@
             background: rgba(5, 8, 15, 0.9);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
         }
+
+        /* Estilos para el nuevo contenedor de imagen de voz */
+        .voice-image-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 0.75rem; /* rounded-xl */
+            background: #05080f; /* abyss/90 */
+            border: 1px solid rgba(0, 229, 255, 0.2); /* spectral/20 */
+            aspect-ratio: 16 / 6; /* Mantiene la proporción del diseño original */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .voice-image-container:hover {
+            border-color: rgba(0, 229, 255, 0.5);
+            box-shadow: 0 0 20px -5px rgba(0, 229, 255, 0.3);
+        }
+
+        /* La imagen subida */
+        #uploadedVoiceImage {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* "Cover" para rellenar el espacio sin deformarse */
+            display: none; /* Oculta por defecto hasta que haya imagen */
+            filter: grayscale(0.3) brightness(1.1); /* Tono ligeramente frío */
+        }
+
+        /* El icono de "subir" por defecto */
+        .upload-placeholder {
+            color: rgba(0, 229, 255, 0.5);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 8px;
+            text-align: center;
+        }
+
+        .upload-placeholder svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .upload-placeholder span {
+            font-family: 'Cinzel', serif;
+            font-size: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+        }
+
+        /* El botón oculto de tipo file */
+        #voiceFileInput {
+            position: absolute;
+            inset: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            cursor: pointer;
+        }
+        
+        /* Pequeña superposición para el hover sobre la imagen */
+        .voice-image-overlay {
+            position: absolute;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.5);
+            display: none; /* Solo visible al hacer hover */
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 12px;
+            font-family: 'Cinzel', serif;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            pointer-events: none;
+        }
+        
+        .voice-image-container:hover .voice-image-overlay {
+            display: flex;
+        }
+
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
@@ -223,8 +295,8 @@
         </section>
 
         <!-- =====================================================================
-             3. TARJETA PRINCIPAL ACTIVA: SERAFÍN
-             ===================================================================== -->
+               3. TARJETA PRINCIPAL ACTIVA: SERAFÍN
+               ===================================================================== -->
         <section class="py-14 sm:py-16">
             <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
                 
@@ -254,13 +326,31 @@
                             </div>
                         </div>
 
-                        <div class="relative z-10 w-full">
-                            <div class="text-[10px] font-cinzel tracking-[0.2em] text-silverMuted uppercase mb-1.5">
-                                Frecuencia Vocal · Medianoche
+                        <div class="relative z-10 w-full mt-auto">
+                            <div class="text-[10px] font-cinzel tracking-[0.2em] text-silverMuted uppercase mb-2">
+                                Frecuencia Vocal · Identificador Visual
                             </div>
-                            <div class="h-14 w-full rounded-xl bg-abyss/90 border border-spectral/20 overflow-hidden p-1.5">
-                                <canvas id="voiceWaveCanvas" class="w-full h-full block"></canvas>
+                            
+                            <!-- CONTENEDOR MODIFICADO: Área para subir imagen -->
+                            <div class="voice-image-container group">
+                                <!-- Icono de subida por defecto -->
+                                <div class="upload-placeholder">
+                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                                    <span>Subir Imagen</span>
+                                </div>
+                                
+                                <!-- La imagen que se subirá -->
+                                <img id="uploadedVoiceImage" src="#" alt="Imagen de la voz cargada" />
+                                
+                                <!-- Superposición de hover -->
+                                <div class="voice-image-overlay">
+                                    Cambiar Imagen
+                                </div>
+                                
+                                <!-- Input oculto para subir archivo -->
+                                <input type="file" id="voiceFileInput" accept="image/*" aria-label="Subir imagen representativa de la voz" />
                             </div>
+                            
                         </div>
                     </div>
 
@@ -377,9 +467,10 @@
     </footer>
 
     <!-- =====================================================================
-         JAVASCRIPT
+         JAVASCRIPT MODIFICADO
          ===================================================================== -->
     <script>
+        // --- Menú Móvil ---
         const mobileMenuBtn = document.getElementById('mobileMenuBtn');
         const mobileMenu = document.getElementById('mobileMenu');
 
@@ -388,56 +479,41 @@
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
 
-        const voiceWaveCanvas = document.getElementById('voiceWaveCanvas');
-        const voiceWaveCtx = voiceWaveCanvas.getContext('2d');
-        let wavePhase = 0;
 
-        function resizeVoiceCanvas() {
-            const rect = voiceWaveCanvas.parentElement.getBoundingClientRect();
-            const dpr = window.devicePixelRatio || 1;
-            voiceWaveCanvas.width = rect.width * dpr;
-            voiceWaveCanvas.height = rect.height * dpr;
-            voiceWaveCtx.setTransform(dpr, 0, 0, dpr, 0, 0);
-        }
+        // --- Lógica para la Carga de Imagen de la Voz ---
+        const voiceFileInput = document.getElementById('voiceFileInput');
+        const uploadedVoiceImage = document.getElementById('uploadedVoiceImage');
+        const uploadPlaceholder = document.querySelector('.upload-placeholder');
 
-        function renderVoiceWave() {
-            const width = voiceWaveCanvas.width / (window.devicePixelRatio || 1);
-            const height = voiceWaveCanvas.height / (window.devicePixelRatio || 1);
-            const centerY = height / 2;
+        voiceFileInput.addEventListener('change', function(event) {
+            if (event.target.files && event.target.files[0]) {
+                const reader = new FileReader();
 
-            voiceWaveCtx.clearRect(0, 0, width, height);
+                reader.onload = function(e) {
+                    uploadedVoiceImage.src = e.target.result;
+                    uploadedVoiceImage.style.display = 'block'; // Muestra la imagen
+                    uploadPlaceholder.style.display = 'none'; // Oculta el icono de subida
+                }
 
-            voiceWaveCtx.beginPath();
-            voiceWaveCtx.strokeStyle = 'rgba(0, 229, 255, 0.22)';
-            voiceWaveCtx.lineWidth = 1;
-            voiceWaveCtx.moveTo(0, centerY);
-            voiceWaveCtx.lineTo(width, centerY);
-            voiceWaveCtx.stroke();
-
-            const step = 4;
-            const count = Math.floor(width / step);
-            const energy = 0.78;
-
-            for (let i = 0; i < count; i++) {
-                const x = i * step + 1.5;
-                const norm = (i / count) * 2 - 1;
-                const envelope = Math.exp(-norm * norm * 2.2);
-
-                const harmonic =
-                    Math.sin(i * 0.36 + wavePhase) * 0.55 +
-                    Math.cos(i * 0.82 - wavePhase * 1.4) * 0.32 +
-                    Math.sin(i * 0.18 + wavePhase * 0.7) * 0.25;
-
-                const barH = Math.max(1.5, Math.abs(harmonic) * (height * 0.44) * envelope * energy);
-
-                voiceWaveCtx.fillStyle = '#00e5ff';
-                voiceWaveCtx.fillRect(x, centerY - barH, 2, barH * 2);
+                reader.readAsDataURL(event.target.files[0]);
+                
+                // Almacenar en LocalStorage para persistencia si se recarga la página
+                localStorage.setItem('voiceImageUrl', e.target.result); 
             }
+        });
+        
+        // Recuperar imagen guardada en localStorage al cargar la página (opcional)
+        window.addEventListener('DOMContentLoaded', () => {
+            const savedImageUrl = localStorage.getItem('voiceImageUrl');
+            if (savedImageUrl) {
+                uploadedVoiceImage.src = savedImageUrl;
+                uploadedVoiceImage.style.display = 'block';
+                uploadPlaceholder.style.display = 'none';
+            }
+        });
 
-            wavePhase += 0.035;
-            requestAnimationFrame(renderVoiceWave);
-        }
 
+        // --- Animación Atmosférica (Lluvia y Motas) ---
         const atmoCanvas = document.getElementById('atmosphereCanvas');
         const atmoCtx = atmoCanvas.getContext('2d');
         let raindrops = [];
@@ -502,13 +578,10 @@
         }
 
         window.addEventListener('resize', () => {
-            resizeVoiceCanvas();
             initAtmosphere();
         });
 
         window.onload = function() {
-            resizeVoiceCanvas();
-            renderVoiceWave();
             initAtmosphere();
             renderAtmosphere();
         };
