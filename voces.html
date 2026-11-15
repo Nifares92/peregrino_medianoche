@@ -121,87 +121,6 @@
             background: rgba(5, 8, 15, 0.9);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.85);
         }
-
-        /* Estilos para el nuevo contenedor de imagen de voz */
-        .voice-image-container {
-            position: relative;
-            overflow: hidden;
-            border-radius: 0.75rem; /* rounded-xl */
-            background: #05080f; /* abyss/90 */
-            border: 1px solid rgba(0, 229, 255, 0.2); /* spectral/20 */
-            aspect-ratio: 16 / 6; /* Mantiene la proporción del diseño original */
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            transition: all 0.3s ease;
-        }
-
-        .voice-image-container:hover {
-            border-color: rgba(0, 229, 255, 0.5);
-            box-shadow: 0 0 20px -5px rgba(0, 229, 255, 0.3);
-        }
-
-        /* La imagen subida */
-        #uploadedVoiceImage {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; /* "Cover" para rellenar el espacio sin deformarse */
-            display: none; /* Oculta por defecto hasta que haya imagen */
-            filter: grayscale(0.3) brightness(1.1); /* Tono ligeramente frío */
-        }
-
-        /* El icono de "subir" por defecto */
-        .upload-placeholder {
-            color: rgba(0, 229, 255, 0.5);
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            gap: 8px;
-            text-align: center;
-        }
-
-        .upload-placeholder svg {
-            width: 24px;
-            height: 24px;
-        }
-
-        .upload-placeholder span {
-            font-family: 'Cinzel', serif;
-            font-size: 10px;
-            text-transform: uppercase;
-            letter-spacing: 0.15em;
-        }
-
-        /* El botón oculto de tipo file */
-        #voiceFileInput {
-            position: absolute;
-            inset: 0;
-            width: 100%;
-            height: 100%;
-            opacity: 0;
-            cursor: pointer;
-        }
-        
-        /* Pequeña superposición para el hover sobre la imagen */
-        .voice-image-overlay {
-            position: absolute;
-            inset: 0;
-            background: rgba(0, 0, 0, 0.5);
-            display: none; /* Solo visible al hacer hover */
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 12px;
-            font-family: 'Cinzel', serif;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            pointer-events: none;
-        }
-        
-        .voice-image-container:hover .voice-image-overlay {
-            display: flex;
-        }
-
     </style>
 </head>
 <body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
@@ -331,26 +250,10 @@
                                 Frecuencia Vocal · Identificador Visual
                             </div>
                             
-                            <!-- CONTENEDOR MODIFICADO: Área para subir imagen -->
-                            <div class="voice-image-container group">
-                                <!-- Icono de subida por defecto -->
-                                <div class="upload-placeholder">
-                                    <svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
-                                    <span>Subir Imagen</span>
-                                </div>
-                                
-                                <!-- La imagen que se subirá -->
-                                <img id="uploadedVoiceImage" src="#" alt="Imagen de la voz cargada" />
-                                
-                                <!-- Superposición de hover -->
-                                <div class="voice-image-overlay">
-                                    Cambiar Imagen
-                                </div>
-                                
-                                <!-- Input oculto para subir archivo -->
-                                <input type="file" id="voiceFileInput" accept="image/*" aria-label="Subir imagen representativa de la voz" />
+                            <!-- Contenedor con la imagen estática apuntando a tu repositorio -->
+                            <div class="rounded-xl bg-abyss/90 border border-spectral/20 overflow-hidden p-1.5 aspect-[16/6] flex items-center justify-center">
+                                <img src="voz-serafin.jpg" alt="Frecuencia Vocal de Serafín" class="w-full h-full object-cover rounded-lg filter grayscale-[0.2] brightness-110">
                             </div>
-                            
                         </div>
                     </div>
 
@@ -467,7 +370,7 @@
     </footer>
 
     <!-- =====================================================================
-         JAVASCRIPT MODIFICADO
+         JAVASCRIPT (Solo atmósfera y menú móvil)
          ===================================================================== -->
     <script>
         // --- Menú Móvil ---
@@ -478,40 +381,6 @@
             const isHidden = mobileMenu.classList.toggle('hidden');
             mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
         });
-
-
-        // --- Lógica para la Carga de Imagen de la Voz ---
-        const voiceFileInput = document.getElementById('voiceFileInput');
-        const uploadedVoiceImage = document.getElementById('uploadedVoiceImage');
-        const uploadPlaceholder = document.querySelector('.upload-placeholder');
-
-        voiceFileInput.addEventListener('change', function(event) {
-            if (event.target.files && event.target.files[0]) {
-                const reader = new FileReader();
-
-                reader.onload = function(e) {
-                    uploadedVoiceImage.src = e.target.result;
-                    uploadedVoiceImage.style.display = 'block'; // Muestra la imagen
-                    uploadPlaceholder.style.display = 'none'; // Oculta el icono de subida
-                }
-
-                reader.readAsDataURL(event.target.files[0]);
-                
-                // Almacenar en LocalStorage para persistencia si se recarga la página
-                localStorage.setItem('voiceImageUrl', e.target.result); 
-            }
-        });
-        
-        // Recuperar imagen guardada en localStorage al cargar la página (opcional)
-        window.addEventListener('DOMContentLoaded', () => {
-            const savedImageUrl = localStorage.getItem('voiceImageUrl');
-            if (savedImageUrl) {
-                uploadedVoiceImage.src = savedImageUrl;
-                uploadedVoiceImage.style.display = 'block';
-                uploadPlaceholder.style.display = 'none';
-            }
-        });
-
 
         // --- Animación Atmosférica (Lluvia y Motas) ---
         const atmoCanvas = document.getElementById('atmosphereCanvas');
