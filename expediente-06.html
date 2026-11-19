@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente EXP-06: En el Desván, Huéspedes en la Oscuridad y el Caso de Theodore Coneys | El Peregrino de la Medianoche</title>
+    <meta name="description" content="Investigación exhaustiva y extendida del Capítulo 6: Criminología del phrogging, psicología de la territorialidad doméstica, el caso real de Theodore Coneys en Denver (1941-1942) y espejos cinematográficos.">
+    
+    <!-- Google Fonts: Cinzel, Playfair Display e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abyss: '#030508',
+                        midnight: '#091320',
+                        slateCard: '#0e1929',
+                        spectral: '#38bdf8',
+                        electric: '#67e8f9',
+                        bone: '#e2e8f0',
+                        silverMuted: '#94a3b8'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'spectral': '0 0 28px -6px rgba(56, 189, 248, 0.28)',
+                        'spectral-strong': '0 0 38px rgba(103, 232, 249, 0.38)',
+                        'card-dark': '0 22px 45px -15px rgba(0, 0, 0, 0.92)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030508;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030508;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #16253b;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
+        .silver-metallic {
+            background: linear-gradient(180deg, #ffffff 0%, #dbeafe 48%, #7dd3fc 82%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
+        }
+
+        @keyframes fogDrift {
+            0% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+            50% { transform: translate3d(4%, -2%, 0) scale(1.06); opacity: 0.38; }
+            100% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+        }
+        .fog-layer {
+            animation: fogDrift 24s ease-in-out infinite;
+            background: radial-gradient(ellipse at 50% 25%, rgba(56, 189, 248, 0.11) 0%, rgba(9, 19, 32, 0) 70%);
+        }
+
+        .forensic-stamp {
+            border: 1px solid rgba(56, 189, 248, 0.32);
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(56, 189, 248, 0.05),
+                rgba(56, 189, 248, 0.05) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+        }
+
+        /* Estilo tipográfico de blog forense adaptado a móviles */
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+        @media (min-width: 640px) {
+            .blog-content p {
+                font-size: 1.05rem;
+            }
+        }
+        .blog-content h2 {
+            font-family: 'Cinzel', serif;
+            color: #f8fafc;
+            font-weight: 700;
+            font-size: 1.35rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+            padding-bottom: 0.4rem;
+        }
+        @media (min-width: 640px) {
+            .blog-content h2 {
+                font-size: 1.75rem;
+                margin-top: 3rem;
+                margin-bottom: 1.25rem;
+            }
+        }
+        .blog-content h3 {
+            font-family: 'Cinzel', serif;
+            color: #67e8f9;
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+        }
+        @media (min-width: 640px) {
+            .blog-content h3 {
+                font-size: 1.3rem;
+                margin-top: 2.25rem;
+            }
+        }
+        .blog-content blockquote {
+            border-left: 3px solid #38bdf8;
+            padding-left: 1rem;
+            margin: 1.75rem 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #e2e8f0;
+            background: rgba(14, 25, 41, 0.6);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-right: 1rem;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+        @media (min-width: 640px) {
+            .blog-content blockquote {
+                padding-left: 1.25rem;
+                padding-top: 1.25rem;
+                padding-bottom: 1.25rem;
+            }
+        }
+        .blog-content ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        .blog-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        .biblio-list li {
+            margin-bottom: 0.85rem;
+            padding-left: 1.2rem;
+            text-indent: -1.2rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        @media (min-width: 640px) {
+            .biblio-list li {
+                padding-left: 1.5rem;
+                text-indent: -1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
+
+    <!-- Lienzo atmosférico -->
+    <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
+
+    <!-- =====================================================================
+         1. BARRA DE NAVEGACIÓN SUPERIOR (Responsiva)
+         ===================================================================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/90 backdrop-blur-md border-b border-spectral/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors shrink-0">
+                        <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-cinzel font-bold text-xs sm:text-base tracking-[0.14em] sm:tracking-[0.16em] text-bone group-hover:text-white transition-colors">
+                            EL PEREGRINO
+                        </span>
+                        <span class="font-cinzel text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.26em] text-spectral uppercase">
+                            DE LA MEDIANOCHE
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegación Escritorio -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
+                    <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
+                    <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
+                    <a href="expedientes.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">Expedientes</a>
+                    <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
+                    <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
+                </nav>
+
+                <!-- Botones y Menú Hamburguesa Móvil -->
+                <div class="flex items-center gap-3">
+                    <a href="expedientes.html" class="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-electric hover:border-electric/60 text-xs font-cinzel tracking-wider uppercase transition-all">
+                        <span>← Volver</span>
+                    </a>
+                    <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-electric focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Desplegable Móvil -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5 shadow-2xl">
+            <a href="index.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Inicio</a>
+            <a href="episodios.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Episodios</a>
+            <a href="expedientes.html" aria-current="page" class="block py-2.5 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Expedientes</a>
+            <a href="voces.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
+            <a href="contacto.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Nocturnos</a>
+            <div class="pt-2 border-t border-spectral/20">
+                <a href="expedientes.html" class="block py-2 px-3 text-xs font-cinzel tracking-wider text-spectral uppercase">← Volver al Archivo de Expedientes</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         2. CABECERA DEL ARTÍCULO (EXPEDIENTE 06)
+         ===================================================================== -->
+    <main class="relative z-10 pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8">
+        <article class="max-w-4xl mx-auto">
+            
+            <div class="text-center mb-8 sm:mb-12">
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full forensic-stamp text-electric text-[10px] sm:text-xs font-cinzel tracking-[0.2em] sm:tracking-[0.24em] uppercase mb-5 shadow-spectral text-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                    <span>EXP-06 // CAPÍTULO 6 · MONOGRAFÍA EXTENDIDA · DESCLASIFICADO</span>
+                </div>
+
+                <h1 class="font-cinzel font-extrabold text-2xl sm:text-4xl md:text-5xl tracking-[0.04em] sm:tracking-[0.06em] leading-tight silver-metallic mb-5">
+                    En el Desván, Huéspedes en la Oscuridad y el Caso de Theodore Coneys
+                </h1>
+
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[11px] sm:text-xs font-mono text-silverMuted">
+                    <span>Investigación: Serafín</span>
+                    <span class="hidden sm:inline">•</span>
+                    <span>Lectura: 18 min</span>
+                    <span class="hidden sm:inline">•</span>
+                    <span>Criminología del Phrogging y Psicología Territorial</span>
+                </div>
+            </div>
+
+            <!-- Reproductor rápido adaptado -->
+            <div class="rounded-2xl bg-midnight/90 border border-spectral/30 p-4 sm:p-5 mb-10 sm:mb-12 shadow-card-dark flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3 w-full sm:w-auto">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-spectral/10 border border-spectral/30 flex items-center justify-center text-electric shrink-0">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-cinzel text-xs sm:text-sm font-bold text-bone">Emisión Sonora del Capítulo 6</h4>
+                        <p class="text-[11px] sm:text-xs text-silverMuted">Escucha la dramatización «Entre Tabiques» y el expediente del Fantasma de Denver.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                    <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-spectral text-abyss font-cinzel font-bold text-xs uppercase tracking-wider text-center hover:bg-electric transition-all shadow-spectral">
+                        iVoox ↗
+                    </a>
+                    <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx?si=0c21705f3d594815" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-slateCard border border-electric/40 text-electric font-cinzel font-semibold text-xs uppercase tracking-wider text-center hover:bg-electric/15 transition-all">
+                        Spotify ↗
+                    </a>
+                </div>
+            </div>
+
+            <!-- CUERPO EXHAUSTIVO DEL EXPEDIENTE -->
+            <div class="blog-content space-y-6 sm:space-y-8">
+                
+                <h2>1. Introducción: La Arquitectura Oculta del Hogar y el Síndrome del Intruso Invisible</h2>
+                <p>
+                    En la psicología ambiental y la antropología del espacio habitado, el hogar representa mucho más que una estructura arquitectónica protegida frente a la intemperie: constituye lo que el psicólogo Irwin Altman denominó el <strong>territorio primario</strong>. Es el único enclave donde el individuo suspende la vigilancia social, regula libremente su intimidad y se entrega al estado de máxima indefensión fisiológica: el sueño profundo. Para que el sistema nervioso parasimpático active los mecanismos reparadores del descanso, el cerebro necesita la certeza implícita de que el perímetro doméstico es inviolable.
+                </p>
+                <p>
+                    En la dramatización <em>«Entre Tabiques»</em>, Javier experimenta el derrumbe progresivo de esa certeza. Los indicios iniciales —unas llaves desplazadas, un envase de leche consumido, una lata doblada con una simetría ajena— son descartados al principio mediante un mecanismo cognitivo de <strong>racionalización defensiva</strong>: la mente prefiere atribuir las anomalías al propio estrés laboral o al despiste antes que aceptar una realidad que destruiría por completo su sensación de seguridad. Cuando la cámara infrarroja revela finalmente al hombre esquelético descendiendo por la trampilla del falso techo y observándolo dormir a través de orificios perforados en la escayola, el horror alcanza su máxima expresión porque el agresor ha colonizado el espacio más íntimo sin haber forzado jamás la puerta principal.
+                </p>
+
+                <h2>2. El Caso Real: Theodore Edward Coneys, «El Fantasma de Denver» (1941–1942)</h2>
+                <p>
+                    La historia criminal estadounidense conserva un expediente real que parece redactado como un guion de terror gótico, pero cuya veracidad quedó acreditada en los archivos policiales y judiciales de Colorado. Ocurrió en el número <strong>3335 de West Moncrieff Place</strong>, en el barrio residencial de Highland, en <strong>Denver</strong>, entre septiembre de 1941 y julio de 1942.
+                </p>
+                <p>
+                    La vivienda, una sólida residencia victoriana de ladrillo de dos plantas, pertenecía a <strong>Philip Peters</strong>, un ingeniero jubilado de setenta y tres años, y a su esposa <strong>Helen</strong>. A comienzos de septiembre de 1941, Helen sufrió una fractura de cadera que obligó a hospitalizarla durante varios meses, dejando al anciano solo en el inmueble. Peters mantenía rutinas inalterables: desayunaba temprano, atendía su correspondencia, acudía por la tarde al hospital para acompañar a su mujer y regresaba al anochecer.
+                </p>
+
+                <h3>Un Habitante en la Cámara Ciega del Armario</h3>
+                <p>
+                    Sin que Peters lo supiera, un antiguo conocido superficial de un club de tiro llamado <strong>Theodore Edward Coneys</strong> (59 años) había encontrado refugio dentro de su casa. Coneys, un hombre enfermo de tuberculosis, desnutrido hasta pesar apenas cuarenta y dos kilos y sin hogar ante la llegada del invierno de las Montañas Rocosas, había aprovechado una tarde en que Peters salió dejando la puerta trasera sin pestillo para colarse en la segunda planta.
+                </p>
+                <p>
+                    Inspeccionando un armario ropero del piso superior, Coneys descubrió en el techo una diminuta trampilla de madera de unos treinta centímetros de lado que comunicaba con un <strong>ático ciego o cámara de aire</strong> bajo el tejado, un espacio angosto donde era imposible ponerse de pie. Gracias a su extrema delgadez, logró trepar por las baldas interiores del armario, deslizarse por la abertura y cerrar la tapa desde arriba. Durante cinco semanas convivió clandestinamente con el propietario: bajaba cuando Peters salía hacia el hospital, comía de su despensa, leía los volúmenes de su biblioteca y regresaba a su guarida minutos antes de que el anciano regresara.
+                </p>
+
+                <blockquote>
+                    «Los agentes revisaron cada cerradura y cada pestillo de la mansión de West Moncrieff Place: todo estaba cerrado por dentro. El asesino no había escapado por ninguna puerta; simplemente había subido tres metros en vertical para seguir viviendo sobre la escena de su propio crimen.»
+                </blockquote>
+
+                <h3>El Crimen de la «Habitación Cerrada» y Diez Meses de Asedio Invisible</h3>
+                <p>
+                    El <strong>viernes 17 de octubre de 1941</strong>, el patrón de horarios se quebró. Peters, fatigado, se quedó dormido en su sillón del salón en lugar de salir a su hora habitual. Al mediodía, Coneys descendió sigilosamente a la cocina para prepararse café, pero el aroma despertó al anciano. Al sorprender al intruso en su cocina, Peters intentó defenderse con su bastón; Coneys reaccionó con pánico homicida, golpeando al anciano repetidamente en el cráneo con la culata de una pistola antigua descargada que había hallado en el desván y rematándolo con una pesada plancha de hierro fundido.
+                </p>
+                <p>
+                    Lejos de huir a la calle donde podía ser visto por los vecinos, Coneys volvió a trepar por el armario y se encerró de nuevo en el ático. Cuando los vecinos y la policía forzaron la entrada horas después al extrañar la ausencia de Peters, se enfrentaron a un enigma policial perfecto: puertas y ventanas estaban cerradas por dentro sin señales de efracción. Semanas más tarde, cuando la viuda Helen Peters regresó del hospital acompañada por una enfermera residente, ambas mujeres comenzaron a sufrir episodios de terror nocturno: escuchaban pasos arrastrándose sobre el techo, ruidos en los armarios y veían alimentos desaparecer de la cocina, hasta que abandonaron definitivamente la casa convencidas de que estaba embrujada.
+                </p>
+                <p>
+                    Theodore Coneys permaneció oculto en aquel agujero negro durante casi <strong>diez meses completos</strong> —sobreviviendo al crudo invierno de Denver en una casa clausurada y vacía— hasta el <strong>30 de julio de 1942</strong>, cuando dos detectives que patrullaban la zona advirtieron movimiento tras una ventana del piso superior, registraron el inmueble y lograron atrapar su pierna descalza justo cuando intentaba desaparecer de nuevo por la trampilla del armario. Condenado a cadena perpetua en la penitenciaría estatal de Cañon City, murió en prisión en 1967.
+                </p>
+
+                <h2>3. Criminología Contemporánea: El Fenómeno del «Phrogging»</h2>
+                <p>
+                    En la criminología y la seguridad doméstica actual, la conducta protagonizada por Theodore Coneys recibe el nombre técnico de <strong>phrogging</strong> (del inglés <em>frog</em>, rana, en alusión a quien «salta» silenciosamente de una vivienda ocupada a otra). A diferencia del robo con fuerza (<em>burglary</em>), cuyo objetivo es el lucro económico rápido, o de la ocupación ilegal de inmuebles vacíos (<em>squatting</em>), el <em>phrogger</em> busca <strong>cohabitar de forma parasitaria y oculta dentro de viviendas habitadas</strong>, utilizando los suministros, la comida, el agua y el refugio térmico de los moradores legítimos sin ser detectado.
+                </p>
+
+                <h3>Otros Casos Reales Documentados en la Era Moderna</h3>
+                <ul>
+                    <li><strong>El Caso de Fukuoka, Japón (2008):</strong> Un hombre de cincuenta y siete años residente en Fukuoka instaló cámaras conectadas a su teléfono móvil tras notar que la comida de su frigorífico desaparecía misteriosamente durante meses. Las imágenes revelaron a una mujer de cincuenta y ocho años llamada Tatsuko Horikawa saliendo de la balda superior de un armario empotrado tipo <em>oshiire</em>, donde había instalado un pequeño colchón y botellas de agua, viviendo allí sin ser vista durante casi un año.</li>
+                    <li><strong>El Caso de la Universidad de Pittsburgh (2012):</strong> Varios estudiantes universitarios que compartían una vivienda fuera del campus descubrieron que un hombre llamado Jeremy Van Houten había estado viviendo en el sótano técnico y en los conductos interiores de la casa durante semanas, vistiendo sus ropas y consumiendo sus víveres mientras asistían a clase.</li>
+                    <li><strong>El Caso de Rock Hill, Carolina del Sur (2012):</strong> Una madre de cinco hijos escuchó ruidos procedentes del falso techo sobre su dormitorio; al inspeccionar el desván junto a sus hijos y la policía, descubrieron a su expareja oculta entre el aislamiento térmico con vasos de plástico utilizados como orinales y una apertura desde la cual podía observar el interior de la habitación a través de una rejilla de ventilación.</li>
+                </ul>
+
+                <h2>4. Impacto Psicológico: El Trauma por Profanación del Santuario</h2>
+                <p>
+                    Desde la psicología clínica, las víctimas que descubren a un intruso viviendo oculto en su domicilio desarrollan con frecuencia un cuadro severo de <strong>Trastorno de Estrés Postraumático (TEPT) con hipervigilancia espacial</strong>:
+                </p>
+                <ul>
+                    <li><strong>Pérdida de la Seguridad Ontológica:</strong> El hogar deja de funcionar como regulador emocional. La persona experimenta ansiedad anticipatoria al caer la noche, insomnio de mantenimiento y necesidad compulsiva de revisar armarios, techos y cerraduras múltiples veces antes de acostarse.</li>
+                    <li><strong>Retrospectiva Paranoide y Culpa Retroactiva:</strong> La víctima repasa mentalmente meses o años de su vida privada —conversaciones telefónicas, momentos de desnudez, horas de sueño— sabiendo que fue observada sin su consentimiento, lo que genera una sensación profunda de vulnerabilidad y despersonalización.</li>
+                    <li><strong>Sesgo de Normalización Previo:</strong> Durante la fase de convivencia oculta, el cerebro aplica el sesgo de normalidad para descartar microevidencias (objetos movidos, ruidos nocturnos), lo que posteriormente provoca que el sujeto desconfíe de su propio juicio perceptivo.</li>
+                </ul>
+
+                <h2>5. Espejos en el Cine y la Literatura de Terror Doméstico</h2>
+                <p>
+                    La figura del huésped oculto entre paredes constituye uno de los tropos más angustiosos de la ficción contemporánea porque sustituye lo sobrenatural por una amenaza puramente humana y tangible:
+                </p>
+                <ul>
+                    <li><strong>Bong Joon-ho — «Parásitos» (Gisaengchung, 2019):</strong> Convierte el búnker subterráneo oculto tras una estantería de la mansión moderna en el eje dramático de la película, explorando tanto la lucha de clases como el terror a descubrir que alguien habita debajo de nuestros propios pies.</li>
+                    <li><strong>J. Sheridan Le Fanu y la tradición gótica del «pasadizo secreto»:</strong> Desde las novelas góticas del siglo XIX hasta relatos como <em>«Las ratas en las paredes» (1924)</em> de H. P. Lovecraft, el espacio arquitectónico oculto detrás del yeso funciona como metáfora de aquello que la conciencia reprime pero sigue vivo.</li>
+                    <li><strong>Cine de Suspense Contemporáneo:</strong> Títulos como <em>«Housebound» (2014)</em>, <em>«Within» (2016)</em>, <em>«I See You» (2019)</em> —centrada explícitamente en el fenómeno real del <em>phrogging</em>— o <em>«Barbarian» (2022)</em> explotan el terror claustrofóbico de descubrir habitaciones y túneles ocultos dentro de la propia vivienda.</li>
+                </ul>
+
+                <h2>6. Conclusión: Cuando las Paredes Tienen Ojos</h2>
+                <p>
+                    El expediente de Theodore Coneys en Denver y los casos modernos de <em>phrogging</em> nos recuerdan que la arquitectura de nuestras casas está llena de espacios muertos —buhardillas, falsos techos, cámaras de aislamiento— que rara vez inspeccionamos una vez cerramos la puerta principal.
+                </p>
+                <p>
+                    Por eso, cuando en mitad de la madrugada la madera cruje sobre nuestras cabezas, el instinto nos impulsa a buscar explicaciones tranquilizadoras; porque aceptar que lo inexplicable tiene forma humana y respira a pocos centímetros de nuestra almohada es un pensamiento demasiado pesado para conciliar el sueño.
+                </p>
+
+                <!-- BIBLIOGRAFÍA REQUERIDA -->
+                <div class="mt-14 pt-8 border-t border-spectral/30">
+                    <h3 class="font-cinzel text-lg sm:text-xl font-bold text-bone mb-6 uppercase tracking-wider">7. Bibliografía y Referencias Especializadas</h3>
+                    <ul class="biblio-list font-mono space-y-3">
+                        <li>Altman, I. (1975). <em>The Environment and Social Behavior: Privacy, Personal Space, Territory, and Crowding</em>. Monterey, CA: Brooks/Cole Publishing.</li>
+                        <li>Bachelard, G. (1957). <em>La poétique de l'espace (La poética del espacio)</em>. París: Presses Universitaires de France.</li>
+                        <li>Denver Police Department Archives (1941–1942). <em>Homicide Investigation File: Philip Peters / Theodore Edward Coneys (3335 West Moncrieff Place)</em>. Denver, Colorado.</li>
+                        <li>Lovecraft, H. P. (1924). <em>The Rats in the Walls</em>. Weird Tales, 3(3), 25-31.</li>
+                        <li>Vidler, A. (1992). <em>The Architectural Uncanny: Essays in the Modern Unhomely</em>. Cambridge, MA: MIT Press.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Navegación inferior adaptada -->
+            <div class="mt-14 pt-8 border-t border-spectral/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <a href="expedientes.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slateCard border border-spectral/30 text-bone font-cinzel text-xs uppercase tracking-wider text-center hover:border-electric hover:text-electric transition-all">
+                    ← Volver al Archivo de Expedientes
+                </a>
+                <a href="expediente-05.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs uppercase tracking-wider text-center hover:brightness-110 transition-all shadow-spectral">
+                    Ver Expediente Anterior (EXP-05) →
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- =====================================================================
+         3. FOOTER
+         ===================================================================== -->
+    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-12 sm:py-14">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-playfair italic text-base sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
+                «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
+            </p>
+
+            <nav class="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
+                <a href="index.html" class="hover:text-electric transition-colors">Inicio</a>
+                <a href="episodios.html" class="hover:text-electric transition-colors">Episodios</a>
+                <a href="expedientes.html" class="text-electric">Expedientes</a>
+                <a href="voces.html" class="hover:text-electric transition-colors">Voces</a>
+                <a href="contacto.html" class="hover:text-electric transition-colors">Contacto</a>
+                <span class="text-spectral/30 hidden sm:inline">|</span>
+                <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">iVoox ↗</a>
+                <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">Spotify ↗</a>
+            </nav>
+
+            <p class="text-xs text-silverMuted/60">
+                © 2026–2027 El Peregrino de la Medianoche.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script de atmósfera nocturna y menú móvil -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+        });
+
+        const atmoCanvas = document.getElementById('atmosphereCanvas');
+        const atmoCtx = atmoCanvas.getContext('2d');
+        let raindrops = [];
+        let motes = [];
+
+        function initAtmosphere() {
+            atmoCanvas.width = window.innerWidth;
+            atmoCanvas.height = window.innerHeight;
+
+            raindrops = Array.from({ length: 40 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                len: Math.random() * 12 + 6,
+                speed: Math.random() * 3.5 + 3,
+                opacity: Math.random() * 0.15 + 0.04
+            }));
+
+            motes = Array.from({ length: 20 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                r: Math.random() * 1.5 + 0.4,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: -Math.random() * 0.2 - 0.04,
+                alpha: Math.random() * 0.35 + 0.1
+            }));
+        }
+
+        function renderAtmosphere() {
+            atmoCtx.clearRect(0, 0, atmoCanvas.width, atmoCanvas.height);
+
+            atmoCtx.lineWidth = 1;
+            raindrops.forEach(drop => {
+                atmoCtx.beginPath();
+                atmoCtx.strokeStyle = `rgba(103, 232, 249, ${drop.opacity})`;
+                atmoCtx.moveTo(drop.x, drop.y);
+                atmoCtx.lineTo(drop.x - 1.2, drop.y + drop.len);
+                atmoCtx.stroke();
+
+                drop.y += drop.speed;
+                drop.x -= 0.5;
+                if (drop.y > atmoCanvas.height) {
+                    drop.y = -drop.len;
+                    drop.x = Math.random() * atmoCanvas.width;
+                }
+            });
+
+            motes.forEach(m => {
+                atmoCtx.beginPath();
+                atmoCtx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+                atmoCtx.fillStyle = `rgba(56, 189, 248, ${m.alpha})`;
+                atmoCtx.fill();
+
+                m.x += m.vx;
+                m.y += m.vy;
+                if (m.y < 0) m.y = atmoCanvas.height;
+                if (m.x < 0) m.x = atmoCanvas.width;
+                if (m.x > atmoCanvas.width) m.x = 0;
+            });
+
+            requestAnimationFrame(renderAtmosphere);
+        }
+
+        window.addEventListener('resize', initAtmosphere);
+
+        window.onload = function() {
+            initAtmosphere();
+            renderAtmosphere();
+        };
+    </script>
+</body>
+</html>
