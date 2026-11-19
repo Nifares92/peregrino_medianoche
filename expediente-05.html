@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente EXP-05: El Doble, Fracturas de la Identidad y el Caso de Madame M. | El Peregrino de la Medianoche</title>
+    <meta name="description" content="Investigación exhaustiva y extendida del Capítulo 5: Neurobiología del Síndrome de Capgras, el caso histórico de Madame M. en 1923, los síndromes de falsa identificación delirante, el efecto Troxler y el mito del Doppelgänger.">
+    
+    <!-- Google Fonts: Cinzel, Playfair Display e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abyss: '#030508',
+                        midnight: '#091320',
+                        slateCard: '#0e1929',
+                        spectral: '#38bdf8',
+                        electric: '#67e8f9',
+                        bone: '#e2e8f0',
+                        silverMuted: '#94a3b8'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'spectral': '0 0 28px -6px rgba(56, 189, 248, 0.28)',
+                        'spectral-strong': '0 0 38px rgba(103, 232, 249, 0.38)',
+                        'card-dark': '0 22px 45px -15px rgba(0, 0, 0, 0.92)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030508;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030508;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #16253b;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
+        .silver-metallic {
+            background: linear-gradient(180deg, #ffffff 0%, #dbeafe 48%, #7dd3fc 82%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
+        }
+
+        @keyframes fogDrift {
+            0% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+            50% { transform: translate3d(4%, -2%, 0) scale(1.06); opacity: 0.38; }
+            100% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+        }
+        .fog-layer {
+            animation: fogDrift 24s ease-in-out infinite;
+            background: radial-gradient(ellipse at 50% 25%, rgba(56, 189, 248, 0.11) 0%, rgba(9, 19, 32, 0) 70%);
+        }
+
+        .forensic-stamp {
+            border: 1px solid rgba(56, 189, 248, 0.32);
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(56, 189, 248, 0.05),
+                rgba(56, 189, 248, 0.05) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+        }
+
+        /* Estilo tipográfico de blog forense adaptado a móviles */
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+        @media (min-width: 640px) {
+            .blog-content p {
+                font-size: 1.05rem;
+            }
+        }
+        .blog-content h2 {
+            font-family: 'Cinzel', serif;
+            color: #f8fafc;
+            font-weight: 700;
+            font-size: 1.35rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+            padding-bottom: 0.4rem;
+        }
+        @media (min-width: 640px) {
+            .blog-content h2 {
+                font-size: 1.75rem;
+                margin-top: 3rem;
+                margin-bottom: 1.25rem;
+            }
+        }
+        .blog-content h3 {
+            font-family: 'Cinzel', serif;
+            color: #67e8f9;
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+        }
+        @media (min-width: 640px) {
+            .blog-content h3 {
+                font-size: 1.3rem;
+                margin-top: 2.25rem;
+            }
+        }
+        .blog-content blockquote {
+            border-left: 3px solid #38bdf8;
+            padding-left: 1rem;
+            margin: 1.75rem 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #e2e8f0;
+            background: rgba(14, 25, 41, 0.6);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-right: 1rem;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+        @media (min-width: 640px) {
+            .blog-content blockquote {
+                padding-left: 1.25rem;
+                padding-top: 1.25rem;
+                padding-bottom: 1.25rem;
+            }
+        }
+        .blog-content ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        .blog-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        .biblio-list li {
+            margin-bottom: 0.85rem;
+            padding-left: 1.2rem;
+            text-indent: -1.2rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        @media (min-width: 640px) {
+            .biblio-list li {
+                padding-left: 1.5rem;
+                text-indent: -1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
+
+    <!-- Lienzo atmosférico -->
+    <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
+
+    <!-- =====================================================================
+         1. BARRA DE NAVEGACIÓN SUPERIOR (Responsiva)
+         ===================================================================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/90 backdrop-blur-md border-b border-spectral/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors shrink-0">
+                        <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-cinzel font-bold text-xs sm:text-base tracking-[0.14em] sm:tracking-[0.16em] text-bone group-hover:text-white transition-colors">
+                            EL PEREGRINO
+                        </span>
+                        <span class="font-cinzel text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.26em] text-spectral uppercase">
+                            DE LA MEDIANOCHE
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegación Escritorio -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
+                    <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
+                    <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
+                    <a href="expedientes.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">Expedientes</a>
+                    <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
+                    <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
+                </nav>
+
+                <!-- Botones y Menú Hamburguesa Móvil -->
+                <div class="flex items-center gap-3">
+                    <a href="expedientes.html" class="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-electric hover:border-electric/60 text-xs font-cinzel tracking-wider uppercase transition-all">
+                        <span>← Volver</span>
+                    </a>
+                    <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-electric focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Desplegable Móvil -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5 shadow-2xl">
+            <a href="index.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Inicio</a>
+            <a href="episodios.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Episodios</a>
+            <a href="expedientes.html" aria-current="page" class="block py-2.5 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Expedientes</a>
+            <a href="voces.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
+            <a href="contacto.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Nocturnos</a>
+            <div class="pt-2 border-t border-spectral/20">
+                <a href="expedientes.html" class="block py-2 px-3 text-xs font-cinzel tracking-wider text-spectral uppercase">← Volver al Archivo de Expedientes</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         2. CABECERA DEL ARTÍCULO (EXPEDIENTE 05)
+         ===================================================================== -->
+    <main class="relative z-10 pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8">
+        <article class="max-w-4xl mx-auto">
+            
+            <div class="text-center mb-8 sm:mb-12">
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full forensic-stamp text-electric text-[10px] sm:text-xs font-cinzel tracking-[0.2em] sm:tracking-[0.24em] uppercase mb-5 shadow-spectral text-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                    <span>EXP-05 // CAPÍTULO 5 · MONOGRAFÍA EXTENDIDA · DESCLASIFICADO</span>
+                </div>
+
+                <h1 class="font-cinzel font-extrabold text-2xl sm:text-4xl md:text-5xl tracking-[0.04em] sm:tracking-[0.06em] leading-tight silver-metallic mb-5">
+                    El Doble, Fracturas de la Identidad y el Caso de Madame M.
+                </h1>
+
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[11px] sm:text-xs font-mono text-silverMuted">
+                    <span>Investigación: Serafín</span>
+                    <span class="hidden sm:inline">•</span>
+                    <span>Lectura: 18 min</span>
+                    <span class="hidden sm:inline">•</span>
+                    <span>Neuropsiquiatría de la Identidad y Óptica Perceptiva</span>
+                </div>
+            </div>
+
+            <!-- Reproductor rápido adaptado -->
+            <div class="rounded-2xl bg-midnight/90 border border-spectral/30 p-4 sm:p-5 mb-10 sm:mb-12 shadow-card-dark flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3 w-full sm:w-auto">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-spectral/10 border border-spectral/30 flex items-center justify-center text-electric shrink-0">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-cinzel text-xs sm:text-sm font-bold text-bone">Emisión Sonora del Capítulo 5</h4>
+                        <p class="text-[11px] sm:text-xs text-silverMuted">Escucha la dramatización «El Reflejo Ajeno» y el expediente clínico de Madame M.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                    <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-spectral text-abyss font-cinzel font-bold text-xs uppercase tracking-wider text-center hover:bg-electric transition-all shadow-spectral">
+                        iVoox ↗
+                    </a>
+                    <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx?si=0c21705f3d594815" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-slateCard border border-electric/40 text-electric font-cinzel font-semibold text-xs uppercase tracking-wider text-center hover:bg-electric/15 transition-all">
+                        Spotify ↗
+                    </a>
+                </div>
+            </div>
+
+            <!-- CUERPO EXHAUSTIVO DEL EXPEDIENTE -->
+            <div class="blog-content space-y-6 sm:space-y-8">
+                
+                <h2>1. Introducción: Lo Siniestro («Das Unheimliche») y la Ruptura del Reconocimiento</h2>
+                <p>
+                    En 1919, Sigmund Freud publicó uno de sus ensayos más célebres y perturbadores: <em>«Lo siniestro» (Das Unheimliche)</em>. En él, Freud analizó por qué determinados fenómenos provocan en el ser humano un terror mucho más profundo que cualquier monstruo fantástico: lo siniestro no es lo desconocido ni lo exótico, sino <strong>aquello que nos resulta íntimamente familiar y hogareño, pero que de pronto se vuelve extraño, mecánico o amenazante</strong>. Pocos escenarios encarnan esa definición con tanta precisión como mirar el rostro de la persona que amamos —o nuestro propio reflejo en el espejo— y sentir la certeza helada de que detrás de esos ojos ya no habita nadie conocido.
+                </p>
+                <p>
+                    En la dramatización <em>«El Reflejo Ajeno»</em>, Marcos sufre una doble fractura perceptiva: primero en el espejo del baño, donde su imagen parece cobrar autonomía motriz y devolverle una sonrisa burlona; y después en el dormitorio, donde su esposa Laura le parece una réplica exacta pero emocionalmente vacía, hasta que la conversación invierte el eje del horror y sugiere que es el propio Marcos quien quedó atrapado al otro lado del cristal. Esta narración sintetiza dos de los fenómenos más fascinantes de la neuropsiquiatría y de la óptica perceptual: el <strong>Síndrome de Capgras</strong> y la <strong>autoscopia especular</strong>.
+                </p>
+
+                <h2>2. El Caso Real: Madame M. y la «Ilusión de Sosias» en París (1923)</h2>
+                <p>
+                    En el año 1923, en las salas clínicas del histórico <strong>Hospital Psiquiátrico de Sainte-Anne</strong> en París, el psiquiatra francés <strong>Joseph Capgras</strong> (1873–1950) y su interno <strong>Jean Reboul-Lachaux</strong> publicaron un estudio de caso que inauguraría una nueva categoría dentro de la psicopatología moderna: <em>«L'illusion des sosies dans un délire systématisé chronique»</em> (La ilusión de los dobles en un delirio sistematizado crónico).
+                </p>
+                <p>
+                    La paciente, identificada en los anales médicos como <strong>Madame M.</strong>, era una mujer de cincuenta y tres años perteneciente a la burguesía parisina. Lo que asombró a Capgras desde las primeras entrevistas fue la absoluta preservación de sus facultades intelectuales y lingüísticas: Madame M. razonaba con lucidez, conservaba intacta su memoria biográfica y no presentaba alucinaciones visuales ni deterioro cognitivo generalizado. Sin embargo, vivía atrapada en una convicción delirante tan hermética como devastadora: sostenía que una conspiración subterránea había secuestrado a todos sus seres queridos y los había sustituido por <strong>dobles o «sosias»</strong> idénticos.
+                </p>
+
+                <h3>El Duelo Traumático como Catalizador del Delirio</h3>
+                <p>
+                    Al reconstruir su historia clínica, los médicos hallaron la raíz emocional de aquella arquitectura defensiva. Años antes de su ingreso, Madame M. había sufrido una sucesión de tragedias familiares: la muerte prematura de cuatro de sus hijos durante la infancia, quedando únicamente con una hija superviviente. Incapaz de asimilar semejante abismo de dolor y culpa, su mente operó una disociación radical: sus verdaderos hijos no habían muerto ni le habían sido arrebatados por la enfermedad, sino que permanecían vivos en algún lugar oculto mientras unos impostores ocupaban su lugar.
+                </p>
+                <p>
+                    Con el tiempo, el delirio se expandió hacia su marido y el resto de su entorno. Madame M. afirmaba ante los tribunales y la policía haber convivido con <strong>más de ochenta maridos distintos</strong>: cada vez que el impostor de turno envejecía, cambiaba ligeramente de peso o mostraba un gesto distinto al que ella recordaba, aseguraba que la organización secreta lo retiraba y colocaba a un nuevo actor idéntico en su hogar. Convencida de que sus verdaderos hijos estaban encerrados en los sótanos de París y en las catacumbas bajo el hospital, exigía excavaciones judiciales mientras repudiaba con horror a su propia hija real, a la que acusaba de ser una niña postiza.
+                </p>
+
+                <blockquote>
+                    «Madame M. no padecía ceguera ni incapacidad para reconocer los rasgos físicos de su esposo; podía describir con exactitud cada cicatriz y el timbre de su voz. Lo que había muerto en su interior era el puente afectivo que convierte una cara conocida en una persona amada.»
+                </blockquote>
+
+                <h3>Otros Casos Históricos Documentados: Violencia y Conflicto</h3>
+                <p>
+                    Desde la publicación de Capgras en 1923, la literatura médica ha documentado centenares de casos asociados tanto a trastornos psiquiátricos (esquizofrenia paranoide) como a lesiones neurológicas orgánicas (traumatismos craneoencefálicos en el hemisferio derecho, demencia con cuerpos de Lewy, epilepsia del lóbulo temporal y migrañas con aura). Uno de los casos forenses más trágicos documentados ocurrió en 1995 en California, cuando un joven llamado Chris, tras sufrir un severo accidente automovilístico con lesión frontal y temporal derecha, desarrolló un cuadro puro de Capgras hacia su propio padre, convencido de que era un robot o un impostor que había asesinado al padre verdadero, lo que desembocó en un ataque fatal.
+                </p>
+
+                <h2>3. Neurobiología del Reconocimiento Facial: La Teoría de la Doble Ruta</h2>
+                <p>
+                    Durante décadas, el Síndrome de Capgras fue interpretado exclusivamente desde el psicoanálisis como un mecanismo para resolver la ambivalencia afectiva (amar y odiar simultáneamente a un familiar). Sin embargo, en la década de 1990, neurocientíficos como <strong>Haydn Ellis, Andrew Young y Vilayanur S. Ramachandran</strong> demostraron que el síndrome posee una base neuroanatómica extraordinariamente precisa: es exactamente el <strong>reverso especular de la prosopagnosia</strong> (ceguera facial).
+                </p>
+
+                <h3>Prosopagnosia vs. Síndrome de Capgras</h3>
+                <p>
+                    El cerebro humano procesa los rostros mediante dos vías neuronales paralelas que parten desde la corteza visual primaria:
+                </p>
+                <ul>
+                    <li><strong>La Ruta Ventral (Consciente / Cognitiva):</strong> Conecta la corteza visual con el <em>área fusiforme facial (FFA)</em> en el lóbulo temporal. Se encarga de analizar la geometría del rostro (distancia entre los ojos, forma de la nariz, lunares) y permite identificar conscientemente quién es la persona. En los pacientes con <strong>prosopagnosia</strong>, esta vía está dañada: no reconocen la cara de su pareja al verla, pero al medir su respuesta galvánica de la piel (sudoración involuntaria), su sistema nervioso autónomo sigue reaccionando con calidez emocional al verla.</li>
+                    <li><strong>La Ruta Dorsal / Límbica (Afectiva / Automática):</strong> Conecta las áreas visuales directamente con la <strong>amígdala</strong> y el sistema límbico, generando esa respuesta emocional automática de familiaridad, apego y seguridad cuando vemos a alguien querido. En el <strong>Síndrome de Capgras</strong>, la ruta ventral está intacta (el paciente ve perfectamente que el rostro es idéntico al de su cónyuge), pero la conexión con la amígdala está interrumpida.</li>
+                </ul>
+                <p>
+                    Como demostró V. S. Ramachandran mediante registros de conductancia dérmica, cuando un paciente con Capgras mira la fotografía de su madre, su cerebro reconoce los rasgos, pero su amígdala permanece completamente plana, sin emitir la más mínima señal emocional. La corteza prefrontal izquierda —el «intérprete» lógico del cerebro— intenta entonces racionalizar esa disonancia insoportable: <em>«Esta mujer es idéntica a mi madre, pero no siento absolutamente nada al mirarla; por lo tanto, no puede ser mi madre, es una impostora»</em>.
+                </p>
+
+                <h2>4. El Espectro de los Síndromes de Falsa Identificación Delirante (DMIS)</h2>
+                <p>
+                    En la psiquiatría actual, el Síndrome de Capgras forma parte de una familia más amplia conocida como los <strong>Síndromes de Falsa Identificación Delirante (Delusional Misidentification Syndromes)</strong>, todos ellos vinculados a alteraciones en el hemisferio cerebral derecho:
+                </p>
+                <ul>
+                    <li><strong>Síndrome de Frégoli (1927):</strong> Es el fenómeno inverso al de Capgras. El paciente cree que diferentes personas desconocidas (médicos, vecinos, transeúntes) son en realidad una misma persona conocida o un perseguidor que cambia constantemente de disfraz o apariencia física.</li>
+                    <li><strong>Síndrome de Intermetamorfosis:</strong> El sujeto está convencido de que las personas de su entorno intercambian entre sí sus identidades físicas y psicológicas ante sus propios ojos.</li>
+                    <li><strong>Síndrome de los Dobles Subjetivos:</strong> El paciente cree que existe un doble físico de sí mismo viviendo una vida independiente en otro lugar y realizando actos de los que él es acusado.</li>
+                    <li><strong>Heautoscopia y Autoscopia Negativa:</strong> Fenómenos neurológicos provocados por disfunciones en la <strong>unión temporoparietal</strong> en los que el individuo percibe una alucinación de su propio cuerpo fuera de sí mismo (heautoscopia) o, por el contrario, deja de ver su propia imagen reflejada cuando se sitúa frente a un espejo (autoscopia negativa).</li>
+                </ul>
+
+                <h2>5. La Física y Psicología del Espejo: El Efecto Troxler y la Ilusión del «Extraño en el Cristal»</h2>
+                <p>
+                    ¿Por qué mirar fijamente nuestro rostro en un cuarto de baño en penumbra —como hace Marcos a las tres y media de la madrugada— produce tan fácilmente la sensación de que el reflejo se deforma o adquiere vida propia? La neurociencia perceptual explica este fenómeno a través de dos mecanismos documentados en laboratorio:
+                </p>
+                <ul>
+                    <li><strong>El Efecto Troxler (1804):</strong> Descubierto por el médico y filósofo suizo Ignaz Paul Vital Troxler, demuestra que cuando fijamos la mirada en un punto inmóvil bajo iluminación tenue, las neuronas de la retina y de la corteza visual dejan de responder ante estímulos estáticos invariables (adaptación neuronal). Como resultado, los rasgos periféricos del rostro en el espejo comienzan a borrarse, fundirse y ser reconstruidos por el cerebro con fragmentos distorsionados.</li>
+                    <li><strong>La Ilusión del Extraño en el Espejo (Strange-Face-in-the-Mirror Illusion):</strong> En 2010, el psicólogo italiano <strong>Giovanni Caputo</strong> publicó un célebre estudio experimental en el que pidió a participantes sanos mirar su propio reflejo en un espejo durante diez minutos bajo luz tenue. Más del 66 % de los sujetos experimentaron alucinaciones disociativas severas: vieron su cara deformarse en rasgos animales, rostros de ancianos desconocidos, familiares fallecidos o entidades amenazantes que parecían moverse de forma autónoma detrás del vidrio.</li>
+                </ul>
+
+                <h2>6. Espejos Literarios y Cinematográficos: Del Doppelgänger Germánico al Terror Moderno</h2>
+                <p>
+                    La figura del <strong>Doppelgänger</strong> —término acuñado en 1796 por el escritor romántico alemán Jean Paul Richter para designar al «que camina al lado»— ha sido uno de los arquetipos más poderosos de la literatura universal, funcionando siempre como anuncio de muerte inminente o desintegración del yo:
+                </p>
+                <ul>
+                    <li><strong>Fiódor Dostoievski — «El doble» (1846):</strong> Retrata el colapso paranoide del funcionario Yakov Petrovich Goliadkin, quien ve cómo un hombre idéntico a él en nombre, rostro y origen se apodera progresivamente de su puesto en el ministerio y de su identidad social hasta expulsarlo hacia la locura.</li>
+                    <li><strong>Guy de Maupassant — «El Horla» (1887):</strong> Escrito mientras la neurosífilis minaba la propia mente del autor francés, culmina con la célebre escena en la que el protagonista se mira al espejo y descubre con terror que una entidad invisible se interpone entre su cuerpo y el cristal, devorando su reflejo.</li>
+                    <li><strong>Edgar Allan Poe — «William Wilson» (1839) y E. T. A. Hoffmann — «Los elixires del diablo» (1815):</strong> Exploraciones pioneras de la escisión de la conciencia moral y el doble persecutorio.</li>
+                    <li><strong>Cine Contemporáneo:</strong> Desde clásicos de la ciencia ficción paranoide como <em>«La invasión de los ladrones de cuerpos» (1956)</em> —que dramatiza a escala colectiva el Síndrome de Capgras— hasta obras psicológicas como <em>«El maquinista»</em>, <em>«Cisne negro»</em>, <em>«Enemy»</em> (de Denis Villeneuve) o <em>«Nosotros» (Us)</em> de Jordan Peele.</li>
+                </ul>
+
+                <h2>7. Conclusión: La Fragilidad del Rostro Propio</h2>
+                <p>
+                    El expediente de Madame M. y los hallazgos de la neurociencia moderna nos obligan a mirar nuestra propia identidad con humildad. El reconocimiento de quienes somos y de quiénes nos rodean no es una verdad absoluta grabada en piedra, sino una sinfonía delicada entre nuestros ojos, nuestra memoria y los circuitos emocionales de nuestro sistema límbico.
+                </p>
+                <p>
+                    Cuando esa conexión se silencia en la oscuridad de la noche, hasta el espejo más cotidiano puede convertirse en una ventana hacia un desconocido que lleva exactamente nuestro mismo rostro.
+                </p>
+
+                <!-- BIBLIOGRAFÍA REQUERIDA -->
+                <div class="mt-14 pt-8 border-t border-spectral/30">
+                    <h3 class="font-cinzel text-lg sm:text-xl font-bold text-bone mb-6 uppercase tracking-wider">8. Bibliografía y Referencias Especializadas</h3>
+                    <ul class="biblio-list font-mono space-y-3">
+                        <li>Capgras, J., &amp; Reboul-Lachaux, J. (1923). <em>L'illusion des sosies dans un délire systématisé chronique</em>. Bulletin de la Société Clinique de Médecine Mentale, 11, 6-16.</li>
+                        <li>Caputo, G. B. (2010). <em>Strange-face-in-the-mirror illusion</em>. Perception, 39(7), 1007-1008.</li>
+                        <li>Dostoievski, F. (1846). <em>Dvoynik (El doble)</em>. San Petersburgo: Otéchestvennye Zapiski.</li>
+                        <li>Ellis, H. D., &amp; Young, A. W. (1990). <em>Accounting for delusional misidentifications</em>. The British Journal of Psychiatry, 157(2), 239-248.</li>
+                        <li>Freud, S. (1919). <em>Das Unheimliche (Lo siniestro)</em>. Imago, V(5-6), 297-324.</li>
+                        <li>Hirstein, W., &amp; Ramachandran, V. S. (1997). <em>Capgras syndrome: a novel probe for understanding the neural representation of the identity and familiarity of persons</em>. Proceedings of the Royal Society B, 264(1380), 437-444.</li>
+                        <li>Maupassant, G. de (1887). <em>Le Horla</em>. París: Paul Ollendorff.</li>
+                        <li>Rank, O. (1914). <em>Der Doppelgänger: Eine psychoanalytische Studie</em>. Leipzig / Viena: Internationaler Psychoanalytischer Verlag.</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Navegación inferior adaptada -->
+            <div class="mt-14 pt-8 border-t border-spectral/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <a href="expedientes.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slateCard border border-spectral/30 text-bone font-cinzel text-xs uppercase tracking-wider text-center hover:border-electric hover:text-electric transition-all">
+                    ← Volver al Archivo de Expedientes
+                </a>
+                <a href="expediente-04.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs uppercase tracking-wider text-center hover:brightness-110 transition-all shadow-spectral">
+                    Ver Expediente Anterior (EXP-04) →
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- =====================================================================
+         3. FOOTER
+         ===================================================================== -->
+    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-12 sm:py-14">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-playfair italic text-base sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
+                «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»
+            </p>
+
+            <nav class="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
+                <a href="index.html" class="hover:text-electric transition-colors">Inicio</a>
+                <a href="episodios.html" class="hover:text-electric transition-colors">Episodios</a>
+                <a href="expedientes.html" class="text-electric">Expedientes</a>
+                <a href="voces.html" class="hover:text-electric transition-colors">Voces</a>
+                <a href="contacto.html" class="hover:text-electric transition-colors">Contacto</a>
+                <span class="text-spectral/30 hidden sm:inline">|</span>
+                <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">iVoox ↗</a>
+                <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">Spotify ↗</a>
+            </nav>
+
+            <p class="text-xs text-silverMuted/60">
+                © 2026–2027 El Peregrino de la Medianoche.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script de atmósfera nocturna y menú móvil -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+        });
+
+        const atmoCanvas = document.getElementById('atmosphereCanvas');
+        const atmoCtx = atmoCanvas.getContext('2d');
+        let raindrops = [];
+        let motes = [];
+
+        function initAtmosphere() {
+            atmoCanvas.width = window.innerWidth;
+            atmoCanvas.height = window.innerHeight;
+
+            raindrops = Array.from({ length: 40 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                len: Math.random() * 12 + 6,
+                speed: Math.random() * 3.5 + 3,
+                opacity: Math.random() * 0.15 + 0.04
+            }));
+
+            motes = Array.from({ length: 20 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                r: Math.random() * 1.5 + 0.4,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: -Math.random() * 0.2 - 0.04,
+                alpha: Math.random() * 0.35 + 0.1
+            }));
+        }
+
+        function renderAtmosphere() {
+            atmoCtx.clearRect(0, 0, atmoCanvas.width, atmoCanvas.height);
+
+            atmoCtx.lineWidth = 1;
+            raindrops.forEach(drop => {
+                atmoCtx.beginPath();
+                atmoCtx.strokeStyle = `rgba(103, 232, 249, ${drop.opacity})`;
+                atmoCtx.moveTo(drop.x, drop.y);
+                atmoCtx.lineTo(drop.x - 1.2, drop.y + drop.len);
+                atmoCtx.stroke();
+
+                drop.y += drop.speed;
+                drop.x -= 0.5;
+                if (drop.y > atmoCanvas.height) {
+                    drop.y = -drop.len;
+                    drop.x = Math.random() * atmoCanvas.width;
+                }
+            });
+
+            motes.forEach(m => {
+                atmoCtx.beginPath();
+                atmoCtx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+                atmoCtx.fillStyle = `rgba(56, 189, 248, ${m.alpha})`;
+                atmoCtx.fill();
+
+                m.x += m.vx;
+                m.y += m.vy;
+                if (m.y < 0) m.y = atmoCanvas.height;
+                if (m.x < 0) m.x = atmoCanvas.width;
+                if (m.x > atmoCanvas.width) m.x = 0;
+            });
+
+            requestAnimationFrame(renderAtmosphere);
+        }
+
+        window.addEventListener('resize', initAtmosphere);
+
+        window.onload = function() {
+            initAtmosphere();
+            renderAtmosphere();
+        };
+    </script>
+</body>
+</html>
