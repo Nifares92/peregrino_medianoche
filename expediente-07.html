@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expediente EXP-07: Horas Perdidas, Estados de Fuga y el Enigma de Ansel Bourne | El Peregrino de la Medianoche</title>
+    <meta name="description" content="Investigación exhaustiva y extendida del Capítulo 7: Neurobiología de la fuga disociativa, el caso histórico de Ansel Bourne estudiado por William James en 1887, imputabilidad penal en automatismos y espejos literarios.">
+    
+    <!-- Google Fonts: Cinzel, Playfair Display e Inter -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;0,600;1,400;1,600&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        abyss: '#030508',
+                        midnight: '#091320',
+                        slateCard: '#0e1929',
+                        spectral: '#38bdf8',
+                        electric: '#67e8f9',
+                        bone: '#e2e8f0',
+                        silverMuted: '#94a3b8'
+                    },
+                    fontFamily: {
+                        cinzel: ['Cinzel', 'serif'],
+                        playfair: ['Playfair Display', 'serif'],
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'spectral': '0 0 28px -6px rgba(56, 189, 248, 0.28)',
+                        'spectral-strong': '0 0 38px rgba(103, 232, 249, 0.38)',
+                        'card-dark': '0 22px 45px -15px rgba(0, 0, 0, 0.92)'
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #030508;
+            color: #e2e8f0;
+            overflow-x: hidden;
+        }
+
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #030508;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #16253b;
+            border-radius: 4px;
+            border: 1px solid rgba(56, 189, 248, 0.25);
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #38bdf8;
+        }
+
+        .silver-metallic {
+            background: linear-gradient(180deg, #ffffff 0%, #dbeafe 48%, #7dd3fc 82%, #475569 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 4px 14px rgba(0, 0, 0, 0.95));
+        }
+
+        @keyframes fogDrift {
+            0% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+            50% { transform: translate3d(4%, -2%, 0) scale(1.06); opacity: 0.38; }
+            100% { transform: translate3d(-4%, 0, 0) scale(1); opacity: 0.22; }
+        }
+        .fog-layer {
+            animation: fogDrift 24s ease-in-out infinite;
+            background: radial-gradient(ellipse at 50% 25%, rgba(56, 189, 248, 0.11) 0%, rgba(9, 19, 32, 0) 70%);
+        }
+
+        .forensic-stamp {
+            border: 1px solid rgba(56, 189, 248, 0.32);
+            background: repeating-linear-gradient(
+                -45deg,
+                rgba(56, 189, 248, 0.05),
+                rgba(56, 189, 248, 0.05) 4px,
+                transparent 4px,
+                transparent 8px
+            );
+        }
+
+        /* Estilo tipográfico de blog forense adaptado a móviles */
+        .blog-content p {
+            margin-bottom: 1.5rem;
+            line-height: 1.8;
+            font-size: 1rem;
+            color: #cbd5e1;
+        }
+        @media (min-width: 640px) {
+            .blog-content p {
+                font-size: 1.05rem;
+            }
+        }
+        .blog-content h2 {
+            font-family: 'Cinzel', serif;
+            color: #f8fafc;
+            font-weight: 700;
+            font-size: 1.35rem;
+            margin-top: 2.5rem;
+            margin-bottom: 1rem;
+            border-bottom: 1px solid rgba(56, 189, 248, 0.25);
+            padding-bottom: 0.4rem;
+        }
+        @media (min-width: 640px) {
+            .blog-content h2 {
+                font-size: 1.75rem;
+                margin-top: 3rem;
+                margin-bottom: 1.25rem;
+            }
+        }
+        .blog-content h3 {
+            font-family: 'Cinzel', serif;
+            color: #67e8f9;
+            font-weight: 600;
+            font-size: 1.15rem;
+            margin-top: 2rem;
+            margin-bottom: 0.6rem;
+        }
+        @media (min-width: 640px) {
+            .blog-content h3 {
+                font-size: 1.3rem;
+                margin-top: 2.25rem;
+            }
+        }
+        .blog-content blockquote {
+            border-left: 3px solid #38bdf8;
+            padding-left: 1rem;
+            margin: 1.75rem 0;
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            color: #e2e8f0;
+            background: rgba(14, 25, 41, 0.6);
+            padding-top: 1rem;
+            padding-bottom: 1rem;
+            padding-right: 1rem;
+            border-radius: 0 0.75rem 0.75rem 0;
+        }
+        @media (min-width: 640px) {
+            .blog-content blockquote {
+                padding-left: 1.25rem;
+                padding-top: 1.25rem;
+                padding-bottom: 1.25rem;
+            }
+        }
+        .blog-content ul {
+            list-style-type: disc;
+            padding-left: 1.25rem;
+            margin-bottom: 1.5rem;
+            color: #cbd5e1;
+        }
+        .blog-content li {
+            margin-bottom: 0.75rem;
+            line-height: 1.7;
+        }
+        .biblio-list li {
+            margin-bottom: 0.85rem;
+            padding-left: 1.2rem;
+            text-indent: -1.2rem;
+            font-size: 0.85rem;
+            color: #94a3b8;
+        }
+        @media (min-width: 640px) {
+            .biblio-list li {
+                padding-left: 1.5rem;
+                text-indent: -1.5rem;
+                font-size: 0.95rem;
+            }
+        }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-spectral/30 selection:text-electric">
+
+    <!-- Lienzo atmosférico -->
+    <canvas id="atmosphereCanvas" class="fixed inset-0 pointer-events-none z-0 opacity-65"></canvas>
+
+    <!-- =====================================================================
+         1. BARRA DE NAVEGACIÓN SUPERIOR (Responsiva)
+         ===================================================================== -->
+    <header id="navbar" class="fixed top-0 inset-x-0 z-50 transition-all duration-300 bg-abyss/90 backdrop-blur-md border-b border-spectral/15">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="index.html" class="flex items-center gap-3 group focus:outline-none">
+                    <div class="relative w-10 h-10 sm:w-11 sm:h-11 rounded-full bg-midnight border border-spectral/40 overflow-hidden flex items-center justify-center shadow-spectral group-hover:border-electric transition-colors shrink-0">
+                        <img src="logo.jpg" alt="Logo El Peregrino de la Medianoche" class="w-full h-full object-cover">
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-cinzel font-bold text-xs sm:text-base tracking-[0.14em] sm:tracking-[0.16em] text-bone group-hover:text-white transition-colors">
+                            EL PEREGRINO
+                        </span>
+                        <span class="font-cinzel text-[9px] sm:text-xs tracking-[0.2em] sm:tracking-[0.26em] text-spectral uppercase">
+                            DE LA MEDIANOCHE
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Navegación Escritorio -->
+                <nav class="hidden lg:flex items-center gap-7 text-sm font-medium text-silverMuted" aria-label="Navegación principal">
+                    <a href="index.html" class="hover:text-spectral transition-colors">Inicio</a>
+                    <a href="episodios.html" class="hover:text-spectral transition-colors">Episodios</a>
+                    <a href="expedientes.html" aria-current="page" class="text-electric font-semibold relative py-1 after:content-[''] after:absolute after:bottom-0 after:inset-x-0 after:h-0.5 after:bg-electric after:rounded-full">Expedientes</a>
+                    <a href="voces.html" class="hover:text-spectral transition-colors">Voces</a>
+                    <a href="contacto.html" class="hover:text-spectral transition-colors">Nocturnos</a>
+                </nav>
+
+                <!-- Botones y Menú Hamburguesa Móvil -->
+                <div class="flex items-center gap-3">
+                    <a href="expedientes.html" class="hidden sm:inline-flex items-center gap-2 px-3 py-2 rounded-xl bg-slateCard/90 border border-spectral/30 text-silverMuted hover:text-electric hover:border-electric/60 text-xs font-cinzel tracking-wider uppercase transition-all">
+                        <span>← Volver</span>
+                    </a>
+                    <button id="mobileMenuBtn" type="button" aria-expanded="false" aria-label="Abrir menú de navegación" class="lg:hidden p-2.5 rounded-xl bg-slateCard border border-spectral/25 text-bone hover:text-electric focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.8" d="M4 6h16M4 12h16M4 18h16"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Panel Desplegable Móvil -->
+        <div id="mobileMenu" class="hidden lg:hidden bg-midnight/95 backdrop-blur-lg border-b border-spectral/20 px-4 pt-3 pb-6 space-y-2.5 shadow-2xl">
+            <a href="index.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Inicio</a>
+            <a href="episodios.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Episodios</a>
+            <a href="expedientes.html" aria-current="page" class="block py-2.5 px-3 rounded-lg bg-spectral/10 text-electric font-medium text-sm">Expedientes</a>
+            <a href="voces.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Voces</a>
+            <a href="contacto.html" class="block py-2.5 px-3 rounded-lg text-sm text-bone hover:bg-slateCard hover:text-electric transition-colors">Nocturnos</a>
+            <div class="pt-2 border-t border-spectral/20">
+                <a href="expedientes.html" class="block py-2 px-3 text-xs font-cinzel tracking-wider text-spectral uppercase">← Volver al Archivo de Expedientes</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- =====================================================================
+         2. CABECERA DEL ARTÍCULO (EXPEDIENTE 07)
+         ===================================================================== -->
+    <main class="relative z-10 pt-28 sm:pt-36 pb-20 px-4 sm:px-6 lg:px-8">
+        <article class="max-w-4xl mx-auto">
+            
+            <div class="text-center mb-8 sm:mb-12">
+                <div class="inline-flex items-center gap-2 px-3 sm:px-4 py-1.5 rounded-full forensic-stamp text-electric text-[10px] sm:text-xs font-cinzel tracking-[0.2em] sm:tracking-[0.24em] uppercase mb-5 shadow-spectral text-center">
+                    <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
+                    <span>EXP-07 // CAPÍTULO 7 · MONOGRAFÍA EXTENDIDA · DESCLASIFICADO</span>
+                </div>
+
+                <h1 class="font-cinzel font-extrabold text-2xl sm:text-4xl md:text-5xl tracking-[0.04em] sm:tracking-[0.06em] leading-tight silver-metallic mb-5">
+                    Horas Perdidas, Fracturas de la Memoria y el Enigma de Ansel Bourne
+                </h1>
+
+                <div class="flex flex-wrap items-center justify-center gap-2 sm:gap-4 text-[11px] sm:text-xs font-mono text-silverMuted">
+                    <span>Investigación: Serafín</span>
+                    <span class="hidden sm:inline">•</span>
+                    <span>Lectura: 19 min</span>
+                    <span class="hidden sm:inline">•</span>
+                    <span>Psiquiatría Disociativa y Psicopatología Forense</span>
+                </div>
+            </div>
+
+            <!-- Reproductor rápido adaptado -->
+            <div class="rounded-2xl bg-midnight/90 border border-spectral/30 p-4 sm:p-5 mb-10 sm:mb-12 shadow-card-dark flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div class="flex items-center gap-3 w-full sm:w-auto">
+                    <div class="w-11 h-11 sm:w-12 sm:h-12 rounded-xl bg-spectral/10 border border-spectral/30 flex items-center justify-center text-electric shrink-0">
+                        <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>
+                    </div>
+                    <div>
+                        <h4 class="font-cinzel text-xs sm:text-sm font-bold text-bone">Emisión Sonora del Capítulo 7</h4>
+                        <p class="text-[11px] sm:text-xs text-silverMuted">Escucha la dramatización «El Intervalo Oscuro» y el expediente clínico de Ansel Bourne.</p>
+                    </div>
+                </div>
+                <div class="flex items-center gap-2 w-full sm:w-auto">
+                    <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-spectral text-abyss font-cinzel font-bold text-xs uppercase tracking-wider text-center hover:bg-electric transition-all shadow-spectral">
+                        iVoox ↗
+                    </a>
+                    <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx?si=0c21705f3d594815" target="_blank" rel="noopener noreferrer" class="flex-1 sm:flex-initial px-4 py-2.5 rounded-xl bg-slateCard border border-electric/40 text-electric font-cinzel font-semibold text-xs uppercase tracking-wider text-center hover:bg-electric/15 transition-all">
+                        Spotify ↗
+                    </a>
+                </div>
+            </div>
+
+            <!-- CUERPO EXHAUSTIVO DEL EXPEDIENTE -->
+            <div class="blog-content space-y-6 sm:space-y-8">
+                
+                <h2>1. Introducción: La Continuidad Ilusoria del «Yo»</h2>
+                <p>
+                    La identidad personal se apoya sobre un axioma silencioso que damos por sentado cada mañana al abrir los ojos: la <strong>continuidad autobiográfica</strong>[cite: 7]. Creemos que nuestra conciencia es un río ininterrumpido que conecta lo que hicimos anoche con lo que decidimos hoy[cite: 7], y que nuestro cuerpo no puede actuar sin el conocimiento ni el consentimiento del sujeto que lo habita[cite: 7]. Sin embargo, la neurología y la psiquiatría clínica llevan más de un siglo demostrando que esa unidad es una construcción funcional sumamente vulnerable.
+                </p>
+                <p>
+                    En la dramatización <em>«El Intervalo Oscuro»</em>, Marcos despierta dentro de su vehículo en mitad de una ventisca forestal descubriendo que han transcurrido setenta y dos horas borradas por completo de su memoria consciente[cite: 7]: lleva los nudillos lacerados, barro bajo las uñas, billetes de autobús de otra provincia, una piqueta manchada y el cuerpo de una desconocida en el asiento trasero, acompañado de una nota escrita con su propia caligrafía[cite: 7]. Este terror —el de descubrir que nuestra propia carne ha sido pilotada por una instancia autónoma mientras nuestra mente estaba ausente— constituye el núcleo clínico de la <strong>fuga disociativa</strong> y de los <strong>estados crepusculares de conciencia</strong>[cite: 7].
+                </p>
+
+                <h2>2. El Caso Real: Ansel Bourne y las Dos Vidas de 1887</h2>
+                <p>
+                    El expediente clínico fundacional sobre la fuga disociativa y la escisión de la identidad en la historia de la psicología moderna tuvo lugar en Nueva Inglaterra a comienzos de <strong>1887</strong>, y fue investigado personalmente por <strong>William James</strong> (1842–1910), catedrático de la Universidad de Harvard y autor de los célebres <em>Principios de Psicología (1890)</em>[cite: 7].
+                </p>
+                <p>
+                    El protagonista fue <strong>Ansel Bourne</strong>, un hombre de sesenta y un años residente en la pequeña localidad de <strong>Greene, Rhode Island</strong>[cite: 7]. Antiguo carpintero de temperamento impetuoso en su juventud, Bourne había sufrido décadas atrás un episodio neurológico agudo —quedando temporalmente ciego, sordo y mudo tras una insolación severa— del que se recuperó de forma repentina, interpretándolo como una llamada divina que lo llevó a ordenarse como predicador evangelista itinerante[cite: 7]. Durante más de dos décadas llevó una vida austera, respetada e irreprochable[cite: 7].
+                </p>
+
+                <h3>Sesenta Días Borrados: El Nacimiento de «Albert John Brown»</h3>
+                <p>
+                    La mañana del <strong>lunes 17 de enero de 1887</strong>, Bourne se despidió de su esposa y viajó en coche de caballos hasta la ciudad de <strong>Providence</strong> para retirar de su entidad bancaria <strong>551 dólares</strong> en efectivo destinados al pago de unas tierras para su congregación y a liquidar varias facturas pendientes[cite: 7]. Tras cobrar el dinero y abonar una cuenta comercial, subió a un tranvía urbano rumbo a la estación ferroviaria[cite: 7]. En ese instante, Ansel Bourne desapareció de la faz de la tierra[cite: 7].
+                </p>
+                <p>
+                    Durante dos meses, la policía de Rhode Island rastreó ríos, bosques y estaciones bajo la hipótesis de un robo con homicidio[cite: 7]. Mientras tanto, a casi quinientos kilómetros al suroeste, en <strong>Norristown, Pensilvania</strong>, un caballero educado y reservado que se hacía llamar <strong>Albert John Brown</strong> alquiló el 1 de febrero un local en el número 252 de East Main Street por veinticinco dólares mensuales, adquirió mobiliario y mercancía a mayoristas de Filadelfia y abrió una tienda de ultramarinos, confitería y artículos de papelería[cite: 7]. Durante seis semanas, el señor Brown atendió su negocio con meticulosidad contable, vivió en la trastienda, asistió cada domingo a la iglesia metodista local y conversó cordialmente con sus vecinos sin levantar jamás la menor sospecha[cite: 7].
+                </p>
+
+                <blockquote>
+                    «Para su memoria consciente no habían pasado sesenta días ni quinientos kilómetros; en el reloj interno de Ansel Bourne todavía era la tarde fría del 17 de enero en Providence, con el dinero de su iglesia guardado en el bolsillo.»[cite: 7]
+                </blockquote>
+
+                <h3>El Despertar en Norristown y las Sesiones de Hipnosis de William James</h3>
+                <p>
+                    A las cinco de la madrugada del <strong>lunes 14 de marzo de 1887</strong>, el casero del edificio despertó alarmado por golpes y gritos procedentes de la tienda[cite: 7]. Al entrar, halló al supuesto señor Brown presa de un pánico cerval: no reconocía la habitación, ignoraba cómo había llegado a Pensilvania y exigía saber qué hacía en una confitería cuando el día anterior —según su percepción temporal— acababa de retirar dinero en el banco de Providence[cite: 7]. Al examinar sus libros de contabilidad y comprobar que faltaba gran parte de los ahorros invertidos en la tienda, el anciano sufrió un colapso nervioso[cite: 7].
+                </p>
+                <p>
+                    En 1890, William James y el investigador Richard Hodgson trasladaron a Bourne a Boston y lo sometieron a sesiones de <strong>hipnosis clínica experimental</strong>[cite: 7]. Los registros publicados por James en <em>The Principles of Psychology</em> revelaron un hallazgo extraordinario: en estado de vigilia, Ansel Bourne poseía una amnesia lacunar absoluta sobre esos dos meses y jamás había oído hablar de Albert J. Brown[cite: 7]. Sin embargo, bajo trance hipnótico profundo, emergía la personalidad de «A. J. Brown», capaz de detallar con precisión matemática sus viajes, sus proveedores de Filadelfia y su rutina en Norristown, pero negando por completo conocer a un predicador llamado Ansel Bourne o tener familia en Rhode Island[cite: 7]. Dos corrientes de memoria compartimentadas coexistían dentro del mismo cerebro sin comunicarse entre sí[cite: 7].
+                </p>
+
+                <h2>3. Neurobiología y Psicopatología de la Fuga Disociativa</h2>
+                <p>
+                    En la clasificación psiquiátrica contemporánea (<em>DSM-5-TR</em> y <em>CIE-11</em>), el cuadro de Ansel Bourne se define como <strong>Amnesia Disociativa con Fuga Disociativa</strong>. A diferencia de la amnesia orgánica provocada por un traumatismo craneoencefálico, un ictus o una demencia neurodegenerativa, en la fuga disociativa no existe destrucción estructural del hipocampo, sino una <strong>inhibición funcional activa de la recuperación de la memoria autobiográfica</strong> desencadenada por un estrés psicológico intolerable, un trauma agudo o un conflicto interno irresoluble[cite: 7].
+                </p>
+
+                <h3>Mecanismos Cerebrales de la Compartimentación</h3>
+                <ul>
+                    <li><strong>Desconexión Frontolímbica:</strong> Estudios mediante resonancia magnética funcional (fMRI) en pacientes con amnesia disociativa muestran una hiperactivación de la corteza prefrontal dorsolateral y cingulada anterior que ejerce un bloqueo inhibitorio sobre el hipocampo y la amígdala, impidiendo que los recuerdos autobiográficos accedan a la conciencia.</li>
+                    <li><strong>Preservación de la Memoria Procedimental y Semántica:</strong> Durante el estado de fuga, el individuo conserva intactas sus habilidades motoras y cognitivas instrumentales: puede conducir un automóvil, comprar billetes de transporte, manejar dinero o gestionar un comercio sin parecer desorientado ante observadores externos[cite: 7].</li>
+                    <li><strong>Estados Crepusculares Epilépticos y Metabólicos:</strong> La neurología forense distingue la fuga psicógena de los automatismos complejos originados por crisis parciales complejas del lóbulo temporal, la hipoglucemia severa o la intoxicación patológica, donde la conducta suele ser más breve, estereotipada y fragmentaria.</li>
+                </ul>
+
+                <h2>4. El Abismo Jurídico: Automatismo, Sonambulismo Violento e Imputabilidad Penal</h2>
+                <p>
+                    Cuando un episodio de disociación profunda o de parasomnia extrema desemboca en una agresión física o un homicidio —como plantea la trama de <em>«El Intervalo Oscuro»</em>—, el Derecho Penal se enfrenta a una de sus fronteras dogmáticas más complejas: la <strong>ausencia de acción voluntaria (automatismo)</strong>[cite: 7].
+                </p>
+                <p>
+                    En la teoría jurídica del delito, para que exista responsabilidad penal no basta con que un cuerpo humano haya causado un resultado lesivo; se exige una conducta humana gobernada por la voluntad consciente (<em>actus reus</em> acompañado de <em>mens rea</em>). La jurisprudencia comparada registra casos célebres donde los tribunales debieron analizar crímenes cometidos durante estados de desconexión consciente:
+                </p>
+                <ul>
+                    <li><strong>El Caso Kenneth Parks (Toronto, Canadá, 1987):</strong> Durante la madrugada del 23 de mayo de 1987, Kenneth Parks, un joven de veintitrés años sometido a un estrés financiero extremo y privación de sueño, se levantó de su cama en estado de sonambulismo profundo, condujo su automóvil durante veintitrés kilómetros hasta la casa de sus suegros, entró con las llaves que conservaba y atacó con un cuchillo de cocina a ambos, provocando la muerte de su suegra y heridas graves a su suegro. Acto seguido condujo hasta una comisaría con las manos gravemente cortadas diciendo: <em>«Creo que he matado a alguien... mis manos»</em>. Tras exhaustivos estudios polisomnográficos que demostraron anomalías severas en sus ondas cerebrales de sueño lento, la Corte Suprema de Canadá confirmó su absolución por automatismo no demente (<em>R. v. Parks</em>, 1992).</li>
+                    <li><strong>La Desaparición de Agatha Christie (Diciembre de 1926):</strong> Tras descubrir la infidelidad de su esposo Archibald y sufrir la muerte reciente de su madre, la célebre novelista británica desapareció durante once días tras abandonar su coche accidentado junto a un estanque en Surrey. Fue hallada alojada en un balneario de Harrogate registrada bajo el apellido de la amante de su marido («Teresa Neele»), sin recordar cómo había llegado allí ni reconocer su propia identidad, en lo que biógrafos y psiquiatras han interpretado como un episodio clásico de fuga disociativa inducida por trauma emocional agudo.</li>
+                </ul>
+
+                <h2>5. Espejos Literarios y Cinematográficos de la Mente Escindida</h2>
+                <p>
+                    La intuición de que dentro de cada ser humano convive un «otro» silencioso capaz de tomar el relevo cuando la moral consciente flaquea ha inspirado obras fundamentales:
+                </p>
+                <ul>
+                    <li><strong>Robert Louis Stevenson — «El extraño caso del doctor Jekyll y el señor Hyde» (1886):</strong> Publicada apenas un año antes del caso real de Ansel Bourne[cite: 7], la novela alcanza su clímax psicológico cuando Jekyll ya no necesita beber su pócima para transformarse: se acuesta siendo el respetable médico y despierta mirando su propia mano velluda convertida en la de Hyde, comprendiendo que la identidad secundaria ha ganado autonomía irreversible[cite: 7].</li>
+                    <li><strong>Edgar Allan Poe — «William Wilson» (1839):</strong> La confrontación mortal con el doble moral que sigue al protagonista por toda Europa hasta que, al atravesarlo con su espada frente a un gran espejo, descubre que ha apuñalado su propio reflejo ensangrentado[cite: 7].</li>
+                    <li><strong>Cine Psicológico Contemporáneo:</strong> Películas como <em>«Las tres caras de Eva» (1957)</em>, <em>«El club de la lucha» (1999)</em>, <em>«Identidad» (2003)</em>, <em>«La ventana secreta» (2004)</em> o <em>«Fragmentado» (2016)</em> dramatizan precisamente el momento en que el protagonista descubre notas, objetos o crímenes ejecutados por su propio cuerpo durante las horas perdidas de su memoria.</li>
+                </ul>
+
+                <h2>6. Conclusión: El Pasajero Oculto</h2>
+                <p>
+                    El caso real de Ansel Bourne en 1887 y los estudios modernos sobre disociación y automatismos nos obligan a abandonar la idea ingenua de que nuestra conciencia ejerce un dominio absoluto e ininterrumpido sobre nuestros actos[cite: 7]. La identidad es una síntesis dinámica que requiere equilibrio neurológico y estabilidad emocional para mantenerse cohesionada.
+                </p>
+                <p>
+                    Cuando ese equilibrio se quiebra bajo el peso del abismo interior, el cerebro puede apagar la luz de nuestra memoria y dejar que otro ocupante tome el volante en mitad de la noche[cite: 7].
+                </p>
+
+                <!-- BIBLIOGRAFÍA REQUERIDA -->
+                <div class="mt-14 pt-8 border-t border-spectral/30">
+                    <h3 class="font-cinzel text-lg sm:text-xl font-bold text-bone mb-6 uppercase tracking-wider">7. Bibliografía y Referencias Especializadas</h3>
+                    <ul class="biblio-list font-mono space-y-3">
+                        <li>American Psychiatric Association. (2022). <em>Diagnostic and Statistical Manual of Mental Disorders (DSM-5-TR)</em>. Washington, DC: APA Publishing.</li>
+                        <li>Broughton, R., et al. (1994). <em>Homicidal somnambulism: a case report</em>. Sleep, 17(3), 253-264.</li>
+                        <li>Hacking, I. (1995). <em>Rewriting the Soul: Multiple Personality and the Sciences of Memory</em>. Princeton: Princeton University Press.</li>
+                        <li>James, W. (1890). <em>The Principles of Psychology</em> (Vol. 1, Chapter X: The Consciousness of Self). New York: Henry Holt and Company[cite: 7].</li>
+                        <li>Poe, E. A. (1839). <em>William Wilson</em>. Burton's Gentleman's Magazine, Philadelphia[cite: 7].</li>
+                        <li>R. v. Parks (1992). <em>2 S.C.R. 871 (Supreme Court of Canada)</em>. Ottawa.</li>
+                        <li>Stevenson, R. L. (1886). <em>Strange Case of Dr Jekyll and Mr Hyde</em>. London: Longmans, Green &amp; Co[cite: 7].</li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <!-- Navegación inferior adaptada -->
+            <div class="mt-14 pt-8 border-t border-spectral/20 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <a href="expedientes.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-slateCard border border-spectral/30 text-bone font-cinzel text-xs uppercase tracking-wider text-center hover:border-electric hover:text-electric transition-all">
+                    ← Volver al Archivo de Expedientes
+                </a>
+                <a href="expediente-06.html" class="w-full sm:w-auto px-6 py-3.5 rounded-xl bg-gradient-to-r from-spectral to-electric text-abyss font-cinzel font-bold text-xs uppercase tracking-wider text-center hover:brightness-110 transition-all shadow-spectral">
+                    Ver Expediente Anterior (EXP-06) →
+                </a>
+            </div>
+
+        </article>
+    </main>
+
+    <!-- =====================================================================
+         3. FOOTER
+         ===================================================================== -->
+    <footer class="relative z-10 bg-abyss border-t border-spectral/15 py-12 sm:py-14">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="font-playfair italic text-base sm:text-xl text-bone/95 max-w-2xl mx-auto mb-8 leading-relaxed">
+                «Buenas noches, nocturnos... Y que tengáis dulces sueños, si es que os atrevéis a cerrar los ojos.»[cite: 7]
+            </p>
+
+            <nav class="flex flex-wrap items-center justify-center gap-x-5 sm:gap-x-7 gap-y-3 text-xs font-cinzel tracking-widest uppercase text-silverMuted mb-8" aria-label="Enlaces del pie de página">
+                <a href="index.html" class="hover:text-electric transition-colors">Inicio</a>
+                <a href="episodios.html" class="hover:text-electric transition-colors">Episodios</a>
+                <a href="expedientes.html" class="text-electric">Expedientes</a>
+                <a href="voces.html" class="hover:text-electric transition-colors">Voces</a>
+                <a href="contacto.html" class="hover:text-electric transition-colors">Contacto</a>
+                <span class="text-spectral/30 hidden sm:inline">|</span>
+                <a href="https://go.ivoox.com/sq/3253800" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">iVoox ↗</a>
+                <a href="https://open.spotify.com/show/0glqiLXPCzLO9HqSoz14Kx" target="_blank" rel="noopener noreferrer" class="hover:text-electric transition-colors">Spotify ↗</a>
+            </nav>
+
+            <p class="text-xs text-silverMuted/60">
+                © 2026–2027 El Peregrino de la Medianoche.
+            </p>
+        </div>
+    </footer>
+
+    <!-- Script de atmósfera nocturna y menú móvil -->
+    <script>
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            const isHidden = mobileMenu.classList.toggle('hidden');
+            mobileMenuBtn.setAttribute('aria-expanded', String(!isHidden));
+        });
+
+        const atmoCanvas = document.getElementById('atmosphereCanvas');
+        const atmoCtx = atmoCanvas.getContext('2d');
+        let raindrops = [];
+        let motes = [];
+
+        function initAtmosphere() {
+            atmoCanvas.width = window.innerWidth;
+            atmoCanvas.height = window.innerHeight;
+
+            raindrops = Array.from({ length: 40 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                len: Math.random() * 12 + 6,
+                speed: Math.random() * 3.5 + 3,
+                opacity: Math.random() * 0.15 + 0.04
+            }));
+
+            motes = Array.from({ length: 20 }, () => ({
+                x: Math.random() * atmoCanvas.width,
+                y: Math.random() * atmoCanvas.height,
+                r: Math.random() * 1.5 + 0.4,
+                vx: (Math.random() - 0.5) * 0.18,
+                vy: -Math.random() * 0.2 - 0.04,
+                alpha: Math.random() * 0.35 + 0.1
+            }));
+        }
+
+        function renderAtmosphere() {
+            atmoCtx.clearRect(0, 0, atmoCanvas.width, atmoCanvas.height);
+
+            atmoCtx.lineWidth = 1;
+            raindrops.forEach(drop => {
+                atmoCtx.beginPath();
+                atmoCtx.strokeStyle = `rgba(103, 232, 249, ${drop.opacity})`;
+                atmoCtx.moveTo(drop.x, drop.y);
+                atmoCtx.lineTo(drop.x - 1.2, drop.y + drop.len);
+                atmoCtx.stroke();
+
+                drop.y += drop.speed;
+                drop.x -= 0.5;
+                if (drop.y > atmoCanvas.height) {
+                    drop.y = -drop.len;
+                    drop.x = Math.random() * atmoCanvas.width;
+                }
+            });
+
+            motes.forEach(m => {
+                atmoCtx.beginPath();
+                atmoCtx.arc(m.x, m.y, m.r, 0, Math.PI * 2);
+                atmoCtx.fillStyle = `rgba(56, 189, 248, ${m.alpha})`;
+                atmoCtx.fill();
+
+                m.x += m.vx;
+                m.y += m.vy;
+                if (m.y < 0) m.y = atmoCanvas.height;
+                if (m.x < 0) m.x = atmoCanvas.width;
+                if (m.x > atmoCanvas.width) m.x = 0;
+            });
+
+            requestAnimationFrame(renderAtmosphere);
+        }
+
+        window.addEventListener('resize', initAtmosphere);
+
+        window.onload = function() {
+            initAtmosphere();
+            renderAtmosphere();
+        };
+    </script>
+</body>
+</html>
